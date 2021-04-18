@@ -1,5 +1,3 @@
-package profilePage;
-
 public class Member {
     private String account;
     private String password;

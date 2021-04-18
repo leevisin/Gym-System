@@ -1,4 +1,3 @@
-package profilePage;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -138,7 +137,7 @@ public class ProfilePage {
         JLabel backGroundLabel = new JLabel(icon);
         backGroundLabel.setBounds(0, 0, 600, 800);
         panel.add(backGroundLabel);
-        //ÐÞ¸ÄÃÜÂë°´¼ü
+        //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ë°´ï¿½ï¿½
         	
         	changePassword.addActionListener(new ActionListener(){
 
@@ -147,14 +146,14 @@ public class ProfilePage {
 					// TODO Auto-generated method stub
 					String inputContent  = JOptionPane.showInputDialog(
 							frame,
-							"new password£º"
+							"new passwordï¿½ï¿½"
 							);
 					String inputContent1  = JOptionPane.showInputDialog(
 							frame,
-							"confirm password£º"
+							"confirm passwordï¿½ï¿½"
 							);
 					if(inputContent1.equals(inputContent1)) {
-					System.out.println("content£º"+inputContent+inputContent1);
+					System.out.println("contentï¿½ï¿½"+inputContent+inputContent1);
 					System.out.println("modified successfully");
 					}
 					else {

@@ -1,5 +1,3 @@
-package profilePage;
-
 public class Trainer {
     private String trainerName;
     private String trainerType;

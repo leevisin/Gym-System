@@ -1,4 +1,3 @@
-package profilePage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -108,7 +107,7 @@ public class ChangePassword {
         		else {
         			int result = JOptionPane.showConfirmDialog(
                             frame,
-                            "submit£¿",
+                            "submitï¿½ï¿½",
                             "Notice!",
                             JOptionPane.YES_NO_CANCEL_OPTION
                     );

@@ -1,5 +1,3 @@
-package profilePage;
-
 public class Video {
     private String videoName;
     private int videoTime;

@@ -1,7 +1,4 @@
-package profilePage;
-
 import java.io.*;
-
 public class AllCourse{
 
     public static void main(String[] args) throws IOException{

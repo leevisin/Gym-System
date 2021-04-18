@@ -1,0 +1,4 @@
+HIIT,30,Test1.mp4
+Yoga,35,Test2.mp4
+Strength,45,Test3.mp4
+Speed,60,Test4.mp4
