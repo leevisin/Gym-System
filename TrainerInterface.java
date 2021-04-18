@@ -104,7 +104,7 @@ import java.text.*;
      
 
 
-     public static void main(String[] args) {
+     public void runTi() {
         TrainerInterface frame = new TrainerInterface();
         frame.setTitle("TrainerInterface V1.2");
         frame.pack();

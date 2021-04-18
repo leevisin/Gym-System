@@ -138,7 +138,7 @@ import java.text.*;
      
      public void clickVideo(){}
 
-     public static void main(String[] args) {
+     public void runVI() {
         VideoInterface frame = new VideoInterface();
         frame.setTitle("VideoInterface V1.2");
         frame.pack();
