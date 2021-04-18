@@ -6,7 +6,7 @@ import java.text.*;
 
  public class TrainerInterface extends JFrame implements ActionListener{
 
-     String fileName = "AllTrainer.txt";
+     String fileName = "Trainer/AllTrainer.txt";
 
      public TrainerInterface(){
         JPanel coursePanel = new JPanel();
@@ -65,6 +65,16 @@ import java.text.*;
 
      public String readFromFile(String filename){
         // Read AllCourse.txt file
+        // Create base enviroment when file not exist
+        try {
+            File file = new File(filename);
+            if(!file.exists()){
+                new AllCourse();
+            }
+        } catch (Exception e) {
+            System.out.println("Create Base Enviroment Error!");
+        }
+
         try{
             String contents = "";
             FileReader fileReader = new FileReader(fileName);
@@ -94,7 +104,7 @@ import java.text.*;
      
 
 
-     public void runTi(){
+     public static void main(String[] args) {
         TrainerInterface frame = new TrainerInterface();
         frame.setTitle("TrainerInterface V1.2");
         frame.pack();

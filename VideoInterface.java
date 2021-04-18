@@ -6,7 +6,7 @@ import java.text.*;
 
  public class VideoInterface extends JFrame implements ActionListener{
 
-     String fileName = "AllVideo.txt";
+     String fileName = "Video/AllVideo.txt";
 
      public VideoInterface(){
         ImageIcon background = new ImageIcon("button_back.png");
@@ -76,6 +76,16 @@ import java.text.*;
 
      public String readFromFile(String filename){
         // Read AllCourse.txt file
+        // Create base enviroment when file not exist
+        try {
+            File file = new File(filename);
+            if(!file.exists()){
+                new AllCourse();
+            }
+        } catch (Exception e) {
+            System.out.println("Create Base Enviroment Error!");
+        }
+        
         try{
             String contents = "";
             FileReader fileReader = new FileReader(fileName);
@@ -128,7 +138,7 @@ import java.text.*;
      
      public void clickVideo(){}
 
-     public void runVI() {
+     public static void main(String[] args) {
         VideoInterface frame = new VideoInterface();
         frame.setTitle("VideoInterface V1.2");
         frame.pack();
