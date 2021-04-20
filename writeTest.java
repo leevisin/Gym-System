@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-04-15 17:30:36
- * @LastEditTime: 2021-04-15 18:24:15
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\writeTest.java
- */
 import java.io.*;
 import java.nio.file.*;
 
@@ -41,11 +33,3 @@ public class writeTest {
         catch(Exception e){ System.out.println("Error!"); }
     }
 }
-/*
- * @Author: your name
- * @Date: 2021-04-15 17:30:36
- * @LastEditTime: 2021-04-15 17:30:37
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Video-Live\writeTest.java
- */

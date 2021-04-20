@@ -75,7 +75,7 @@ import java.text.*;
      }
 
      public String readFromFile(String filename){
-        // Read AllCourse.txt file
+        // Read Video/AllVideo.txt file
         // Create base enviroment when file not exist
         try {
             File file = new File(filename);
@@ -132,11 +132,15 @@ import java.text.*;
                else playVideo(path);
     }
 
-     public void addVideo(){}
+    // Add video through interface
+    public void addVideo(String videoName, int videoTime, String filePath){
+        Video video = new Video(videoName, videoTime, filePath);
+        new AllCourse().writeVideoToFile(video);
+    }
 
-     public void removeVideo(){}
-     
-     public void clickVideo(){}
+     public void removeVideo(){
+
+     }
 
      public void runVI() {
         VideoInterface frame = new VideoInterface();

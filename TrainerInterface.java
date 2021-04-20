@@ -64,7 +64,7 @@ import java.text.*;
      }
 
      public String readFromFile(String filename){
-        // Read AllCourse.txt file
+        // Read Trainer/ALlTrainer.txt file
         // Create base enviroment when file not exist
         try {
             File file = new File(filename);
@@ -97,14 +97,15 @@ import java.text.*;
      
      public void searchTrainer(){}
 
-     public void addTrainer(){}
+     public void addTrainer(){
+         
+     }
 
-     public void removeTrainer(){}
 
      
 
 
-     public void runTi() {
+     public void runTI() {
         TrainerInterface frame = new TrainerInterface();
         frame.setTitle("TrainerInterface V1.2");
         frame.pack();

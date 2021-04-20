@@ -60,7 +60,7 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Menu.super.dispose();
                 TrainerInterface ti = new TrainerInterface();
-                ti.runTi();
+                ti.runTI();
             }
         });
         profileSection.addActionListener(new ActionListener() {

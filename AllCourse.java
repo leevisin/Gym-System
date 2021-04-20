@@ -17,22 +17,26 @@ public class AllCourse{
 
     public static void main(String[] args) throws IOException{
 
-        AllCourse allCourse = new AllCourse();
+        new AllCourse();
 
     }
 
     public AllCourse(){
       // Generate base enviroment
-      addVideo("HIIT", 30, "Test1.mp4");
-      addVideo("Yoga", 35, "Test2.mp4");
-      addVideo("Strength", 45, "Test3.mp4");
-      addVideo("Speed", 60, "Test4.mp4");
-      
-      addTrainer("Tom", "Strength");
-      addTrainer("Jack", "Explosive Power");
-      addTrainer("Ann", "Slim");
+      File videoFile = new File("Video/AllVideo.txt");
+      if(!videoFile.exists()){
+        addVideo("HIIT", 30, "Test1.mp4");
+        addVideo("Yoga", 35, "Test2.mp4");
+        addVideo("Strength", 45, "Test3.mp4");
+        addVideo("Speed", 60, "Test4.mp4");
+      }
 
-      
+      File trainerFile = new File("Trainer/AllTrainer.txt");
+      if(!trainerFile.exists()){
+        addTrainer("Tom", "Strength");
+        addTrainer("Jack", "Explosive Power");
+        addTrainer("Ann", "Slim");
+      }      
       // Need Panel to add video/trainer
     }
    
@@ -91,4 +95,6 @@ public class AllCourse{
         }
       }
     }
+
+    
 }
