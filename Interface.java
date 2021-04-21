@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.text.*;
 
- public abstract class Interface extends JFrame implements ActionListener{
+ public class Interface extends JFrame implements ActionListener{
 
      // Base on fileName generate different interface page
      public String fileName;
@@ -28,7 +28,32 @@ import java.text.*;
      public String readFromFile(String filename){
         // Create base enviroment when file not exist
         // You can use new AllCourse(); to generate base environment
-
+        try {
+            File file = new File(filename);
+            if(!file.exists()){
+                new AllCourse();
+            }
+        } catch (Exception e) {
+            System.out.println("Create Base Enviroment Error!");
+        }
+        
+        try{
+            String contents = "";
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String oneLine = bufferedReader.readLine();
+            while(oneLine != null){
+                contents += oneLine + ",";
+                oneLine = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+            return contents;
+        }
+        catch (IOException e) {
+            System.out.println("Errors occured: IOException");
+            System.exit(1);
+        }     
         // Read information to an array and storage it, so that it needn't read twice.
         return null;
      }
