@@ -1,7 +1,14 @@
+/**
+ * updated on 2021/4/21: 
+ * added the function of verify e-mail and password format
+ * added the function of record current user
+ *
+ */
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Util {
     public static String pathname = "member.txt"; //text file record all user information
@@ -150,8 +157,3 @@ public class Util {
     
 }
 
-   /**
-	 * updated on 2021/4/21: added the function of verify e-mail and password format
-	 * updated on 2021/4/21: added the function of record current user
-	 *
-	 */

@@ -1,3 +1,8 @@
+/**
+ * updated on 2021/4/21
+ * able to record current user when log in
+ * 
+ */
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -99,7 +104,3 @@ public class Login extends JFrame {
     }
 }
 
-   /**
-	 * updated on 2021/4/21: able to record current user when log in
-	 * 
-	 */

@@ -1,3 +1,8 @@
+/**
+ * updated on 2021/4/21 
+ * added the verifacation of e-mail format
+ * 
+ */
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -160,8 +165,3 @@ public class Register extends JFrame {
 }
 
 
-   /**
-	 * updated on 2021/4/21: added the verifacation of e-mail format
-	 * 
-	 *
-	 */

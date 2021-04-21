@@ -1,3 +1,8 @@
+/**
+ * updated on 2021/4/21
+ * able to accquire and display information from current user
+ * able to go back to Menu page
+ */
 	import java.awt.EventQueue;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
@@ -152,8 +157,5 @@
 	}
 
 
-   /**
-	 * updated on 2021/4/21: able to accquire information from current user
-	 *
-	 */
+
 
