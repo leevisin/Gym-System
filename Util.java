@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Util {
-    public static String pathname = "member.txt";
-    public static String currentuser = "currentaccount.txt";
+    public static String pathname = "member.txt"; //text file record all user information
+    public static String currentuser = "currentuser.txt";//text file record current user
 
     public static List<Member> readFile() {
         List<Member> memberList = new ArrayList<>();
@@ -34,6 +34,7 @@ public class Util {
             return null;
         }
     }
+ 
 
     public static boolean writeFile(List<Member> memberList) {
         OutputStreamWriter writer = null;
@@ -76,6 +77,22 @@ public class Util {
             return members;
         }
     }
+     /**
+	 * Record the current user of the online gym
+	 * @param member the member object represent that user
+	 * @return 
+	 */
+    public static void recordCurrentUser(Member member){
+        try{
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(new File(currentuser)), StandardCharsets.UTF_8);
+        writer.flush();             //flush the buffer
+        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail());
+        writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     /**
 	 * Verify the format of a new password
@@ -104,7 +121,7 @@ public class Util {
         }
     }
  
-      	/**
+    /**
 	 * Verify the format of a new email
 	 * @param email the email choose by user
 	 * @return int value indicate the verified outcome,1=valid,0=invalid
@@ -132,3 +149,9 @@ public class Util {
 
     
 }
+
+   /**
+	 * updated on 2021/4/21: added the function of verify e-mail and password format
+	 * updated on 2021/4/21: added the function of record current user
+	 *
+	 */

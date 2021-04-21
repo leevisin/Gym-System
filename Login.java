@@ -70,6 +70,7 @@ public class Login extends JFrame {
                 List<Member> members = Util.readFile();
                 for (Member member : Objects.requireNonNull(members)) {
                     if (member.getAccount().equals(account) && member.getPassword().equals(password)) { 
+                        Util.recordCurrentUser(member);//record current user
                         login = true;
                         break;
                     }
@@ -98,3 +99,7 @@ public class Login extends JFrame {
     }
 }
 
+   /**
+	 * updated on 2021/4/21: able to record current user when log in
+	 * 
+	 */
