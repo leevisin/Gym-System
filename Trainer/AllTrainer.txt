@@ -1,3 +1,3 @@
-Tom,Strength
-Jack,Explosive Power
-Ann,Slim
+Tom,Strength,button_back.png
+Jack,Explosive Power,button_back.png
+Ann,Slim,button_back.png

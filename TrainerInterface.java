@@ -24,7 +24,7 @@ import java.text.*;
         // Get course information from file
         String fileContents = readFromFile(fileName);
         String[] splitFileContents = fileContents.split(",");
-        int courseNum = splitFileContents.length/2;
+        int courseNum = splitFileContents.length/3;
         coursePanel.setLayout(new GridLayout(courseNum,1)); // Set Layout type
         
         // Temp store coure information indepently
@@ -32,8 +32,8 @@ import java.text.*;
         String[] courseType = new String[courseNum];
 
         for(int i=0,j=0,k=0; i<splitFileContents.length; i++){
-            if(i%2==0){ courseName[j] = splitFileContents[i]; j++; }
-            else {courseType[k] = splitFileContents[i]; k++; }
+            if(i%3==0){ courseName[j] = splitFileContents[i]; j++; }
+            else if(i%3==1){courseType[k] = splitFileContents[i]; k++; }
         }
 
         // Generate JButton for each course

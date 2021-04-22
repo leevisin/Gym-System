@@ -22,28 +22,28 @@ public class AllCourse{
       // Generate base enviroment
       File videoFile = new File("Video/AllVideo.txt");
       if(!videoFile.exists()){
-        addVideo("HIIT", 30, "Test1.mp4");
-        addVideo("Yoga", 35, "Test2.mp4");
-        addVideo("Strength", 45, "Test3.mp4");
-        addVideo("Speed", 60, "Test4.mp4");
+        addVideo("HIIT", 30, "Test1.mp4","button_back.png");
+        addVideo("Yoga", 35, "Test2.mp4","button_back.png");
+        addVideo("Strength", 45, "Test3.mp4","button_back.png");
+        addVideo("Speed", 60, "Test4.mp4","button_back.png");
       }
 
       File trainerFile = new File("Trainer/AllTrainer.txt");
       if(!trainerFile.exists()){
-        addTrainer("Tom", "Strength");
-        addTrainer("Jack", "Explosive Power");
-        addTrainer("Ann", "Slim");
+        addTrainer("Tom", "Strength", "button_back.png");
+        addTrainer("Jack", "Explosive Power", "button_back.png");
+        addTrainer("Ann", "Slim", "button_back.png");
       }      
       // Need Panel to add video/trainer
     }
    
-    public void addVideo(String videoName, int videoTime, String filePath){
-      Video video = new Video(videoName, videoTime, filePath);
+    public void addVideo(String videoName, int videoTime, String filePath, String figPath){
+      Video video = new Video(videoName, videoTime, filePath, figPath);
       writeVideoToFile(video);
     }
 
-    public void addTrainer(String trainerName, String trainerType){
-      Trainer trainer = new Trainer(trainerName, trainerType);
+    public void addTrainer(String trainerName, String trainerType, String figPath){
+      Trainer trainer = new Trainer(trainerName, trainerType, figPath);
       writeTrainerToFile(trainer);
     }
 
@@ -55,7 +55,7 @@ public class AllCourse{
       try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
-        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoPath() + "\n");
+        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoPath() + "," + video.getVideoFig() + "\n");
         writer.close();
         fileWriter.close();
       } catch (Exception e) {
@@ -71,7 +71,7 @@ public class AllCourse{
       try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);  
-        writer.write(trainer.getTrainerName() + "," + trainer.getTrainerType() + "\n");
+        writer.write(trainer.getTrainerName() + "," + trainer.getTrainerType() + "," + trainer.getTrainerFig() +"\n");
         writer.close();
         fileWriter.close();
       } catch (Exception e) {

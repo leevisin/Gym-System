@@ -1,2 +1,3 @@
 123,Tom,Strength
 123,Ann,Slim
+123,Jack,Explosive Power

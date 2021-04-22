@@ -32,7 +32,7 @@ public class Video {
     public void setVideoFig(String figPath){
         this.figPath = figPath;
     }
-    public String getVideoFile(){
+    public String getVideoFig(){
         return figPath;
     }
 }

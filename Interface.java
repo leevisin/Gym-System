@@ -1,8 +1,6 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.text.*;
 
  public class Interface extends JFrame implements ActionListener{
 
@@ -124,18 +122,62 @@ import java.text.*;
      public void addVideo(String videoName, int videoTime, String filePath){
         Video video = new Video(videoName, videoTime, filePath, filePath);
         new AllCourse().writeVideoToFile(video);
+        System.out.println("You have added video: " + videoName);
       }
   
-      public void addTrainer(String trainerName, String trainerType){
-        Trainer trainer = new Trainer(trainerName, trainerType);
+      public void addTrainer(String trainerName, String trainerType, String figPath){
+        Trainer trainer = new Trainer(trainerName, trainerType, figPath);
         new AllCourse().writeTrainerToFile(trainer);
+        System.out.println("You have added Trainer: " + trainerName);
       }
 
+
+      public void playVideo(String filePath){
+        Runtime runtime=Runtime.getRuntime();
+        try{
+            runtime.exec("cmd /c start " + filePath);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+
+    }
+
      // Remove course, first search then remove
-     public void removeCourse(String courseName){}
+     public void removeCourse(String filename, String courseName){
+        // courseName must be exact that can be removed
+        try {
+            String[][] orignalData = readFromFile(filename);
+            FileWriter fileWriter = new FileWriter(filename, false);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            for(int i=0; i<orignalData.length; i++){
+                if(orignalData[i][0].equals(courseName)){
+                    continue;
+                }
+                for(int j=0; j<orignalData[0].length; j++){
+                    if(j!=orignalData[0].length-1){
+                        writer.write(orignalData[i][j] + ",");
+                    }
+                    else{
+                        writer.write(orignalData[i][j] + "\n");
+                    }   
+                }
+                
+            }
+            writer.close();
+            fileWriter.close();
+        } catch (Exception e) {
+            System.out.println("removeCourse() File Writer error!");
+        }
+        System.out.println("You have remove the course successfully!");
+     }
      
      public static void main(String[] args) {
          Interface inter = new Interface();
+         // Test for removeCourse() function
+         inter.removeCourse("Video/AllVideo.txt", "Yoga");
+
+         // Test for searchCourse() function
          String[][] array = inter.searchCourse("Video/AllVideo.txt","g");
         for(int i=0; i<array.length; i++){
             for(int j=0; j<array[0].length; j++){

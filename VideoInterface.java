@@ -32,7 +32,7 @@ import java.text.*;
         // Get course information from file
         String fileContents = readFromFile(fileName);
         String[] splitFileContents = fileContents.split(",");
-        int courseNum = splitFileContents.length/3;
+        int courseNum = splitFileContents.length/4;
         coursePanel.setLayout(new GridLayout(courseNum/2,2)); // Set Layout type
         
         // Temp store coure information indepently
@@ -41,9 +41,9 @@ import java.text.*;
         String[] filePath = new String[courseNum];
 
         for(int i=0,j=0,k=0,l=0; i<splitFileContents.length; i++){
-            if(i%3==0){ courseName[j] = splitFileContents[i]; j++; }
-            else if(i%3==1) {courseTime[k] = Integer.parseInt(splitFileContents[i]); k++; }
-            else {filePath[l] = splitFileContents[i]; l++;}
+            if(i%4==0){ courseName[j] = splitFileContents[i]; j++; }
+            else if(i%4==1) {courseTime[k] = Integer.parseInt(splitFileContents[i]); k++; }
+            else if(i%4==2) {filePath[l] = splitFileContents[i]; l++;}
         }
 
         // Generate JButton for each course
@@ -124,8 +124,8 @@ import java.text.*;
         String path = null;
         for(int i=0; i<splitFileContents.length;i++){
             if(splitFileContents[i].equals(keys)) {
-                if(i%3==0){ name=splitFileContents[i]; path=splitFileContents[i+2];}
-                else if(i%3==1){name=splitFileContents[i-1]; path=splitFileContents[i+1];}
+                if(i%4==0){ name=splitFileContents[i]; path=splitFileContents[i+2];}
+                else if(i%4==1){name=splitFileContents[i-1]; path=splitFileContents[i+1];}
             System.out.println("I have searched classes called" +" "+ name);}
         }
         if(path==null){ System.out.println("Nothing found!");}
@@ -133,8 +133,8 @@ import java.text.*;
     }
 
     // Add video through interface
-    public void addVideo(String videoName, int videoTime, String filePath){
-        Video video = new Video(videoName, videoTime, filePath);
+    public void addVideo(String videoName, int videoTime, String filePath, String figPath){
+        Video video = new Video(videoName, videoTime, filePath, figPath);
         new AllCourse().writeVideoToFile(video);
     }
 
