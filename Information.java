@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 	 * @version 1.0
 	 */
 	public class Information {
-		File file = new File("D:\\miniproject\\SoftwareEngineering\\form.txt"); // �����ļ�����
+		File file = new File("D:\\miniproject\\SoftwareEngineering\\form.txt"); 
 	    JFrame frame;
 
 	    private JTextField textField1;
@@ -148,7 +148,7 @@ import java.util.regex.Pattern;
 	        		else {
 	        			int result = JOptionPane.showConfirmDialog(
 	                            frame,
-	                            "submit��",
+	                            "submit",
 	                            "Notice!",
 	                            JOptionPane.YES_NO_CANCEL_OPTION
 	                    );
@@ -186,7 +186,7 @@ import java.util.regex.Pattern;
 	        		else {
 	        			int result = JOptionPane.showConfirmDialog(
 	                            frame,
-	                            "submit��",
+	                            "submit",
 	                            "Notice!",
 	                            JOptionPane.YES_NO_CANCEL_OPTION
 	                    );
