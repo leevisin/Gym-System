@@ -137,7 +137,7 @@ public class ProfilePage {
         JLabel backGroundLabel = new JLabel(icon);
         backGroundLabel.setBounds(0, 0, 600, 800);
         panel.add(backGroundLabel);
-        //�޸����밴��
+       
         	
         	changePassword.addActionListener(new ActionListener(){
 
@@ -146,14 +146,14 @@ public class ProfilePage {
 					// TODO Auto-generated method stub
 					String inputContent  = JOptionPane.showInputDialog(
 							frame,
-							"new password��"
+							"new password"
 							);
 					String inputContent1  = JOptionPane.showInputDialog(
 							frame,
-							"confirm password��"
+							"confirm password"
 							);
 					if(inputContent1.equals(inputContent1)) {
-					System.out.println("content��"+inputContent+inputContent1);
+					System.out.println("content"+inputContent+inputContent1);
 					System.out.println("modified successfully");
 					}
 					else {

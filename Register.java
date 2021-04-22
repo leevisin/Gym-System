@@ -107,21 +107,27 @@ public class Register extends JFrame {
                 for (Member member: Objects.requireNonNull(members)) {
                     if (member.getAccount().equals(account)){
                         register = false;
-                        mess = "The account already exists.";
+                        mess = "The account already exists.";              //1. check for duplicate account,the register flag is false while registration failed
                         break;
                     }
                 }
                 if (account.isEmpty() || email.isEmpty() || password.isEmpty() || confirm.isEmpty()){
                     register = false;
-                    mess = "The message cannot be empty";
+                    mess = "The message cannot be empty";                  //2. check for any empty line in account/e-mail/password/password confirmation
                 }
-                if (register){
+
+                if(Util.emailFormat(email)==0){
+                    register = false;
+                    mess = "The e-mail format is uncorrect,need to include @ "; //3. check for e-mail format
+                }
+
+                if (register){                                             //4. check if previous tests have passed 
                     if (!password.equals(confirm)){
-                        mess = "Entered passwords differ!";
+                        mess = "Entered passwords differ!";                //5. check for whether password meets confirmation
                     }else {
-                        Member member = new Member(account,password,email);
+                        Member member = new Member(account,password,email);//if all test passed, create new Member object
                         members.add(member);
-                        if (Util.writeFile(members)){
+                        if (Util.writeFile(members)){                      //write account information into file
                             mess = "Register Success!";
                         }else{
                             mess = "Register Error!";
@@ -152,3 +158,10 @@ public class Register extends JFrame {
         new Register().setVisible(true);
     }
 }
+
+
+   /**
+	 * updated on 2021/4/21: added the verifacation of e-mail format
+	 * 
+	 *
+	 */
