@@ -107,7 +107,7 @@ public class ChangePassword {
         		else {
         			int result = JOptionPane.showConfirmDialog(
                             frame,
-                            "submit��",
+                            "submit",
                             "Notice!",
                             JOptionPane.YES_NO_CANCEL_OPTION
                     );
