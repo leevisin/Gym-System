@@ -10,9 +10,6 @@ import java.io.*;
 import java.nio.file.*;
 
 
-//this is a comment
-//another line of comment
-
 public class AllCourse{
 
     public static void main(String[] args) throws IOException{

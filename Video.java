@@ -2,11 +2,13 @@ public class Video {
     private String videoName;
     private int videoTime;
     private String filePath;
+    private String figPath;
 
-    public Video(String videoName, int videoTime, String filePath){
+    public Video(String videoName, int videoTime, String filePath, String figPath){
         setVideoName(videoName);
         setVideoTime(videoTime);
         setVideoPath(filePath);
+        setVideoFig(figPath);
     }
 
     public String getVideoName(){
@@ -26,5 +28,11 @@ public class Video {
     }
     public String getVideoPath(){
         return filePath;
+    }
+    public void setVideoFig(String figPath){
+        this.figPath = figPath;
+    }
+    public String getVideoFile(){
+        return figPath;
     }
 }
