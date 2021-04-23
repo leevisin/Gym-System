@@ -24,9 +24,8 @@ public class UtilTest {
 
         /*record currentuser*/
         Member member1 = new Member("Happy", "123456a", "123456@qq.com");//account, password, email
-        Member member2 = new Member("Good", "123456b", "123456@bupt.com");//account, password, email
-
         Util.recordCurrentUser(member1);//test for records for once time
+   
 
 
     }
