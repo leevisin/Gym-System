@@ -175,15 +175,15 @@ import java.io.*;
      public static void main(String[] args) {
          Interface inter = new Interface();
          // Test for removeCourse() function
-         inter.removeCourse("Video/AllVideo.txt", "Yoga");
-
+        //  inter.removeCourse("Video/AllVideo.txt", "Yoga");
+        System.out.println(inter.readLine("Video/AllVideo.txt"));
          // Test for searchCourse() function
-         String[][] array = inter.searchCourse("Video/AllVideo.txt","g");
-        for(int i=0; i<array.length; i++){
-            for(int j=0; j<array[0].length; j++){
-                System.out.println(array[i][j]);
-            }
-        }
+        //  String[][] array = inter.searchCourse("Video/AllVideo.txt","g");
+        // for(int i=0; i<array.length; i++){
+        //     for(int j=0; j<array[0].length; j++){
+        //         System.out.println(array[i][j]);
+        //     }
+        // }
      }
 
 
