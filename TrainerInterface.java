@@ -7,19 +7,41 @@ import java.text.*;
  public class TrainerInterface extends JFrame implements ActionListener{
 
      String fileName = "Trainer/AllTrainer.txt";
-
+     JFrame frame;
      public TrainerInterface(){
         JPanel coursePanel = new JPanel();
-        JPanel titlePanel = new JPanel();
+        //JPanel titlePanel = new JPanel();
+        JPanel searchPanel=new JPanel();
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
+        // Search Area
+        JTextField textField = new JTextField(20);
+        JButton searchBtn = new JButton("Search Trainer");
+         searchBtn.addActionListener(new ActionListener(){
+             public void actionPerformed(ActionEvent e){
+                 System.out.println("I am searching!");
+                 String input = textField.getText();
+                 if(textField.getText().equals("")) {
+                  JOptionPane.showMessageDialog(frame, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);
+              } else if(searchTrainer(input)==null)
+              {
+                  
+                  JOptionPane.showMessageDialog(frame, "Nothing founded!","Warning!",JOptionPane.WARNING_MESSAGE);
+              };
+
+             }
+         });
+
+         searchPanel.add(textField);
+        searchPanel.add(searchBtn);
+
         // Title Text Area
-        JLabel titileJLabel = new JLabel("Below are Our Trainers",JLabel.CENTER);
-        JLabel hintJLabel = new JLabel("Please Click to Book Trainers",JLabel.CENTER);
-        titlePanel.setLayout(new BorderLayout());
-        titlePanel.add("North",titileJLabel);
-        titlePanel.add("Center",hintJLabel);
+        //JLabel titileJLabel = new JLabel("Below are Our Trainers",JLabel.CENTER);
+        
+        //titlePanel.setLayout(new BorderLayout());
+        
+        
         
         // Get course information from file
         String fileContents = readFromFile(fileName);
@@ -30,15 +52,24 @@ import java.text.*;
         // Temp store coure information indepently
         String[] courseName = new String[courseNum];
         String[] courseType = new String[courseNum];
+        ImageIcon[] background=new ImageIcon[courseNum];
 
-        for(int i=0,j=0,k=0; i<splitFileContents.length; i++){
+        for(int i=0,j=0,k=0,l=0; i<splitFileContents.length; i++){
             if(i%3==0){ courseName[j] = splitFileContents[i]; j++; }
-            else if(i%3==1){courseType[k] = splitFileContents[i]; k++; }
+            else if(i%3==1){courseType[k] = splitFileContents[i]; k++;}
+            else if(i%3==2){background[l]=new ImageIcon(splitFileContents[i]); 
+                System.out.println(splitFileContents[i]);
+            l++;}
         }
 
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
-            JButton btn = new JButton("Traier Name: " + courseName[i] + ", Course Type: "+ courseType[i]);
+            JButton btn = new JButton("Traier Name: " + courseName[i] + ", Course Type: "+ courseType[i], background[i]);
+            btn.setHorizontalTextPosition(SwingConstants.CENTER);
+            btn.setOpaque(false);
+            btn.setContentAreaFilled(false);
+            btn.setMargin(new Insets(0, 0, 0, 0));
+        
             String trainerName = courseName[i];
             String trainerType = courseType[i];
             btn.setSize(300,400);
@@ -55,7 +86,7 @@ import java.text.*;
             coursePanel.add(btn);
         }
             
-        getContentPane().add("North",titlePanel);
+        getContentPane().add("North",searchPanel);
         getContentPane().add("Center",coursePanel);
      }
 
@@ -95,7 +126,31 @@ import java.text.*;
         return null; // When error occurs.
      }
      
-     public void searchTrainer(){}
+     public String searchTrainer(String keys){
+        String searchObject = readFromFile(fileName);
+        String[] splitFileContents = searchObject.split(",");
+        // int objectNum = splitFileContents.length/3;
+        String trainerName = null;
+        String trainerType = null;
+        for(int i=0; i<splitFileContents.length;i++){
+            if(splitFileContents[i].equals(keys)) {
+                if(i%3==0){ trainerName=splitFileContents[i]; trainerType=splitFileContents[i+1];}
+                else if(i%3==1){trainerName=splitFileContents[i-1]; trainerType=splitFileContents[i];}
+            System.out.println("I have booked the trainer called" +" "+ trainerName);}
+        }
+        if(trainerName==null){ System.out.println("No such trainer!");}
+        else {
+            BookInfo bi = new BookInfo(trainerName, trainerType);
+                    bi.setTitle("Book Infomation");
+                    bi.pack();
+                    bi.setSize(600, 800);
+                    bi.setVisible(true);
+        }
+               
+
+        return trainerName;
+        
+    }
 
      public void addTrainer(){
          
