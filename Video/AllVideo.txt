@@ -1,3 +1,3 @@
-HIIT,30,Test1.mp4,button_back.png
-Strength,45,Test3.mp4,button_back.png
-Speed,60,Test4.mp4,button_back.png
+HIIT,30,Test1.mp4,button_back1.jpg
+Yoga,35,Test2.mp4,button_back2.jpg
+Strength,45,Test3.mp4,button_back3.jpg

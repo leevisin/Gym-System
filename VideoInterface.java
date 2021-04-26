@@ -7,9 +7,14 @@ import java.text.*;
  public class VideoInterface extends JFrame implements ActionListener{
 
      String fileName = "Video/AllVideo.txt";
+     JFrame frame;
 
      public VideoInterface(){
-        ImageIcon background = new ImageIcon("button_back.png");
+        //ImageIcon background1 = new ImageIcon("button_back1.jpg");
+        //ImageIcon background2 = new ImageIcon("button_back2.jpg");
+        //ImageIcon background3 = new ImageIcon("button_back3.jpg");
+        //ImageIcon background[]={background1,background2,background3};
+        
         JPanel coursePanel = new JPanel();
         JPanel searchPanel = new JPanel();
         JPanel mainPanel = new JPanel();
@@ -22,10 +27,17 @@ import java.text.*;
                public void actionPerformed(ActionEvent e){
                    System.out.println("I am searching!");
                    String input = textField.getText();
-                   searchVideo(input);
+                   if(textField.getText().equals("")) {
+                    JOptionPane.showMessageDialog(frame, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);
+                } else if(searchVideo(input)==null)
+                {
+                    
+                    JOptionPane.showMessageDialog(frame, "Nothing founded!","Warning!",JOptionPane.WARNING_MESSAGE);
+                };
   
                }
            });
+           
            searchPanel.add(textField);
         searchPanel.add(searchBtn);
 
@@ -39,21 +51,27 @@ import java.text.*;
         String[] courseName = new String[courseNum];
         int[] courseTime = new int[courseNum];
         String[] filePath = new String[courseNum];
+        ImageIcon[] background=new ImageIcon[courseNum];
 
-        for(int i=0,j=0,k=0,l=0; i<splitFileContents.length; i++){
+        for(int i=0,j=0,k=0,l=0,m=0; i<splitFileContents.length; i++){
             if(i%4==0){ courseName[j] = splitFileContents[i]; j++; }
             else if(i%4==1) {courseTime[k] = Integer.parseInt(splitFileContents[i]); k++; }
             else if(i%4==2) {filePath[l] = splitFileContents[i]; l++;}
+            else if(i%4==3){background[m]=new ImageIcon(splitFileContents[i]); 
+                System.out.println(splitFileContents[i]);
+                m++;}
         }
 
         // Generate JButton for each course
         for(int i=0; i<courseNum; i++){
-            JButton btn = new JButton(courseName[i] + "  "+ courseTime[i] + "mins", background);
+            JButton btn = new JButton(courseName[i] + "  "+ courseTime[i] + "mins", background[i]);
             btn.setHorizontalTextPosition(SwingConstants.CENTER);
             btn.setOpaque(false);
             btn.setContentAreaFilled(false);
             btn.setMargin(new Insets(0, 0, 0, 0));
             btn.setSize(300,400);
+        
+
             String name = courseName[i];
             String path = filePath[i];
             btn.addActionListener(new ActionListener(){
@@ -116,7 +134,7 @@ import java.text.*;
         }
 
     }
-    public void searchVideo(String keys){
+    public String searchVideo(String keys){
         String searchObject = readFromFile(fileName);
         String[] splitFileContents = searchObject.split(",");
         // int objectNum = splitFileContents.length/3;
@@ -130,6 +148,8 @@ import java.text.*;
         }
         if(path==null){ System.out.println("Nothing found!");}
                else playVideo(path);
+
+        return path;
     }
 
     // Add video through interface
