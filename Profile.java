@@ -130,7 +130,7 @@
 	        aNewButton1.setBounds(46, 578, 200, 40);
 	        panel.add(aNewButton1);
 
-	        JButton aNewButton2 = new JButton("Ruturn");
+	        JButton aNewButton2 = new JButton("Return");
 	        aNewButton2.setBounds(310, 578, 200, 40);
 	        panel.add(aNewButton2);
 
