@@ -10,11 +10,17 @@
 	import javax.swing.*;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Pattern;
 
 	
@@ -26,6 +32,10 @@ import java.util.regex.Pattern;
 	 * @author Ruizhuo Chen & Tongxin Ma
 	 * @date March 29th, 2021
 	 * @version 1.0
+	 * 
+	 * @author Tongxin Ma 
+	 * @date May 6th , 2021
+	 * @version 1.1
 	 */
 	public class Information {
 		File file = new File("D:\\miniproject\\SoftwareEngineering\\form.txt"); 
@@ -134,7 +144,7 @@ import java.util.regex.Pattern;
 	        backGroundLabel.setBounds(0, 0, 600, 800);
 	        panel.add(backGroundLabel);
 	        
-	        //click trainer or recommend textfield dialog
+	        //click ”trainer“  textfield  dialog
 	        aNewButton1.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	        		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
@@ -144,7 +154,8 @@ import java.util.regex.Pattern;
 	        		else if(!pattern.matcher(textField1.getText()).matches()||!pattern.matcher(textField2.getText()).matches()) {
 	                	JOptionPane.showMessageDialog(frame, "Hight and Weight must be numbers!","Warning!",JOptionPane.WARNING_MESSAGE);
 	        		}
-	        		//next operation
+	        		
+					//next operation
 	        		else {
 	        			int result = JOptionPane.showConfirmDialog(
 	                            frame,
@@ -154,16 +165,41 @@ import java.util.regex.Pattern;
 	                    );
 	                    System.out.println("choose result: " + result);
 	                    if (result==0) {
-	                    	try{if(!file.exists())
+							// write current user's informations in the form.txt , realize the function of changing the user's plan,
+	                    	try{
+								if(!file.exists())
 	                    		file.createNewFile();
+								BufferedReader bre = new BufferedReader(new FileReader(file));
 	                    		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
+								BufferedWriter put = new BufferedWriter(new FileWriter(file,false));
+								InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
+								String str;
+								//obtain all information of current user
+								BufferedReader br = new BufferedReader(reader);
+								String curinfo; 
+								String[] strinfo;
+								String currentaccount = null;
+								curinfo = br.readLine(); 
+								strinfo = curinfo.split(",");
+								currentaccount = strinfo[0];
+				   				br.close();
+								//save the new user's plan (delect first)
+								while((str=bre.readLine())!=null){
+									if(str.indexOf(currentaccount)<0)
+										put.write(str);
+								}								
+								// after delect previous user's plan, write new plan at the end of the file.
+								out.write(currentaccount+",");
 	                    		out.write("shengao "+textField1.getText()+",");
 	                    		out.write("tizhong "+textField2.getText()+",");
 	                    		out.write("target: "+(String)comboBox1.getSelectedItem()+",");
 	                    		out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
 	                    		out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\0");
 	                    		out.newLine();
-	                    		out.close();		
+	                    		
+								out.close();
+								bre.close();
+								put.close();		
 	                    }catch(IOException e1){
 	                    	e1.printStackTrace();
 	                    }
@@ -172,7 +208,7 @@ import java.util.regex.Pattern;
 	        	}
 	                });
 	        
-	        
+	        //click  ”recommend“  textfield  dialog
 	        aNewButton2.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
 	        		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
