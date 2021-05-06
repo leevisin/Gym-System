@@ -9,3 +9,6 @@
 李明晓,Ann,Slim
 李明晓,Jack,button_back2.jpg
 李明晓,Jack,Explosive Power
+LMX,Tom,Strength
+LMX,Jack,Explosive Power
+LMX,Ann,Slim

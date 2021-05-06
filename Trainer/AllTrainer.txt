@@ -1,3 +1,0 @@
-Tom,Strength,button_back1.jpg
-Jack,Explosive Power,button_back2.jpg
-Ann,Slim,button_back3.jpg

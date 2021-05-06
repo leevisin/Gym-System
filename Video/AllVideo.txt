@@ -1,3 +1,0 @@
-HIIT,30,Test1.mp4,button_back1.jpg
-Yoga,35,Test2.mp4,button_back2.jpg
-Strength,45,Test3.mp4,button_back3.jpg

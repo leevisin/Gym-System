@@ -1,0 +1,3 @@
+Functional Training,30,HIIT,Source/FunctionalTraining.MP4,Source/button_back1.jpg
+Yoga Training,35,Yoga,Source/YogaTraining.MP4,Source/button_back2.jpg
+Training Muscles,45,Strength,Source/TrainingMuscles.MP4,Source/button_back3.jpg

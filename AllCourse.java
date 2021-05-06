@@ -20,41 +20,44 @@ public class AllCourse{
 
     public AllCourse(){
       // Generate base enviroment
-      File videoFile = new File("Video/AllVideo.txt");
+      File videoFile = new File("Source/AllVideo.txt");
       if(!videoFile.exists()){
-        addVideo("HIIT", 30, "Test1.mp4","button_back1.jpg");
-        addVideo("Yoga", 35, "Test2.mp4","button_back2.jpg");
-        addVideo("Strength", 45, "Test3.mp4","button_back3.jpg");
+        addVideo("Functional Training", 30, "Source/FunctionalTraining.MP4", "Source/button_back1.jpg", "HIIT");
+        addVideo("Yoga Training", 35, "Source/YogaTraining.MP4","Source/button_back2.jpg", "Yoga");
+        addVideo("Training Muscles", 45, "Source/TrainingMuscles.MP4","Source/button_back3.jpg", "Strength");
       }
 
-      File trainerFile = new File("Trainer/AllTrainer.txt");
+      File trainerFile = new File("Source/AllTrainer.txt");
       if(!trainerFile.exists()){
-        addTrainer("Tom", "Strength", "button_back1.jpg");
-        addTrainer("Jack", "Explosive Power", "button_back2.jpg");
-        addTrainer("Ann", "Slim", "button_back3.jpg");
+        addTrainer("Tom", "Strength", "Source/button_back1.jpg");
+        addTrainer("Jack", "Explosive Power", "Source/button_back2.jpg");
+        addTrainer("Ann", "Slim", "Source/button_back3.jpg");
       }      
       // Need Panel to add video/trainer
     }
    
-    public void addVideo(String videoName, int videoTime, String filePath, String figPath){
-      Video video = new Video(videoName, videoTime, filePath, figPath);
+    public void addVideo(String videoName, int videoTime, String filePath, String figPath, String tag){
+      // Video Name, Video Time, Video URL, Background Button URL
+      Video video = new Video(videoName, videoTime, filePath, figPath, tag);
       writeVideoToFile(video);
     }
 
     public void addTrainer(String trainerName, String trainerType, String figPath){
+      // Trainer Name, Trainer Type, Background Button URL
       Trainer trainer = new Trainer(trainerName, trainerType, figPath);
       writeTrainerToFile(trainer);
     }
 
     public void writeVideoToFile(Video video){
-      String fileDirectory = "Video";
+      String fileDirectory = "Source";
       fileExist(fileDirectory);
 
-      String filename = "Video/AllVideo.txt";
+      String filename = "Source/AllVideo.txt";
       try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
-        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoPath() + "," + video.getVideoFig() + "\n");
+        // Write to file order: Name, Time, Tag, videoPath, videoFig
+        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoTag()+ "," + video.getVideoPath() + "," + video.getVideoFig() + "\n");
         writer.close();
         fileWriter.close();
       } catch (Exception e) {
@@ -63,10 +66,10 @@ public class AllCourse{
     }
     
     public void writeTrainerToFile(Trainer trainer){
-      String fileDirectory = "Trainer";
+      String fileDirectory = "Source";
       fileExist(fileDirectory);
 
-      String filename = "Trainer/AllTrainer.txt";
+      String filename = "Source/AllTrainer.txt";
       try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);  
