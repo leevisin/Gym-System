@@ -6,7 +6,7 @@ import java.text.*;
 
  public class VideoInterface extends JFrame implements ActionListener{
 
-     String fileName = "Video/AllVideo.txt";
+     String fileName = "Source/AllVideo.txt";
      JFrame frame;
 
      public VideoInterface(){
@@ -153,8 +153,8 @@ import java.text.*;
     }
 
     // Add video through interface
-    public void addVideo(String videoName, int videoTime, String filePath, String figPath){
-        Video video = new Video(videoName, videoTime, filePath, figPath);
+    public void addVideo(String videoName, int videoTime, String filePath, String figPath, String tag){
+        Video video = new Video(videoName, videoTime, filePath, figPath, tag);
         new AllCourse().writeVideoToFile(video);
     }
 

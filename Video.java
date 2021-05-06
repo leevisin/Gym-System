@@ -3,12 +3,14 @@ public class Video {
     private int videoTime;
     private String filePath;
     private String figPath;
+    private String tag;
 
-    public Video(String videoName, int videoTime, String filePath, String figPath){
+    public Video(String videoName, int videoTime, String filePath, String figPath, String tag){
         setVideoName(videoName);
         setVideoTime(videoTime);
         setVideoPath(filePath);
         setVideoFig(figPath);
+        setVideoTag(tag);
     }
 
     public String getVideoName(){
@@ -34,5 +36,13 @@ public class Video {
     }
     public String getVideoFig(){
         return figPath;
+    }
+
+    public void setVideoTag(String tag){
+        this.tag = tag;
+    }
+
+    public String getVideoTag(){
+        return tag;
     }
 }

@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 	 * @version 1.0
 	 */
 	public class Information {
-		File file = new File("D:\\miniproject\\SoftwareEngineering\\form.txt"); 
+		File file = new File("form.txt"); 
 	    JFrame frame;
 
 	    private JTextField textField1;
@@ -157,8 +157,8 @@ import java.util.regex.Pattern;
 	                    	try{if(!file.exists())
 	                    		file.createNewFile();
 	                    		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
-	                    		out.write("shengao "+textField1.getText()+",");
-	                    		out.write("tizhong "+textField2.getText()+",");
+	                    		out.write("Height "+textField1.getText()+",");
+	                    		out.write("Weight "+textField2.getText()+",");
 	                    		out.write("target: "+(String)comboBox1.getSelectedItem()+",");
 	                    		out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
 	                    		out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\0");
@@ -195,8 +195,8 @@ import java.util.regex.Pattern;
 	                    	try{if(!file.exists())
 	                    		file.createNewFile();
 	                    		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
-	                    		out.write("shengao "+textField1.getText()+",");
-	                    		out.write("tizhong "+textField2.getText()+",");
+	                    		out.write("Hight "+textField1.getText()+",");
+	                    		out.write("Weight "+textField2.getText()+",");
 	                    		out.write("target: "+(String)comboBox1.getSelectedItem()+",");
 	                    		out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
 	                    		out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\0");

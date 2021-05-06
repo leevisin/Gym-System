@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.*;
 
  public class Interface extends JFrame implements ActionListener{
 
@@ -119,8 +120,8 @@ import java.io.*;
      // It should be extended in subclass
      public void addCourse(){}
 
-     public void addVideo(String videoName, int videoTime, String filePath){
-        Video video = new Video(videoName, videoTime, filePath, filePath);
+     public void addVideo(String videoName, int videoTime, String filePath, String tag){
+        Video video = new Video(videoName, videoTime, filePath, filePath, tag);
         new AllCourse().writeVideoToFile(video);
         System.out.println("You have added video: " + videoName);
       }
@@ -172,17 +173,45 @@ import java.io.*;
         System.out.println("You have remove the course successfully!");
      }
      
+     // Classify by Tag
+     public String[][] classifyByTag(String filename){
+        String[][] courseArray = readFromFile(filename);
+        for(int i=0; i<courseArray.length; i++){
+            for(int j=i+1; j<courseArray.length; j++){
+                // Copy the value of String[] not pointer
+                if(courseArray[i][2].compareTo(courseArray[j][2])>0){
+                String[] tmp = Arrays.copyOf(courseArray[i],courseArray[0].length);
+                    for(int k=0; k<courseArray[0].length; k++){
+                        courseArray[i][k] = courseArray[j][k];
+                        courseArray[j][k] = tmp[k];
+                    }
+                }
+            }
+        }
+        return courseArray;
+     }
+
+
      public static void main(String[] args) {
          Interface inter = new Interface();
          // Test for removeCourse() function
-         inter.removeCourse("Video/AllVideo.txt", "Yoga");
+         // inter.removeCourse("Video/AllVideo.txt", "Yoga");
 
-         // Test for searchCourse() function
-         String[][] array = inter.searchCourse("Video/AllVideo.txt","g");
+         // Test for classifyByTag
+        //  String[][] tagArray = inter.classifyByTag("Source/AllVideo.txt");
+        //  for(int i=0; i<tagArray.length; i++){
+        //      for(int j=0; j<tagArray[0].length; j++){
+        //          System.out.print(tagArray[i][j] + " ");
+        //      }
+        //      System.out.println();
+        //  }
+        //  Test for searchCourse() function
+         String[][] array = inter.searchCourse("Source/AllVideo.txt","c");
         for(int i=0; i<array.length; i++){
             for(int j=0; j<array[0].length; j++){
-                System.out.println(array[i][j]);
+                System.out.print(array[i][j] + " ");
             }
+            System.out.println();
         }
      }
 
