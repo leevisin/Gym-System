@@ -22,17 +22,16 @@ public class AllCourse{
       // Generate base enviroment
       File videoFile = new File("Video/AllVideo.txt");
       if(!videoFile.exists()){
-        addVideo("HIIT", 30, "Test1.mp4","button_back.png");
-        addVideo("Yoga", 35, "Test2.mp4","button_back.png");
-        addVideo("Strength", 45, "Test3.mp4","button_back.png");
-        addVideo("Speed", 60, "Test4.mp4","button_back.png");
+        addVideo("HIIT", 30, "Test1.mp4","button_back1.jpg");
+        addVideo("Yoga", 35, "Test2.mp4","button_back2.jpg");
+        addVideo("Strength", 45, "Test3.mp4","button_back3.jpg");
       }
 
       File trainerFile = new File("Trainer/AllTrainer.txt");
       if(!trainerFile.exists()){
-        addTrainer("Tom", "Strength", "button_back.png");
-        addTrainer("Jack", "Explosive Power", "button_back.png");
-        addTrainer("Ann", "Slim", "button_back.png");
+        addTrainer("Tom", "Strength", "button_back1.jpg");
+        addTrainer("Jack", "Explosive Power", "button_back2.jpg");
+        addTrainer("Ann", "Slim", "button_back3.jpg");
       }      
       // Need Panel to add video/trainer
     }
