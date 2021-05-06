@@ -170,10 +170,8 @@ import java.util.regex.Pattern;
 								if(!file.exists())
 	                    		file.createNewFile();
 								BufferedReader bre = new BufferedReader(new FileReader(file));
-	                    		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
-								BufferedWriter put = new BufferedWriter(new FileWriter(file,false));
+								BufferedWriter out = new BufferedWriter(new FileWriter(file,false));
 								InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
-								String str;
 								//obtain all information of current user
 								BufferedReader br = new BufferedReader(reader);
 								String curinfo; 
@@ -184,18 +182,28 @@ import java.util.regex.Pattern;
 								currentaccount = strinfo[0];
 				   				br.close();
 								//save the new user's plan (delect first)
-								while((str=bre.readLine())!=null){
-									if(str.indexOf(currentaccount)<0)
-										put.write(str);
-								}								
+								Interface in = new Interface();
+								String[][] userplan = in.readFromFile(file);
+								for(int i=0; i<userplan.length;i++){
+									if(userplan[i][0].equals(currentaccount)){
+										out.write(currentaccount+",");
+	                    				out.write("shengao "+textField1.getText()+",");
+	                    				out.write("tizhong "+textField2.getText()+",");
+	                    				out.write("target: "+(String)comboBox1.getSelectedItem()+",");
+	                    				out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
+	                    				out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\n");
+										continue;
+									}
+									for(int j=0;j<userplan[0].length;j++){
+										if(j!=userplan[0].length-1){
+											out.write(userplan[i][j]+",");
+										}
+										else{
+											out.write(userplan[i][j]+"\n");
+										}
+									}
+								}						
 								// after delect previous user's plan, write new plan at the end of the file.
-								out.write(currentaccount+",");
-	                    		out.write("shengao "+textField1.getText()+",");
-	                    		out.write("tizhong "+textField2.getText()+",");
-	                    		out.write("target: "+(String)comboBox1.getSelectedItem()+",");
-	                    		out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
-	                    		out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\0");
-	                    		out.newLine();
 	                    		
 								out.close();
 								bre.close();
