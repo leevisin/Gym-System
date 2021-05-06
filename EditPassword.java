@@ -1,0 +1,113 @@
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+
+import java.util.Objects;
+
+
+public class EditPassword extends JFrame{
+
+    JButton confirm;
+    JButton back;
+    JLabel newpassword1;                    
+    JLabel confirmpassword1;
+    JTextField newpassword2;
+    JTextField confirmpassword2;
+
+
+    
+
+    public EditPassword(String currentaccount) throws HeadlessException{
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(0, 0, 300, 300);
+        JPanel contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        confirm = new JButton("Confirm");
+        confirm.setBounds(160, 200, 100, 30);               // adding the Confirm Button
+        contentPane.add(confirm);
+
+        back = new JButton("Back");
+        back.setBounds(40, 200, 100, 30);                   // adding the Back Button
+        contentPane.add(back);
+
+        newpassword1 = new JLabel("New Password");
+        newpassword1.setBounds(20, 60, 125, 25);            
+        contentPane.add(newpassword1);
+
+
+        newpassword2 = new JTextField();
+        newpassword2.setBounds(130, 60, 145, 25);           //enter new password here
+        newpassword2.setColumns(10);
+        contentPane.add(newpassword2);
+
+
+        
+        confirmpassword1 = new JLabel("Confirm Password");
+        confirmpassword1.setBounds(20, 120, 125, 25);
+        contentPane.add(confirmpassword1);
+
+
+        confirmpassword2 = new JTextField();
+        confirmpassword2.setBounds(130, 120, 145, 25);  //reenter new password here to confirm
+        confirmpassword2.setColumns(10);
+        contentPane.add(confirmpassword2);
+
+
+        confirm.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String newpassword = newpassword2.getText();
+                String confirmpassword = confirmpassword2.getText();
+                String account = currentaccount;
+                if(!newpassword.equals(confirmpassword)){
+                    JOptionPane.showMessageDialog(EditPassword.super.rootPane, "The two passwords are inconsistent, please enter it again"); //check whether this two passwords are indentical
+                }
+                else{
+                    List<Member> members = Util.readFile();
+                    for (Member member: Objects.requireNonNull(members)) {
+                        if (member.getAccount().equals(account)){
+                            member.setPassword(newpassword); 
+                            Util.writeFile(members);         //change the password in member.txt
+                            Util.recordCurrentUser(member); //change the password in currentuser.txt after modity password
+                            JOptionPane.showMessageDialog(EditPassword.super.rootPane, "Password successfully changed");
+                            EditPassword.super.dispose();
+                            
+                            Profile pf = new Profile();
+			                pf.runpf();
+                            
+                        }
+                     }
+                }
+                
+            }
+        });
+        
+
+    }
+    public static void main(String[] args) {
+       
+        new EditPassword("LMX").setVisible(true);
+    } 
+}
+
+
+
+   /**
+	 * Created on 2021/05/06
+	 * 
+	 */
