@@ -16,6 +16,7 @@ public class Menu extends JFrame{
     JButton liveSection;
     JButton profileSection;
     JButton infoSection;
+    JButton back;
 
     public Menu() throws HeadlessException {
         /*initalization of the menu page*/
@@ -26,20 +27,29 @@ public class Menu extends JFrame{
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
+        JLabel titleLabel = new JLabel("Menu");
+        titleLabel.setFont(new Font("Dialog", Font.PLAIN, 35));
+        titleLabel.setBounds(250, 50, 200, 80); 
+        contentPane.add(titleLabel);                      //add the title "Menu"  
+
+        back = new JButton("Back to Login");
+        back.setBounds(20, 20, 150, 40);                // place the "back to login" button
+        contentPane.add(back);
+
         videoSection = new JButton("Videos");
-        videoSection.setBounds(220, 150, 200, 60);        // place the "Videos" button
+        videoSection.setBounds(200, 150, 200, 60);        // place the "Videos" button
         contentPane.add(videoSection);
 
         liveSection = new JButton("Live Training");
-        liveSection.setBounds(220, 300, 200, 60);        // place the "Live Training" button
+        liveSection.setBounds(200, 300, 200, 60);        // place the "Live Training" button
         contentPane.add(liveSection);
 
         profileSection = new JButton("User Profile");
-        profileSection.setBounds(220, 450, 200, 60);    // place the "User Profile" button
+        profileSection.setBounds(200, 450, 200, 60);    // place the "User Profile" button
         contentPane.add(profileSection);
 
         infoSection = new JButton("Information");
-        infoSection.setBounds(220, 600, 200, 60);    // place the "Information" button
+        infoSection.setBounds(200, 600, 200, 60);    // place the "Information" button
         contentPane.add(infoSection);
         
         JLabel backgroundLabel = new JLabel("");
@@ -47,6 +57,7 @@ public class Menu extends JFrame{
         backgroundLabel.setIcon(new ImageIcon(Menu.class.getResource("background.jpg")));
         backgroundLabel.setBounds(0, 0, 600, 800);      // set the background image
         contentPane.add(backgroundLabel);
+
         
         videoSection.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -77,6 +88,14 @@ public class Menu extends JFrame{
                 info.runinfor();
             }
         });
+
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Menu.super.dispose();
+                new Login().setVisible(true);
+            }
+        });
+        
         
 
     }
@@ -85,3 +104,10 @@ public class Menu extends JFrame{
         new Menu().setVisible(true);
     } 
 }
+
+
+   /**
+	 * updated on 2021/5/6: adding the Menu title, adding the back button
+     * 
+	 * 
+	 */

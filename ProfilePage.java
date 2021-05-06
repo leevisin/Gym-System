@@ -163,4 +163,9 @@ public class ProfilePage {
         		
         	});
     }
+    public static void main(String[] args){
+        Information info = new Information();
+        info.runinfor();
+    }
+
 }
