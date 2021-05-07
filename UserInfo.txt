@@ -1,0 +1,2 @@
+mtx123,312,11,Power-enhanced,120min,1
+lmx123,2112,2313,Gain-muscle,60min,1
