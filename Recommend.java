@@ -128,7 +128,7 @@ public class Recommend {
     }
 
     // Base on User BMI, Will, Time and Frequency
-    // Current User Information Stores in String[] getInformation(String filename)
+    // Current User Information Stores in String[] getInformation(String Source/UserInfo.txt)
     // Need to judge null String situation (Not implements)
     public String[][] recommendCourse(){
         return null;

@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 	 * @version 1.1
 	 */
 	public class Information {
-		String filename = "UserInfo.txt";
+		String filename = "Source/UserInfo.txt";
 		File file = new File(filename); 
 	    JFrame frame;
 
