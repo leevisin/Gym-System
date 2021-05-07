@@ -62,8 +62,8 @@ public class Menu extends JFrame{
         videoSection.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Menu.super.dispose();
-                VideoInterface vi = new VideoInterface();
-                vi.runVI();
+                VideoPage vp = new VideoPage();
+               
             }
         });
 

@@ -77,7 +77,9 @@ public class VideoPage extends Interface{
         // Generate Total Button for each course
         for(int i=0; i<rowLength; i++){
 
-                JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins");
+            //JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
+            /*Button_Back(btn,allCourse[i][4]);*/
+                JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins");//, new ImageIcon(allCourse[i][4])
                 btn.setHorizontalTextPosition(SwingConstants.CENTER);
                 btn.setOpaque(false);
                 btn.setContentAreaFilled(false);
@@ -132,6 +134,19 @@ public class VideoPage extends Interface{
 
     }
 
+    public static void Button_Back(JButton Button,String ImagePath){
+        Button.setBounds(0, 0, 300, 200);
+        ImageIcon imageIcon = new ImageIcon(ImagePath);
+        Image suitablImage = imageIcon.getImage().getScaledInstance(Button.getWidth(), Button.getHeight(), imageIcon.getImage().SCALE_DEFAULT);
+        imageIcon = new ImageIcon(suitablImage);
+        Button.setIcon(imageIcon);
+        Button.setToolTipText("image");
+        Button.setBorderPainted(false);
+        Button.setFocusPainted(false);
+        Button.setVerticalTextPosition(JButton.BOTTOM);
+        Button.setHorizontalTextPosition(JButton.CENTER);
+    }
+    
 
 
     //Play the video
