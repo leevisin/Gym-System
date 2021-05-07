@@ -25,12 +25,12 @@ public class VideoPage extends Interface{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//set the function as close operation
         setLayout(null);
         setLayout(new BorderLayout());
-        //顶层
+       
         Image image=new ImageIcon("Source/button_back1.jpg").getImage();
         mainPane = new BackgroundPanel(image);
         mainPane.setLayout(new FlowLayout());
         add(mainPane, BorderLayout.NORTH);
-        //搜索框
+      
       /*  mainPane.add(textField,BorderLayout.CENTER);
         mainPane.add(searchBtn,BorderLayout.SOUTH);*/
 
@@ -61,7 +61,7 @@ public class VideoPage extends Interface{
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse(fileName,input);
-               playVideo(searchResult[0][3]);//先播放第一个，之后加另一个界面，展示所有查询到的video
+               playVideo(searchResult[0][3]);
             }
         });
         mainPane.add(textField,BorderLayout.CENTER);
