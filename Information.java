@@ -7,7 +7,6 @@
 	import javax.swing.JOptionPane;
 	import javax.swing.JPanel;
 	import javax.swing.JTextField;
-	import javax.swing.*;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -38,7 +37,10 @@ import java.util.regex.Pattern;
 	 * @version 1.1
 	 */
 	public class Information {
-		File file = new File("D:\\miniproject\\SoftwareEngineering\\form.txt"); 
+		String filename = "form.txt";
+		File file = new File(filename); 
+		
+
 	    JFrame frame;
 
 	    private JTextField textField1;
@@ -169,8 +171,9 @@ import java.util.regex.Pattern;
 	                    	try{
 								if(!file.exists())
 	                    		file.createNewFile();
-								BufferedReader bre = new BufferedReader(new FileReader(file));
-								BufferedWriter out = new BufferedWriter(new FileWriter(file,false));
+								BufferedReader bre = new BufferedReader(new FileReader(filename));
+								BufferedWriter out = new BufferedWriter(new FileWriter(filename,false));
+								BufferedWriter put = new BufferedWriter(new FileWriter(filename,true));
 								InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
 								//obtain all information of current user
 								BufferedReader br = new BufferedReader(reader);
@@ -181,33 +184,55 @@ import java.util.regex.Pattern;
 								strinfo = curinfo.split(",");
 								currentaccount = strinfo[0];
 				   				br.close();
+								//将文件内容读取到数组里面
+								//Interface in = new Interface();
+								//String[][] userplan = in.readFromFile(filename);
+								String contents = "";
+								String oneline = bre.readLine();
+								int lines = 0; 
+								while(oneline!=null){
+									lines ++;
+									contents += oneline + ",";
+									oneline = bre.readLine();
+								}
+								int rows = lines;
+								String[] userplancontents = contents.split(",");
+								int columns = userplancontents.length/rows;
+								String[][] userplanArray = new  String[rows][columns];
+								int k = 0;
+								for(int i1=0 ; i1<rows ;i1++){
+									for(int j1=0;j1<columns;j1++){
+										userplanArray[i1][j1] = userplancontents[k];
+										k++;
+									}
+								}
+
+
 								//save the new user's plan (delect first)
-								Interface in = new Interface();
-								String[][] userplan = in.readFromFile(file);
-								for(int i=0; i<userplan.length;i++){
-									if(userplan[i][0].equals(currentaccount)){
-										out.write(currentaccount+",");
-	                    				out.write("shengao "+textField1.getText()+",");
-	                    				out.write("tizhong "+textField2.getText()+",");
-	                    				out.write("target: "+(String)comboBox1.getSelectedItem()+",");
-	                    				out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
-	                    				out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\n");
+								for(int i=0; i<userplanArray.length;i++){
+									if(userplanArray[i][0].equals(currentaccount)){
 										continue;
 									}
-									for(int j=0;j<userplan[0].length;j++){
-										if(j!=userplan[0].length-1){
-											out.write(userplan[i][j]+",");
+									for(int j=0;j<userplanArray[0].length;j++){
+										if(j!=userplanArray[0].length-1){
+											out.write(userplanArray[i][j]+",");
 										}
 										else{
-											out.write(userplan[i][j]+"\n");
+											out.write(userplanArray[i][j]+"\n");
 										}
 									}
 								}						
 								// after delect previous user's plan, write new plan at the end of the file.
-	                    		
+	                    		put.write(currentaccount+",");
+	                    		put.write("shengao "+textField1.getText()+",");
+	                    		put.write("tizhong "+textField2.getText()+",");
+	                    		put.write("target: "+(String)comboBox1.getSelectedItem()+",");
+	                    		put.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
+	                    		put.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\n");
+
+								put.close();
 								out.close();
-								bre.close();
-								put.close();		
+								bre.close();		
 	                    }catch(IOException e1){
 	                    	e1.printStackTrace();
 	                    }
