@@ -110,6 +110,6 @@ public class Menu extends JFrame{
 
    /**
 	 * updated on 2021/5/6: adding the Menu title, adding the back button
-     * 
+     * updated on 2021/5/7: using VideoPage and TrainerPage instead of VideoInterface and TrainerInterface
 	 * 
 	 */
