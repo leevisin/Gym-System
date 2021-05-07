@@ -179,6 +179,7 @@ import java.util.*;
         for(int i=0; i<courseArray.length; i++){
             for(int j=i+1; j<courseArray.length; j++){
                 // Copy the value of String[] not pointer
+                // courseArray[][2] is tag value
                 if(courseArray[i][2].compareTo(courseArray[j][2])>0){
                 String[] tmp = Arrays.copyOf(courseArray[i],courseArray[0].length);
                     for(int k=0; k<courseArray[0].length; k++){
@@ -213,6 +214,15 @@ import java.util.*;
             }
             System.out.println();
         }
+
+        // String[][] formArray = inter.readFromFile("form.txt");
+        // for(int i=0; i<formArray.length; i++){
+        //     for(int j=0; j<formArray[0].length; j++){
+        //         System.out.print(formArray[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
+
      }
 
 
