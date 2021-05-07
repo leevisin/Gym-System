@@ -137,7 +137,7 @@ import java.util.regex.Pattern;
 	        aNewButton2.setBounds(359, 509, 118, 53);
 	        panel.add(aNewButton2);
 
-	        Icon icon = new ImageIcon("background.jpg");
+	        Icon icon = new ImageIcon("Source/background.jpg");
 	        JLabel backGroundLabel = new JLabel(icon);
 	        backGroundLabel.setBounds(0, 0, 600, 800);
 	        panel.add(backGroundLabel);

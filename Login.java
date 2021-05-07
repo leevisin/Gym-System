@@ -58,7 +58,7 @@ public class Login extends JFrame {
         contentPane.add(loginButton);
 
         JLabel backgroundLabel = new JLabel("");
-        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("background.jpg")));
+        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("Source/background.jpg")));
         backgroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backgroundLabel);
 

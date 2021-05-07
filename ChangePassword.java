@@ -83,7 +83,7 @@ public class ChangePassword {
         aNewButton4.setBounds(314, 614, 200, 40);
         panel.add(aNewButton4);
         
-        Icon icon = new ImageIcon("background.jpg");
+        Icon icon = new ImageIcon("Source/background.jpg");
         JLabel backGroundLabel = new JLabel(icon);
         backGroundLabel.setBounds(0, 0, 600, 800);
         panel.add(backGroundLabel);
