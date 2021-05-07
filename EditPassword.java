@@ -16,6 +16,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 import java.util.Objects;
+  /**
+	 * Created on 2021/05/06
+	 * 
+	 */
 
 
 public class EditPassword extends JFrame{
@@ -106,8 +110,3 @@ public class EditPassword extends JFrame{
 }
 
 
-
-   /**
-	 * Created on 2021/05/06
-	 * 
-	 */

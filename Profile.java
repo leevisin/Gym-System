@@ -27,6 +27,9 @@
 	 * @author Wenxuan Liang
 	 * @date April 21th, 2021
 	 * @version 1.1   (able to obtain information of current user)
+	 * @author Wenxuan Liang
+	 * @date May 6th,2020
+	 * @version 2.0	(able to edit user information)
 	 */
 	public class Profile {
 		public String currentaccount = null;
@@ -123,14 +126,7 @@
 	        aNewLabel6.setBounds(264, 214, 138, 54);
 	        panel.add(aNewLabel6);
 
-			/*
-	        JButton aNewButton1 = new JButton("Edit");
-	        aNewButton1.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	            }
-	        });
-	        aNewButton1.setBounds(46, 578, 200, 40);
-	        panel.add(aNewButton1);*/
+		
 
 			JButton editPassword = new JButton("Edit Password");
 			editPassword.setBounds(410, 144, 130, 25);
