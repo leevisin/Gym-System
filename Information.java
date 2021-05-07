@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 	 * @version 1.0
 	 */
 	public class Information {
-		File file = new File("form.txt"); 
+		File file = new File("Source/form.txt"); 
 	    JFrame frame;
 
 	    private JTextField textField1;
