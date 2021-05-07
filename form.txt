@@ -1,2 +1,0 @@
-lmx123,shengao 185,tizhong 666,target: Shaping,Expected exercise time:1 hour per training,expected exercise frequency:1 day per week
-mtx123,shengao 156,tizhong 48,target: Gain muscle,Expected exercise time:1 hour per training,expected exercise frequency:1 day per week

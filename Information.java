@@ -13,12 +13,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.regex.Pattern;
 
@@ -37,7 +35,7 @@ import java.util.regex.Pattern;
 	 * @version 1.1
 	 */
 	public class Information {
-		String filename = "form.txt";
+		String filename = "UserInfo.txt";
 		File file = new File(filename); 
 		
 
@@ -88,11 +86,11 @@ import java.util.regex.Pattern;
 	        aNewLabel3.setBounds(94, 214, 138, 54);
 	        panel.add(aNewLabel3);
 
-	        JLabel aNewLabel4 = new JLabel("Expected exercise time:");
+	        JLabel aNewLabel4 = new JLabel("Expected exercise time(min):");
 	        aNewLabel4.setBounds(65, 308, 138, 54);
 	        panel.add(aNewLabel4);
 
-	        JLabel aNewLabel5 = new JLabel("Expected exercise frequency:");
+	        JLabel aNewLabel5 = new JLabel("Expected exercise frequency(times a week):");
 	        aNewLabel5.setBounds(41, 386, 203, 54);
 	        panel.add(aNewLabel5);
 
@@ -109,29 +107,29 @@ import java.util.regex.Pattern;
 	        JComboBox<String> comboBox1 = new JComboBox<String>();
 	        comboBox1.setBounds(242, 230, 221, 38);
 	        panel.add(comboBox1);
-	        comboBox1.addItem("Gain muscle");
+	        comboBox1.addItem("Gain-muscle");
 	        comboBox1.addItem("Power-enhanced");
-	        comboBox1.addItem("Fat Loss");
+	        comboBox1.addItem("Fat-Loss");
 	        comboBox1.addItem("Shaping");
-	        comboBox1.addItem("Rehabilitation training");
+	        comboBox1.addItem("Rehabilitation-training");
 	        comboBox1.addItem("Special");
 	        comboBox1.addItem("Relax");
 
 	        JComboBox<String> comboBox2 = new JComboBox<String>();
 	        comboBox2.setBounds(242, 316, 221, 38);
 	        panel.add(comboBox2);
-	        comboBox2.addItem("1 hour per training");
-	        comboBox2.addItem("2 hours per training");
-	        comboBox2.addItem("3 hours per training");
-	        comboBox2.addItem("more training time ");
+	        comboBox2.addItem("60min");
+	        comboBox2.addItem("120min");
+	        comboBox2.addItem("180min");
+	        comboBox2.addItem("other");
 
 	        JComboBox<String> comboBox3 = new JComboBox<String>();
 	        comboBox3.setBounds(242, 394, 221, 38);
 	        panel.add(comboBox3);
-	        comboBox3.addItem("1 day per week");
-	        comboBox3.addItem("2 days per weekg");
-	        comboBox3.addItem("3 days per week");
-	        comboBox3.addItem("more training time ");
+	        comboBox3.addItem("1");
+	        comboBox3.addItem("2");
+	        comboBox3.addItem("3");
+	        comboBox3.addItem("more");
 
 	        JButton aNewButton1 = new JButton("Trainers");
 	        aNewButton1.setBounds(100, 509, 118, 53);
@@ -183,9 +181,7 @@ import java.util.regex.Pattern;
 								strinfo = curinfo.split(",");
 								currentaccount = strinfo[0];
 				   				br.close();
-								//将文件内容读取到数组里面
-								//Interface in = new Interface();
-								//String[][] userplan = in.readFromFile(filename);
+								//put the content into an array
 								String contents = "";
 								String oneline = bre.readLine();
 								int lines = 0; 
@@ -227,11 +223,11 @@ import java.util.regex.Pattern;
 								}						
 								// after delect previous user's plan, write new plan at the end of the file.
 	                    		put.write(currentaccount+",");
-	                    		put.write("shengao "+textField1.getText()+",");
-	                    		put.write("tizhong "+textField2.getText()+",");
-	                    		put.write("target: "+(String)comboBox1.getSelectedItem()+",");
-	                    		put.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
-	                    		put.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\n");
+	                    		put.write(textField1.getText()+",");
+	                    		put.write(textField2.getText()+",");
+	                    		put.write((String)comboBox1.getSelectedItem()+",");
+	                    		put.write((String)comboBox2.getSelectedItem()+",");
+	                    		put.write((String)comboBox3.getSelectedItem()+"\n");
 
 								put.close();
 								bre.close();		
@@ -263,16 +259,72 @@ import java.util.regex.Pattern;
 	                    );
 	                    System.out.println("choose result: " + result);
 	                    if (result==0) {
-	                    	try{if(!file.exists())
+							// write current user's informations in the form.txt , realize the function of changing the user's plan,
+	                    	try{
+								if(!file.exists())
 	                    		file.createNewFile();
-	                    		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)));
-	                    		out.write("shengao "+textField1.getText()+",");
-	                    		out.write("tizhong "+textField2.getText()+",");
-	                    		out.write("target: "+(String)comboBox1.getSelectedItem()+",");
-	                    		out.write("Expected exercise time:"+(String)comboBox2.getSelectedItem()+",");
-	                    		out.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\0");
-	                    		out.newLine();
-	                    		out.close();		
+								BufferedReader bre = new BufferedReader(new FileReader(file));				
+								BufferedWriter put = new BufferedWriter(new FileWriter(file,true));
+								InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
+								//obtain all information of current user
+								BufferedReader br = new BufferedReader(reader);
+								String curinfo; 
+								String[] strinfo;
+								String currentaccount = null;
+								curinfo = br.readLine(); 
+								strinfo = curinfo.split(",");
+								currentaccount = strinfo[0];
+				   				br.close();
+								//put the content into an array
+								String contents = "";
+								String oneline = bre.readLine();
+								int lines = 0; 
+								while(oneline!=null){
+									lines ++;
+									contents += oneline + ",";
+									oneline = bre.readLine();
+								}
+								int rows = lines;
+								if(lines!=0){
+									BufferedWriter out = new BufferedWriter(new FileWriter(file,false));
+									String[] userplancontents = contents.split(",");
+									int columns = userplancontents.length/rows;
+									String[][] userplanArray = new  String[rows][columns];
+									int k = 0;
+									for(int i1=0 ; i1<rows ;i1++){
+										for(int j1=0;j1<columns;j1++){
+											userplanArray[i1][j1] = userplancontents[k];
+											k++;
+										}	
+									}	
+
+
+									//save the new user's plan (delect first)
+									for(int i=0; i<userplanArray.length;i++){
+										if(userplanArray[i][0].equals(currentaccount)){
+											continue;
+										}
+										for(int j=0;j<userplanArray[0].length;j++){
+											if(j!=userplanArray[0].length-1){
+												out.write(userplanArray[i][j]+",");
+											}
+											else{
+												out.write(userplanArray[i][j]+"\n");
+											}
+										}
+									}
+									out.close();
+								}						
+								// after delect previous user's plan, write new plan at the end of the file.
+	                    		put.write(currentaccount+",");
+	                    		put.write(textField1.getText()+",");
+	                    		put.write(textField2.getText()+",");
+	                    		put.write((String)comboBox1.getSelectedItem()+",");
+	                    		put.write((String)comboBox2.getSelectedItem()+",");
+	                    		put.write((String)comboBox3.getSelectedItem()+"\n");
+
+								put.close();
+								bre.close();		
 	                    }catch(IOException e1){
 	                    	e1.printStackTrace();
 	                    }
@@ -280,6 +332,5 @@ import java.util.regex.Pattern;
 	        		}
 	        	}
 	                });
-
 	    }
 	}
