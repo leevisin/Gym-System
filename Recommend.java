@@ -68,8 +68,27 @@ public class Recommend {
         return lines;
     }
 
-    // Get user infomation
-    public String[] getInformation(String filename, String userAccount){
+    // Get Current User Information
+    public String readCurrentUserAccount(){
+        String userInfo = "";
+        try{
+            FileReader fileReader = new FileReader("Source/currentuser.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String oneLine = bufferedReader.readLine();
+                userInfo += oneLine;
+            bufferedReader.close();
+            fileReader.close();
+        }
+        catch (IOException e) {
+            System.out.println("Errors occured: IOException!");
+            System.exit(1);
+        }     
+        return userInfo.split(",")[0]; // Return User Account
+    }
+
+    // Get user infomation and need currentuser.txt
+    public String[] getInformation(String filename){
+        String userAccount = readCurrentUserAccount();
         String[][] usersInformation = readFromFile(filename);
         String[] searchResult = new String[usersInformation[0].length];
         for(int i=0; i<usersInformation.length; i++){
@@ -108,10 +127,12 @@ public class Recommend {
         }
     }
 
-    public String recommendCourse(){
+    // Base on User BMI, Will, Time and Frequency
+    // Current User Information Stores in String[] getInformation(String filename)
+    // Need to judge null String situation (Not implements)
+    public String[][] recommendCourse(){
         return null;
     }
-
 
     // Generate recommend page
 }
