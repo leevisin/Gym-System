@@ -12,3 +12,11 @@
 LMX,Tom,Strength
 LMX,Jack,Explosive Power
 LMX,Ann,Slim
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Jack,Explosive Power

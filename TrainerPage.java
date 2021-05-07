@@ -64,6 +64,25 @@ public class TrainerPage extends Interface{
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse(fileName,input);
+                //I just put the first I found, and improve in the next version
+                String name = searchResult[0][0];
+                String type = searchResult[0][1];
+                String imagePath=searchResult[0][2];
+                if(textField.getText().equals("")) {
+                    JOptionPane.showMessageDialog(TrainerPage.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
+                    else if(searchCourse(fileName,input)==null)
+                    {
+                        
+                        JOptionPane.showMessageDialog(TrainerPage.super.rootPane, "Nothing founded!","Warning!",JOptionPane.WARNING_MESSAGE);
+                    }
+                    else
+                    {
+                        BookInfo bi = new BookInfo(name, type, imagePath);
+                        bi.setTitle("Book Infomation");
+                        bi.pack();
+                        bi.setSize(600, 800);
+                        bi.setVisible(true);
+                    }
             }
         });
 
@@ -89,10 +108,18 @@ public class TrainerPage extends Interface{
                 btn.setMargin(new Insets(0, 0, 0, 0));
                 btn.setSize(300,400);*/
             String name = allTrainer[i][0];
+            String type = allTrainer[i][1];
+            String imagePath=allTrainer[i][2];
             btn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                     // System.out.println("This button is clicked.");
-                    System.out.println("This course name is " + name ); // return is still error.
+                    System.out.println("This trainer name is " + name ); // return is still error.
+                    // System.out.println("This button is clicked.");
+                    BookInfo bi = new BookInfo(name, type, imagePath);
+                    bi.setTitle("Book Infomation");
+                    bi.pack();
+                    bi.setSize(600, 800);
+                    bi.setVisible(true);
                 }
             });
             totalPane.add(btn);
@@ -128,6 +155,6 @@ public class TrainerPage extends Interface{
 
 
     public static void main(String[] args) {
-        new VideoPage();
+        new TrainerPage();
     }
 }

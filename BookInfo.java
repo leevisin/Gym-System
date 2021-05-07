@@ -7,15 +7,23 @@ import java.nio.file.*;
 
 public class BookInfo extends JFrame {
 
-    public BookInfo(String trainerName, String trainerType){
+    
+    public BookInfo(String trainerName, String trainerType, String imagePath){
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
+        JPanel totalPane = new JPanel();
+        totalPane.setLayout(new FlowLayout());
+        totalPane.setPreferredSize(new Dimension(400, 1000));
+        JButton btn = new JButton("You have booked " + trainerName + "'s " + trainerType + " course successfully!");
+        Button_Back(btn,imagePath);
         recordBookInfo(trainerName, trainerType);
-        JLabel info = new JLabel("You have booked " + trainerName + "'s " + trainerType + " course successfully!",JLabel.CENTER);
+        //JLabel info = new JLabel("You have booked " + trainerName + "'s " + trainerType + " course successfully!",JLabel.CENTER);
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        panel.add("Center",info);
+        panel.add("Center",btn);
+        //panel.add("Center",info);
+        totalPane.add("Center",panel);
         getContentPane().add(panel);
     }
 
@@ -51,5 +59,18 @@ public class BookInfo extends JFrame {
         return userInfo;
     }
 
+    public static void Button_Back(JButton Button,String ImagePath){
+
+        Button.setBounds(0, 0, 300, 200);
+        ImageIcon imageBack = new ImageIcon(ImagePath);
+        Image suitable = imageBack.getImage().getScaledInstance(Button.getWidth(), Button.getHeight(), imageBack.getImage().SCALE_DEFAULT);
+        imageBack = new ImageIcon(suitable);
+        Button.setIcon(imageBack);
+        Button.setToolTipText("image");
+        Button.setBorderPainted(false);
+        Button.setFocusPainted(false);
+        Button.setVerticalTextPosition(JButton.BOTTOM);
+        Button.setHorizontalTextPosition(JButton.CENTER);
+    }
 }
 

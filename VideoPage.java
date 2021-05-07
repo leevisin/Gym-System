@@ -61,7 +61,14 @@ public class VideoPage extends Interface{
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse(fileName,input);
-               playVideo(searchResult[0][3]);
+                if(textField.getText().equals("")) {
+                    JOptionPane.showMessageDialog(VideoPage.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
+                    else if(searchResult[0][0]==null)
+                    {
+                        
+                        JOptionPane.showMessageDialog(VideoPage.super.rootPane, "Nothing founded!","Warning!",JOptionPane.WARNING_MESSAGE);
+                    }
+                else{playVideo(searchResult[0][3]);}//I just play the first video I found, I would improve in the next version
             }
         });
         mainPane.add(textField,BorderLayout.CENTER);
