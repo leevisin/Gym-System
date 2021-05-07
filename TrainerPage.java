@@ -69,7 +69,7 @@ public class TrainerPage extends Interface{
 
         totalPane = new JPanel();
         totalPane.setLayout(new FlowLayout());
-        totalPane.setPreferredSize(new Dimension(400, 270));
+        totalPane.setPreferredSize(new Dimension(400, 1000));
         String[][] allTrainer = readFromFile(fileName);
         int rowLength= allTrainer.length;
         int columnLength = allTrainer[0].length;
