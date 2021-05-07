@@ -70,8 +70,10 @@ public class Menu extends JFrame{
         liveSection.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Menu.super.dispose();
+
                 TrainerPage ti = new TrainerPage();
                 
+
             }
         });
         profileSection.addActionListener(new ActionListener() {
