@@ -171,9 +171,8 @@ import java.util.regex.Pattern;
 	                    	try{
 								if(!file.exists())
 	                    		file.createNewFile();
-								BufferedReader bre = new BufferedReader(new FileReader(filename));
-								BufferedWriter out = new BufferedWriter(new FileWriter(filename,false));
-								BufferedWriter put = new BufferedWriter(new FileWriter(filename,true));
+								BufferedReader bre = new BufferedReader(new FileReader(file));				
+								BufferedWriter put = new BufferedWriter(new FileWriter(file,true));
 								InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
 								//obtain all information of current user
 								BufferedReader br = new BufferedReader(reader);
@@ -196,31 +195,35 @@ import java.util.regex.Pattern;
 									oneline = bre.readLine();
 								}
 								int rows = lines;
-								String[] userplancontents = contents.split(",");
-								int columns = userplancontents.length/rows;
-								String[][] userplanArray = new  String[rows][columns];
-								int k = 0;
-								for(int i1=0 ; i1<rows ;i1++){
-									for(int j1=0;j1<columns;j1++){
-										userplanArray[i1][j1] = userplancontents[k];
-										k++;
-									}
-								}
+								if(lines!=0){
+									BufferedWriter out = new BufferedWriter(new FileWriter(file,false));
+									String[] userplancontents = contents.split(",");
+									int columns = userplancontents.length/rows;
+									String[][] userplanArray = new  String[rows][columns];
+									int k = 0;
+									for(int i1=0 ; i1<rows ;i1++){
+										for(int j1=0;j1<columns;j1++){
+											userplanArray[i1][j1] = userplancontents[k];
+											k++;
+										}	
+									}	
 
 
-								//save the new user's plan (delect first)
-								for(int i=0; i<userplanArray.length;i++){
-									if(userplanArray[i][0].equals(currentaccount)){
-										continue;
-									}
-									for(int j=0;j<userplanArray[0].length;j++){
-										if(j!=userplanArray[0].length-1){
-											out.write(userplanArray[i][j]+",");
+									//save the new user's plan (delect first)
+									for(int i=0; i<userplanArray.length;i++){
+										if(userplanArray[i][0].equals(currentaccount)){
+											continue;
 										}
-										else{
-											out.write(userplanArray[i][j]+"\n");
+										for(int j=0;j<userplanArray[0].length;j++){
+											if(j!=userplanArray[0].length-1){
+												out.write(userplanArray[i][j]+",");
+											}
+											else{
+												out.write(userplanArray[i][j]+"\n");
+											}
 										}
 									}
+									out.close();
 								}						
 								// after delect previous user's plan, write new plan at the end of the file.
 	                    		put.write(currentaccount+",");
@@ -231,7 +234,6 @@ import java.util.regex.Pattern;
 	                    		put.write("expected exercise frequency:"+(String)comboBox3.getSelectedItem()+"\n");
 
 								put.close();
-								out.close();
 								bre.close();		
 	                    }catch(IOException e1){
 	                    	e1.printStackTrace();
