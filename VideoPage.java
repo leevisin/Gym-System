@@ -108,28 +108,7 @@ public class VideoPage extends Interface{
         fatPane.add(fat2);
         fatPane.add(fat3);*/
 
-        leftPane = new JPanel();
-        leftPane.setPreferredSize(new Dimension(80, 80));
-        add(leftPane, BorderLayout.WEST);
-        JButton addVideo = new JButton("ADD VIDEO",new ImageIcon("Source/button_back3.jpg"));
-        addVideo.setHorizontalTextPosition(SwingConstants.CENTER);
-        addVideo.setOpaque(false);
-        addVideo.setContentAreaFilled(false);
-        addVideo.setMargin(new Insets(0, 0, 0, 0));
-        addVideo.setSize(30,40);
-        addVideo.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                // System.out.println("This button is clicked.");
-
-                System.out.println("I am ADDING VIDEO "); // return is still error.
-            }
-        });
-        leftPane.add(addVideo,BorderLayout.CENTER);
-
-
-        rightPane = new JPanel();
-        rightPane.setPreferredSize(new Dimension(100, 500));
-        add(rightPane, BorderLayout.EAST);
+       
 
 
     }

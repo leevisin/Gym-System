@@ -67,6 +67,9 @@ public class TrainerPage extends Interface{
             }
         });
 
+        mainPane.add(textField,BorderLayout.CENTER);
+        mainPane.add(searchBtn,BorderLayout.SOUTH);
+
         totalPane = new JPanel();
         totalPane.setLayout(new FlowLayout());
         totalPane.setPreferredSize(new Dimension(400, 1000));
@@ -106,29 +109,7 @@ public class TrainerPage extends Interface{
         fatPane.add(fat2);
         fatPane.add(fat3);*/
 
-        leftPane = new JPanel();
-        leftPane.setPreferredSize(new Dimension(100, 500));
-        add(leftPane, BorderLayout.WEST);
-        JButton addTrainer = new JButton("ADD TRAINER",new ImageIcon("source/button_back2.jpg"));
-        addTrainer.setHorizontalTextPosition(SwingConstants.CENTER);
-        addTrainer.setOpaque(false);
-        addTrainer.setContentAreaFilled(false);
-        addTrainer.setMargin(new Insets(0, 0, 0, 0));
-        addTrainer.setSize(300,400);
-        addTrainer.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                // System.out.println("This button is clicked.");
-
-                System.out.println("I am ADDING VIDEO "); // return is still error.
-            }
-        });
-        leftPane.add(addTrainer,BorderLayout.CENTER);
-
-
-        rightPane = new JPanel();
-        rightPane.setPreferredSize(new Dimension(100, 500));
-        add(rightPane, BorderLayout.EAST);
-
+       
 
     }
     public static void Button_Back(JButton Button,String ImagePath){
