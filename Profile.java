@@ -154,7 +154,7 @@
 	        aNewButton2.setBounds(310, 578, 200, 40);
 	        panel.add(aNewButton2);
 
-	        Icon icon = new ImageIcon("background.jpg");
+	        Icon icon = new ImageIcon("Source/background.jpg");
 	        JLabel backGroundLabel = new JLabel(icon);
 	        backGroundLabel.setBounds(0, 0, 600, 800);
 	        panel.add(backGroundLabel);
