@@ -25,12 +25,12 @@ public class VideoPage extends Interface{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//set the function as close operation
         setLayout(null);
         setLayout(new BorderLayout());
-        //顶层
+       
         Image image=new ImageIcon("Source/button_back1.jpg").getImage();
         mainPane = new BackgroundPanel(image);
         mainPane.setLayout(new FlowLayout());
         add(mainPane, BorderLayout.NORTH);
-        //搜索框
+      
       /*  mainPane.add(textField,BorderLayout.CENTER);
         mainPane.add(searchBtn,BorderLayout.SOUTH);*/
 
@@ -61,7 +61,7 @@ public class VideoPage extends Interface{
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse(fileName,input);
-               playVideo(searchResult[0][3]);//先播放第一个，之后加另一个界面，展示所有查询到的video
+               playVideo(searchResult[0][3]);
             }
         });
         mainPane.add(textField,BorderLayout.CENTER);
@@ -69,7 +69,7 @@ public class VideoPage extends Interface{
 
         totalPane = new JPanel();
         totalPane.setLayout(new FlowLayout());
-        totalPane.setPreferredSize(new Dimension(400, 270));
+        totalPane.setPreferredSize(new Dimension(400, 1000));
          String[][] allCourse = readFromFile(fileName);
          int rowLength= allCourse.length;
          int columnLength = allCourse[0].length;
@@ -77,14 +77,14 @@ public class VideoPage extends Interface{
         // Generate Total Button for each course
         for(int i=0; i<rowLength; i++){
 
-            //JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
-            /*Button_Back(btn,allCourse[i][4]);*/
-                JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins");//, new ImageIcon(allCourse[i][4])
+            JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
+            Button_Back(btn,allCourse[i][4]);
+                /* JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins");//, new ImageIcon(allCourse[i][4])
                 btn.setHorizontalTextPosition(SwingConstants.CENTER);
                 btn.setOpaque(false);
                 btn.setContentAreaFilled(false);
                 btn.setMargin(new Insets(0, 0, 0, 0));
-                btn.setSize(200,100);
+                btn.setSize(200,100);*/
                 String name = allCourse[i][0];
                 String path = allCourse[i][3];
                 btn.addActionListener(new ActionListener(){
