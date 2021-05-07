@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class VideoPage extends Interface{
 
-    String fileName = "Video/AllVideo.txt";
+    String fileName = "Source/AllVideo.txt";
     JPanel  mainPane,videoPane,leftPane,fatPane,rightPane,totalPane;
     JScrollPane scrollPane;
     Robot rb = null;
@@ -26,7 +26,7 @@ public class VideoPage extends Interface{
         setLayout(null);
         setLayout(new BorderLayout());
         //顶层
-        Image image=new ImageIcon("src/1.jpg").getImage();
+        Image image=new ImageIcon("Source/button_back1.jpg").getImage();
         mainPane = new BackgroundPanel(image);
         mainPane.setLayout(new FlowLayout());
         add(mainPane, BorderLayout.NORTH);
@@ -61,23 +61,28 @@ public class VideoPage extends Interface{
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse(fileName,input);
-               playVideo(searchResult[0][2]);//先播放第一个，之后加另一个界面，展示所有查询到的video
+               playVideo(searchResult[0][3]);//先播放第一个，之后加另一个界面，展示所有查询到的video
             }
         });
+        mainPane.add(textField,BorderLayout.CENTER);
+        mainPane.add(searchBtn,BorderLayout.SOUTH);
 
+        totalPane = new JPanel();
+        totalPane.setLayout(new FlowLayout());
+        totalPane.setPreferredSize(new Dimension(400, 270));
          String[][] allCourse = readFromFile(fileName);
          int rowLength= allCourse.length;
          int columnLength = allCourse[0].length;
 
         // Generate Total Button for each course
-        for(int i=0; i<columnLength; i++){
+        for(int i=0; i<rowLength; i++){
 
-                JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins", new ImageIcon(allCourse[i][3]));
+                JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins");
                 btn.setHorizontalTextPosition(SwingConstants.CENTER);
                 btn.setOpaque(false);
                 btn.setContentAreaFilled(false);
                 btn.setMargin(new Insets(0, 0, 0, 0));
-                btn.setSize(300,400);
+                btn.setSize(200,100);
                 String name = allCourse[i][0];
                 String path = allCourse[i][3];
                 btn.addActionListener(new ActionListener(){
@@ -102,14 +107,14 @@ public class VideoPage extends Interface{
         fatPane.add(fat3);*/
 
         leftPane = new JPanel();
-        leftPane.setPreferredSize(new Dimension(100, 500));
+        leftPane.setPreferredSize(new Dimension(80, 80));
         add(leftPane, BorderLayout.WEST);
-        JButton addVideo = new JButton("ADD VIDEO",new ImageIcon("src/1.jpg"));
+        JButton addVideo = new JButton("ADD VIDEO",new ImageIcon("Source/button_back3.jpg"));
         addVideo.setHorizontalTextPosition(SwingConstants.CENTER);
         addVideo.setOpaque(false);
         addVideo.setContentAreaFilled(false);
         addVideo.setMargin(new Insets(0, 0, 0, 0));
-        addVideo.setSize(300,400);
+        addVideo.setSize(30,40);
         addVideo.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 // System.out.println("This button is clicked.");
