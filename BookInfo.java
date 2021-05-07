@@ -20,7 +20,7 @@ public class BookInfo extends JFrame {
     }
 
     public void recordBookInfo(String trainerName, String trainerType){
-        String filename = "BookInfo.txt";
+        String filename = "Source/BookInfo.txt";
         try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -37,7 +37,7 @@ public class BookInfo extends JFrame {
     public String readCurrentUser(){
         String userInfo = "";
         try{
-            FileReader fileReader = new FileReader("currentuser.txt");
+            FileReader fileReader = new FileReader("Source/currentuser.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String oneLine = bufferedReader.readLine();
                 userInfo += oneLine;

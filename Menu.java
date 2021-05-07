@@ -53,8 +53,8 @@ public class Menu extends JFrame{
         contentPane.add(infoSection);
         
         JLabel backgroundLabel = new JLabel("");
-        //URL url = getClass().getResource("background.jpg");
-        backgroundLabel.setIcon(new ImageIcon(Menu.class.getResource("background.jpg")));
+        //URL url = getClass().getResource("Source/background.jpg");
+        backgroundLabel.setIcon(new ImageIcon(Menu.class.getResource("Source/background.jpg")));
         backgroundLabel.setBounds(0, 0, 600, 800);      // set the background image
         contentPane.add(backgroundLabel);
 

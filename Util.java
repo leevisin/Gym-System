@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Util {
-    public static String pathname = "member.txt"; //text file record all user information
-    public static String currentuser = "currentuser.txt";//text file record current user
+    public static String pathname = "Source/member.txt"; //text file record all user information
+    public static String currentuser = "Source/currentuser.txt";//text file record current user
 
     public static List<Member> readFile() {
         List<Member> memberList = new ArrayList<>();
