@@ -81,10 +81,14 @@ public class Register extends JFrame {
 
 
 
+
         JLabel backGroundLabel = new JLabel("");
         backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("background.jpg")));
         backGroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backGroundLabel);
+       
+
+       
 
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
