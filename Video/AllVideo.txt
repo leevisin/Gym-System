@@ -1,3 +1,0 @@
-HIIT,30,Test1.mp4,button_back.png
-Strength,45,Test3.mp4,button_back.png
-Speed,60,Test4.mp4,button_back.png

@@ -37,8 +37,6 @@ import java.util.regex.Pattern;
 	public class Information {
 		String filename = "UserInfo.txt";
 		File file = new File(filename); 
-		
-
 	    JFrame frame;
 
 	    private JTextField textField1;
@@ -325,6 +323,7 @@ import java.util.regex.Pattern;
 
 								put.close();
 								bre.close();		
+
 	                    }catch(IOException e1){
 	                    	e1.printStackTrace();
 	                    }

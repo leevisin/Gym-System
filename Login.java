@@ -22,7 +22,7 @@ public class Login extends JFrame {
         contentPane.setLayout(null);
 
 
-        JLabel titleLabel = new JLabel("Login");
+        JLabel titleLabel = new JLabel("GYM");
         titleLabel.setFont(new Font("Dialog", Font.PLAIN, 35));
         titleLabel.setBounds(245, 50, 100, 80);
         contentPane.add(titleLabel);

@@ -27,10 +27,16 @@
 	 * @author Wenxuan Liang
 	 * @date April 21th, 2021
 	 * @version 1.1   (able to obtain information of current user)
+	 * @author Wenxuan Liang
+	 * @date May 6th,2020
+	 * @version 2.0	(able to edit user information)
 	 */
 	public class Profile {
+		public String currentaccount = null;
+		public String currentpassword = null;
+		public String currentemail = null;
 
-	    private JFrame frame;
+	    public JFrame frame;
 
 	    /**
 	     * Launch the application.
@@ -54,13 +60,11 @@
 	    /**
 	     * Initialize the contents of the frame.
 	     */
-	    private void initialize() {
+	    public void initialize() {
 			/*accquire information of current user*/
 			String allinfo; 
 			String[] info;
-			String currentaccount = null;
-			String currentpassword = null;
-			String currentemail = null;
+			
 			BufferedReader br = null;
 			InputStreamReader reader = null;
 			try{
@@ -122,15 +126,31 @@
 	        aNewLabel6.setBounds(264, 214, 138, 54);
 	        panel.add(aNewLabel6);
 
-	        JButton aNewButton1 = new JButton("Edit");
-	        aNewButton1.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	            }
-	        });
-	        aNewButton1.setBounds(46, 578, 200, 40);
-	        panel.add(aNewButton1);
+		
 
-	        JButton aNewButton2 = new JButton("Ruturn");
+			JButton editPassword = new JButton("Edit Password");
+			editPassword.setBounds(410, 144, 130, 25);
+	        panel.add(editPassword);
+			editPassword.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new EditPassword(currentaccount).setVisible(true);
+				}
+			});
+
+			
+			JButton editEmail = new JButton("Edit Email");
+			editEmail.setBounds(410, 224, 130, 25);
+	        panel.add(editEmail);
+			editEmail.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					new EditEmail(currentaccount).setVisible(true);
+					
+				}
+			});
+
+
+
+	        JButton aNewButton2 = new JButton("Return");
 	        aNewButton2.setBounds(310, 578, 200, 40);
 	        panel.add(aNewButton2);
 
@@ -149,11 +169,17 @@
 
 	    }
 
+		public static void main(String[] args){
+			Profile pf = new Profile();
+			pf.runpf();
+		}
+
 	}
 
 
    /**
 	 * updated on 2021/4/21: able to accquire information from current user
-	 *
+	 * updated on 2021/5/06: able to edit user information
+	 * 
 	 */
 

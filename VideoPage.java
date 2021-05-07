@@ -1,3 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
 public class VideoPage extends Interface{
     public VideoPage(){
         // Add Search Funtion, Function was finished in supclass
