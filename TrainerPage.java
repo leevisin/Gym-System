@@ -28,12 +28,10 @@ public class TrainerPage extends Interface{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//set the function as close operation
         setLayout(null);
         setLayout(new BorderLayout());
-        //顶层
-        Image image=new ImageIcon("Source/button_back1.jpg").getImage();
+        Image image=new ImageIcon("Source/button_back.jpg").getImage();
         mainPane = new BackgroundPanel(image);
         mainPane.setLayout(new FlowLayout());
         add(mainPane, BorderLayout.NORTH);
-        //搜索框
       /*  mainPane.add(textField,BorderLayout.CENTER);
         mainPane.add(searchBtn,BorderLayout.SOUTH);*/
 
@@ -42,7 +40,7 @@ public class TrainerPage extends Interface{
         //define videoPane and make it flow layout
         coursePane = new JPanel();
         coursePane.setLayout(new FlowLayout());
-        add(coursePane, BorderLayout.CENTER);//Put the video-pane in the middle of the total page
+        add(coursePane, BorderLayout.CENTER); //Put the video-pane in the middle of the total page
         coursePane.setPreferredSize(new Dimension(400, 900));
         //videoPane.setBackground(Color.RED);
         coursePane.setOpaque( false );
@@ -99,7 +97,7 @@ public class TrainerPage extends Interface{
         // Generate Total Button for each course
         for(int i=0; i<columnLength; i++){
 
-            JButton btn = new JButton(allTrainer[i][0]  + "  "+ allTrainer[i][1]);
+            JButton btn = new JButton("Trainer Name: " + allTrainer[i][0]  + "; Trainer Type: "+ allTrainer[i][1]);
             Button_Back(btn,allTrainer[i][2]);
                 /*JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1] + "mins", new ImageIcon(allCourse[i][3]));
                 btn.setHorizontalTextPosition(SwingConstants.CENTER);

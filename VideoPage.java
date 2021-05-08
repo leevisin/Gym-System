@@ -26,7 +26,7 @@ public class VideoPage extends Interface{
         setLayout(null);
         setLayout(new BorderLayout());
        
-        Image image=new ImageIcon("Source/button_back1.jpg").getImage();
+        Image image=new ImageIcon("Source/button_back.jpg").getImage();
         mainPane = new BackgroundPanel(image);
         mainPane.setLayout(new FlowLayout());
         add(mainPane, BorderLayout.NORTH);

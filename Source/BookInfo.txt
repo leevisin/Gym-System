@@ -1,22 +1,9 @@
-123,Tom,Strength
-123,Ann,Slim
-123,Jack,Explosive Power
-李明晓,Tom,Strength
-李明晓,Jack,Explosive Power
-李明晓,Jack,button_back2.jpg
-李明晓,Tom,Strength
-李明晓,Jack,Explosive Power
-李明晓,Ann,Slim
-李明晓,Jack,button_back2.jpg
-李明晓,Jack,Explosive Power
-LMX,Tom,Strength
-LMX,Jack,Explosive Power
-LMX,Ann,Slim
 Lmx,Tom,Strength
+Lmx,Ann,Slim
 Lmx,Tom,Strength
-Lmx,Tom,Strength
-Lmx,Tom,Strength
-Lmx,Tom,Strength
-Lmx,Tom,Strength
-Lmx,Tom,Strength
+Lmx,Ann,Slim
+Lmx,Ann,Slim
 Lmx,Jack,Explosive Power
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
