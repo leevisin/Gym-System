@@ -1,3 +1,3 @@
-Tom,Strength,Source/button_back1.jpg
-Jack,Explosive Power,Source/button_back2.jpg
-Ann,Slim,Source/button_back3.jpg
+Tom,Strength,images/Trainer1.png
+Jack,Explosive Power,images/Trainer2.png
+Ann,Slim,images/Trainer3.png
