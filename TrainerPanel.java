@@ -17,7 +17,7 @@ public class TrainerPanel extends Interface {
 
 
         trainerPanel.add(searchPanel(), BorderLayout.NORTH);
-        trainerPanel.add(trainersPanel(), BorderLayout.CENTER);
+        trainerPanel.add(scrollPanel(), BorderLayout.CENTER);
         return trainerPanel;
     }
     
@@ -43,10 +43,26 @@ public class TrainerPanel extends Interface {
         return searchPanel;
     }
 
-    public JPanel trainersPanel(){
-        JPanel trainersPanel = new JPanel();
+    public JScrollPane scrollPanel(){
+        
+        int rows = readLine("Source/AllTrainer.txt"); // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
+        
         String[][] trainersInfo = readFromFile("Source/AllTrainer.txt");
         
+        // Problem: Can't scroll
+        JScrollPane scrollPanel = new JScrollPane(
+                trainersPanel,
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
+
         for(int i=0; i<trainersInfo.length; i++){
             // URL url = TrainerPanel.class.getResource(trainersInfo[i][2]);
             // Cause of pictures problem that it can't be shown correctly
@@ -63,9 +79,10 @@ public class TrainerPanel extends Interface {
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             trainersPanel.add(trainerBtn);
-
+            scrollPanel.revalidate();
         }
-        return trainersPanel;
+        
+        return scrollPanel;
     }
 
 

@@ -30,8 +30,17 @@ public class AllCourse{
       File trainerFile = new File("Source/AllTrainer.txt");
       if(!trainerFile.exists()){
         addTrainer("Tom", "Strength", "images/Trainer1.jpg");
-        addTrainer("Jack", "Explosive Power", "images/Trainer2.jpg");
+        addTrainer("Tina", "Slim", "images/Trainer2.jpg");
         addTrainer("Ann", "Slim", "images/Trainer3.jpg");
+        addTrainer("Vee", "Slim", "images/Trainer4.jpg");
+        addTrainer("Dan", "Slim", "images/Trainer5.jpg");
+        addTrainer("Ken", "Strength", "images/Trainer6.jpg");
+        addTrainer("Andy", "Strength", "images/Trainer7.jpg");
+        addTrainer("Lucia", "Slim", "images/Trainer8.jpg");
+        addTrainer("Bert", "Strength", "images/Trainer9.jpg");
+        addTrainer("Rita", "Slim", "images/Trainer10.jpg");
+        addTrainer("Shelley", "Slim", "images/Trainer11.jpg");
+
       }      
       // Need Panel to add video/trainer
     }

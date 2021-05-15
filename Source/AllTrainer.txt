@@ -1,3 +1,11 @@
 Tom,Strength,images/Trainer1.jpg
-Jack,Explosive Power,images/Trainer2.jpg
+Tina,Slim,images/Trainer2.jpg
 Ann,Slim,images/Trainer3.jpg
+Vee,Slim,images/Trainer4.jpg
+Dan,Slim,images/Trainer5.jpg
+Ken,Strength,images/Trainer6.jpg
+Andy,Strength,images/Trainer7.jpg
+Lucia,Slim,images/Trainer8.jpg
+Bert,Strength,images/Trainer9.jpg
+Rita,Slim,images/Trainer10.jpg
+Shelley,Slim,images/Trainer11.jpg

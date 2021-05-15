@@ -9,13 +9,17 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 
 public class TestPanel extends JFrame{
     public TestPanel(){
         JPanel jp = new JPanel();
+        JScrollPane jsp = new JScrollPane(jp, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         URL url = TestPanel.class.getResource("images/search.png");
         Icon icon = new ImageIcon(url);
@@ -33,7 +37,10 @@ public class TestPanel extends JFrame{
 
         // jBtn.setSize(50,50);
         jp.add(jBtn);
-        getContentPane().add(jp);
+        // jsp.add(jp);
+        JLabel TestLabel = new JLabel("This is a Test Label");
+        // jsp.add(TestLabel);
+        getContentPane().add(jsp);
 
         setTitle("Test");
         setVisible(true);
