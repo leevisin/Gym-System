@@ -66,7 +66,7 @@ public class TrainerPanel extends Interface {
         for(int i=0; i<trainersInfo.length; i++){
             // URL url = TrainerPanel.class.getResource(trainersInfo[i][2]);
             // Cause of pictures problem that it can't be shown correctly
-            URL url = TrainerPanel.class.getResource(trainersInfo[i][2]);
+            URL url = TrainerPanel.class.getResource("images/Trainer6.jpg");
             Icon icon = new ImageIcon(url);
             JButton trainerBtn = new JButton(trainersInfo[i][0], icon);
             trainerBtn.setMaximumSize(new Dimension(600,828));
