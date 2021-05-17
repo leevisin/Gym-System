@@ -14,10 +14,8 @@ public class TrainerPanel extends Interface {
     public JPanel trainerPanel(){
         JPanel trainerPanel = new JPanel(new BorderLayout());
         
-
-
         trainerPanel.add(searchPanel(), BorderLayout.NORTH);
-        trainerPanel.add(scrollPanel(), BorderLayout.CENTER);
+        trainerPanel.add(trainersPanel(), BorderLayout.CENTER);
         return trainerPanel;
     }
     
@@ -43,7 +41,7 @@ public class TrainerPanel extends Interface {
         return searchPanel;
     }
 
-    public JScrollPane scrollPanel(){
+    public JPanel trainersPanel(){
         
         int rows = readLine("Source/AllTrainer.txt"); // Trainer Number
         if(rows%3==0){
@@ -53,21 +51,21 @@ public class TrainerPanel extends Interface {
             rows = rows/3 + 1;
         }
         JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
-        
+
+        // JPanel trainersPanel = new JPanel(new FlowLayout());
+
         String[][] trainersInfo = readFromFile("Source/AllTrainer.txt");
         
         // Problem: Can't scroll
-        JScrollPane scrollPanel = new JScrollPane(
-                trainersPanel,
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
+        // JScrollPane scrollPanel = new JScrollPane(
+        //         trainersPanel,
+        //         ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+        //         ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        // );
 
         for(int i=0; i<trainersInfo.length; i++){
-            // URL url = TrainerPanel.class.getResource(trainersInfo[i][2]);
             // Cause of pictures problem that it can't be shown correctly
-            URL url = TrainerPanel.class.getResource("images/Trainer6.jpg");
-            Icon icon = new ImageIcon(url);
+            ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
             JButton trainerBtn = new JButton(trainersInfo[i][0], icon);
             trainerBtn.setMaximumSize(new Dimension(600,828));
             trainerBtn.setIcon(icon);
@@ -79,9 +77,19 @@ public class TrainerPanel extends Interface {
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             trainersPanel.add(trainerBtn);
-            scrollPanel.revalidate();
         }
+
         
+        return trainersPanel;
+    }
+
+    public JScrollPane scrollPanel(){
+        // Problem: Can't scroll
+        JScrollPane scrollPanel = new JScrollPane(
+                trainerPanel(),
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
         return scrollPanel;
     }
 

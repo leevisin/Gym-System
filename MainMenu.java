@@ -34,7 +34,7 @@ public class MainMenu extends JPanel {
         
         JPanel panel3 = new JPanel();
         panel3.setPreferredSize(new Dimension(1280, 720));
-        panel3.add(new TrainerPanel().trainerPanel());
+        panel3.add(new TrainerPanel().scrollPanel());
         tabbedPane.addTab("Trainer", icon, panel3,
                 "Does twice as much nothing");
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
@@ -90,8 +90,9 @@ public class MainMenu extends JPanel {
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        frame.setLocation(30, 20);
-        // frame.setLocationRelativeTo(null);
+        // frame.setLocation(30, 20);
+
+        frame.setLocationRelativeTo(null);
         //Add content to the window.
         frame.add(new MainMenu(), BorderLayout.CENTER);
         
