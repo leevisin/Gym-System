@@ -27,7 +27,7 @@ public class BookInfo extends Interface {
     }
 
     public void recordBookInfo(String trainerName, String trainerType){
-        String filename = "Source/BookInfo.txt";
+        String filename = "texts/BookInfo.txt";
         try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -88,8 +88,26 @@ public class BookInfo extends Interface {
 
         bookBtn.setSize(50,50);
         bookBtn.setBackground(Color.YELLOW);
+        bookBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Object[] options ={ "Confirm", "Cancel" };
+                int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // Confirm Button
+                if(m==0){
+                    recordBookInfo(trainerName, trainerType);
+                    JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
+                    // new BookConfirm();
+                }
+            }
+        });
         JPanel btnPanel = new JPanel(new BorderLayout());
         btnPanel.add(bookBtn, BorderLayout.CENTER);
+
+        returnBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                // Close current window
+            }
+        });
 
         btnPanel.add(returnBtn, BorderLayout.EAST);
 

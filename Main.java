@@ -4,7 +4,6 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class Main {
-
     public static void main(String[] args) {
         JFrame jf = new JFrame("Main Menu");
         jf.setSize(1280, 720);
