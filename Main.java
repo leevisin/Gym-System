@@ -41,8 +41,7 @@ public class Main {
     private static JComponent createTextPanel(String text) {
 
         JPanel panel = new JPanel(new GridLayout(1, 1));
-
-
+        
         JLabel label = new JLabel(text);
         label.setFont(new Font(null, Font.PLAIN, 50));
         label.setHorizontalAlignment(SwingConstants.CENTER);

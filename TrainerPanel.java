@@ -52,21 +52,22 @@ public class TrainerPanel extends Interface {
         }
         JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
 
-        // JPanel trainersPanel = new JPanel(new FlowLayout());
-
         String[][] trainersInfo = readFromFile("Source/AllTrainer.txt");
-        
-        // Problem: Can't scroll
-        // JScrollPane scrollPanel = new JScrollPane(
-        //         trainersPanel,
-        //         ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-        //         ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        // );
 
         for(int i=0; i<trainersInfo.length; i++){
-            // Cause of pictures problem that it can't be shown correctly
+            String trainerName = trainersInfo[i][0];
+            String trainerType = trainersInfo[i][1];
+            String imagesPath = trainersInfo[i][2];
+
             ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
             JButton trainerBtn = new JButton(trainersInfo[i][0], icon);
+
+            trainerBtn.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    new BookInfo(trainerName, trainerType, imagesPath);
+                }
+            });
+
             trainerBtn.setMaximumSize(new Dimension(600,828));
             trainerBtn.setIcon(icon);
             trainerBtn.setHideActionText(true);
@@ -84,7 +85,6 @@ public class TrainerPanel extends Interface {
     }
 
     public JScrollPane scrollPanel(){
-        // Problem: Can't scroll
         JScrollPane scrollPanel = new JScrollPane(
                 trainerPanel(),
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
