@@ -75,7 +75,7 @@ public class TrainerPage extends Interface{
                     }
                     else
                     {
-                        BookInfo bi = new BookInfo(name, type, imagePath);
+                        BookInfo bi = new BookInfo(name, type, imagePath); // Lack of intro 
                         bi.setTitle("Book Infomation");
                         bi.pack();
                         bi.setSize(600, 800);

@@ -11,7 +11,7 @@ import java.nio.file.*;
 public class BookInfo extends Interface {
 
     
-    public BookInfo(String trainerName, String trainerType, String imagePath){
+    public BookInfo(String trainerName, String trainerType, String imagePath, String intro){
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
@@ -23,7 +23,7 @@ public class BookInfo extends Interface {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath));
+        frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath, intro));
     }
 
     public void recordBookInfo(String trainerName, String trainerType){
@@ -72,7 +72,7 @@ public class BookInfo extends Interface {
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
 
-    public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath){
+    public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath, String intro){
         JPanel infoPanel = new JPanel(new BorderLayout());
         JPanel imagesPanel = new JPanel();
         JPanel textPanel = new JPanel(new BorderLayout());
@@ -82,7 +82,9 @@ public class BookInfo extends Interface {
         JPanel namePanel = trainerName(trainerName);
         JPanel typePanel = trainerType(trainerType);
         namePanel.add(typePanel);
-        typePanel.add(new JLabel("Trainer Introduction"));
+        
+        // Need to change line may be not JLabel
+        typePanel.add(new JLabel(intro));
         textPanel.add(namePanel, BorderLayout.NORTH);
 
 
