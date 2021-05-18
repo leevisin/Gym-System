@@ -2,6 +2,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 public class Util {
     public static String pathname = "Source/member.txt"; //text file record all user information
@@ -86,7 +87,7 @@ public class Util {
         try{
         OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(new File(currentuser)), StandardCharsets.UTF_8);
         writer.flush();             //flush the buffer
-        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail());
+        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType());
         writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -146,6 +147,106 @@ public class Util {
 
 
 
+    public static ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = TabbedPaneDemo.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
+
+     /**
+	 * Verify the format of a new email
+	 * @param bankaccount the bankaccount inputed by user
+	 * @return boolean indicate wheter it is valid
+	 */
+    public static boolean accountFormat(String bankaccount){
+
+        int i = 0;
+        //consist of only number
+        for(i=0;i<bankaccount.length();i++){
+          if(!Character.isDigit(bankaccount.charAt(i))){
+                return false;
+          }
+        }
+        // length should be over 5
+        if(bankaccount.length()<5){
+            return false;
+        }
+        return true;
+
+        
+    }
+
+    // Get the user information from file.txt
+    public static String[][] readFromFile(String filename){
+        // Exit when file not exist
+        try {
+            File file = new File(filename);
+            if(!file.exists()){
+                System.out.println("No such file, then we will exit..");
+                System.exit(0);
+            }
+        } catch (Exception e) {
+            System.out.println("Create Base Enviroment Error!");
+        }
+
+        String contents = "";
+        try{
+            FileReader fileReader = new FileReader(filename);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String oneLine = bufferedReader.readLine();
+            while(oneLine != null){
+                contents += oneLine + ",";
+                oneLine = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+        }
+        catch (IOException e) {
+            System.out.println("Errors occured: IOException!");
+            System.exit(1);
+        }     
+
+        // Store file contents into array
+        int rows = readLine(filename);
+        String[] courseContents = contents.split(",");
+        int columns = courseContents.length/rows;
+        String[][] infoArray = new String[rows][columns];
+        int k=0;
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                infoArray[i][j] = courseContents[k];
+                k++;
+            }
+        }
+
+        // Read information to an array and storage it, so that it needn't read twice.
+        return infoArray;
+     }
+
+     public static int readLine(String filename){
+        int lines = 0;
+        try {
+           FileReader fileReader = new FileReader(filename);
+           BufferedReader bufferedReader = new BufferedReader(fileReader);
+           String oneLine = bufferedReader.readLine();
+           while(oneLine != null){
+               lines++;
+               oneLine = bufferedReader.readLine();
+           }
+           bufferedReader.close();
+           fileReader.close();
+        } catch (Exception e) {
+           System.out.println("readLine function error!");
+        }
+       return lines;
+    }
+
+
+
 
     
 }
@@ -153,5 +254,7 @@ public class Util {
    /**
 	 * updated on 2021/4/21: added the function of verify e-mail and password format
 	 * updated on 2021/4/21: added the function of record current user
-	 *
+	 * updated on 2021/5/18: added the function of creating ImageIcon
+     * updated on 2021/5/18: added the function of verifying bank account format
+     * updated on 2021/5/18: added the function of read text file into a string array
 	 */
