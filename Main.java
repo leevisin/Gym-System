@@ -15,7 +15,7 @@ public class Main {
 
         tabbedPane.addTab("Home", createTextPanel("Home Panel"));
 
-        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), createTextPanel("Video Panel"));
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
 
         tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel(), "This is a tab.");
 

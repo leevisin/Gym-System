@@ -11,17 +11,17 @@ import java.io.IOException;
 public class VideoPanel extends Interface{
     String fileName = "Source/AllVideo.txt";
     Robot robot = null;
+    JPanel videoPanel = new JPanel(new BorderLayout());
 
     public VideoPanel(){}
 
     public JPanel videoPanel(){
-        JPanel videoPanel = new JPanel(new BorderLayout());
-
+        
         
 
 
         videoPanel.add(searchPanel(), BorderLayout.NORTH);
-        videoPanel.add(scrollPane(), BorderLayout.CENTER);
+        videoPanel.add(coursePanel(), BorderLayout.CENTER);
         
         return videoPanel;    
     }
@@ -33,19 +33,22 @@ public class VideoPanel extends Interface{
         URL url = VideoPanel.class.getResource("images/search.png");
         Icon icon = new ImageIcon(url);
         JButton searchBtn = new JButton(icon);
+
         searchBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse("Source/AllVideo.txt",input);
-                for(int i=0;i<=searchResult.length;i++){
+                /*for(int i=0;i<=searchResult.length;i++){
                     System.out.println(searchResult[i][0]);
-                }
+                }*/
                 if(input.equals("")) {
                     JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
-                else if(input!=null){
-                    if(searchResult[0][0]==null){
-                        JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "There is no searched resault!","Warning!",JOptionPane.WARNING_MESSAGE);}
+                else{
+                    videoPanel.removeAll();
+                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                    videoPanel.add(refreshVideoPanel(searchResult), BorderLayout.CENTER);
+                    videoPanel.revalidate();
                 }   
             }
         });
@@ -57,16 +60,43 @@ public class VideoPanel extends Interface{
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
 
+        String[][] tagVideo = classifyByTag("Source/AllVideo.txt");
+
+        JButton AllBtn =new JButton("All courses");
+        String[][] allvideo = readFromFile("Source/AllVideo.txt");
+        AllBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                    videoPanel.removeAll();
+                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                    videoPanel.add(refreshVideoPanel(allvideo), BorderLayout.CENTER);
+                    videoPanel.revalidate();
+            }
+        });
+
+        JButton tagBtn =new JButton("Classsified");
+        tagBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                    videoPanel.removeAll();
+                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                    videoPanel.add(refreshVideoPanel(tagVideo), BorderLayout.CENTER);
+                    videoPanel.revalidate();
+            }
+        });
+       
         searchPanel.add(textField);
         searchPanel.add(searchBtn);
-
+        searchPanel.add(AllBtn);
+        searchPanel.add(tagBtn);
         return searchPanel;
     }
     
 
-    public JScrollPane scrollPane(){
+    public JPanel coursePanel(){
+
         JPanel coursePanel=new JPanel();
         coursePanel.setLayout(new FlowLayout());
+        
+        
         coursePanel.setPreferredSize(new Dimension(1000, 2000));
           String[][] allCourse = readFromFile("Source/AllVideo.txt");
          int rowLength= allCourse.length;
@@ -89,29 +119,45 @@ public class VideoPanel extends Interface{
             coursePanel.add(btn);
         }
 
-        
-        //define videoPane and make it flow layout
-       JPanel totalPane = new JPanel();
-        totalPane.setLayout(new FlowLayout());
-        add(totalPane, BorderLayout.CENTER);//Put the video-pane in the middle of the total page
-        totalPane.setPreferredSize(new Dimension(1000, 2000));
-        //videoPane.setBackground(Color.RED);
-        totalPane.setOpaque( false );
-        totalPane.setPreferredSize( new Dimension(1000, 2000) );
-        totalPane.add(coursePanel);
 
-        JScrollPane scrollPanel = new JScrollPane( totalPane );
         
-        try {
+
+        
+       
+
+        return coursePanel;
+    }
+    public JPanel refreshVideoPanel(String[][] searchResult){
+        
+        JPanel coursePanel=new JPanel();
+        coursePanel.setLayout(new FlowLayout());
+        
+        
+        coursePanel.setPreferredSize(new Dimension(1000, 2000));
+
+        for(int i=0; i<searchResult.length; i++){
+            String videoName = searchResult[i][0];
+            String videoTime = searchResult[i][1];
+            String videoType = searchResult[i][2];
+            String videoPath = searchResult[i][3];
+            String videoPicture = searchResult[i][4];
+
+            JButton btn = new JButton(videoName+ "  "+ videoTime);
+            Button_Back(btn,videoPicture);
             
-            robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
+                btn.addActionListener(new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        // System.out.println("This button is clicked.");
+                        playVideo(videoPath);
+                        System.out.println("This course name is " + videoName ); // return is still error.
+                    }
+                });
+            coursePanel.add(btn);
+            
         }
 
-        return scrollPanel;
+        return coursePanel;
     }
-
 
     public static void Button_Back(JButton Button,String ImagePath){
         Button.setBounds(0, 0, 300, 200);
@@ -126,5 +172,13 @@ public class VideoPanel extends Interface{
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
 
+    public JScrollPane scrollPanel(){
+        JScrollPane scrollPanel = new JScrollPane(
+                videoPanel(),
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
+        return scrollPanel;
+    }
     
 }
