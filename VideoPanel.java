@@ -93,11 +93,19 @@ public class VideoPanel extends Interface{
 
     public JPanel coursePanel(){
 
+        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        
         JPanel coursePanel=new JPanel();
         coursePanel.setLayout(new FlowLayout());
         
         
-        coursePanel.setPreferredSize(new Dimension(1000, 2000));
+        coursePanel.setPreferredSize(new Dimension(1000, rows*250));
           String[][] allCourse = readFromFile("Source/AllVideo.txt");
          int rowLength= allCourse.length;
          
@@ -128,12 +136,21 @@ public class VideoPanel extends Interface{
         return coursePanel;
     }
     public JPanel refreshVideoPanel(String[][] searchResult){
+
+        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        
         
         JPanel coursePanel=new JPanel();
         coursePanel.setLayout(new FlowLayout());
         
         
-        coursePanel.setPreferredSize(new Dimension(1000, 2000));
+        coursePanel.setPreferredSize(new Dimension(1000, rows*250));
 
         for(int i=0; i<searchResult.length; i++){
             String videoName = searchResult[i][0];
