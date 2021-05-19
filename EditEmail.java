@@ -19,6 +19,7 @@ import java.util.Objects;
 
    /**
 	 * Created on 2021/05/06
+     * Updated on 2021/5/18: change the output to correspond to the change in the JTabbedPane
 	 * 
 	 */
 
@@ -32,10 +33,15 @@ public class EditEmail extends JFrame{
     JTextField newemail2;
     JTextField confirmemail2;
 
+    JTabbedPane jt1;// the Tabbed Pane is passed in
+
 
     
 
-    public EditEmail(String currentaccount) throws HeadlessException{
+    public EditEmail(String currentaccount,JTabbedPane jt) throws HeadlessException{
+        //accquire the JTabbedPane that created this page
+        jt1 = jt;
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);
         JPanel contentPane = new JPanel();
@@ -95,8 +101,10 @@ public class EditEmail extends JFrame{
                             JOptionPane.showMessageDialog(EditEmail.super.rootPane, "E-mail successfully changed");
                             EditEmail.super.dispose();
                             
-                            Profile pf = new Profile();
-			                pf.runpf();
+                            //update the change to UserInfoPane
+                            UserInfoPane uip = new UserInfoPane();
+                            jt1.setComponentAt(0, uip.makeUserInfoPane(jt1));
+			                
                             
                         }
                      }
@@ -107,9 +115,11 @@ public class EditEmail extends JFrame{
         
 
     }
+
+    
     public static void main(String[] args) {
       
-        //new EditEmail("LMX").setVisible(true);
+    //new EditEmail("LMX").setVisible(true);
     } 
 }
 

@@ -2,14 +2,16 @@ public class Member {
     private String account;
     private String password;
     private String email;
+    private String userType;//userType is "normal" in default      can be "VIP" after updating
 
     public Member() {
     }
 
-    public Member(String account, String password, String email) {
+    public Member(String account, String password, String email,String userType) {
         this.account = account;
         this.password = password;
         this.email = email;
+        this.userType = userType;
     }
 
     public String getAccount() {
@@ -34,6 +36,13 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUserType(){
+        return userType;
+    }
+    public void setUserType(String userType){
+        this.userType = userType;
     }
 
 
