@@ -10,13 +10,15 @@ import java.nio.file.*;
 
 public class BookInfo extends Interface {
 
-    
+    JFrame frame = new JFrame();
+
     public BookInfo(String trainerName, String trainerType, String imagePath, String intro){
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
 
-        JFrame frame = new JFrame();
+        // Need Add Available Time!!!!!!!!!
+        
         frame.setTitle("Trainer Detail Infomation");
         frame.pack();
         frame.setSize(1280, 550);
@@ -108,6 +110,7 @@ public class BookInfo extends Interface {
         returnBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 // Close current window
+                frame.setVisible(false);
             }
         });
 
