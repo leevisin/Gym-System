@@ -75,11 +75,11 @@ public class TrainerPage extends Interface{
                     }
                     else
                     {
-                        BookInfo bi = new BookInfo(name, type, imagePath); // Lack of intro 
-                        bi.setTitle("Book Infomation");
-                        bi.pack();
-                        bi.setSize(600, 800);
-                        bi.setVisible(true);
+                        // BookInfo bi = new BookInfo(name, type, imagePath); // Lack of intro 
+                        // bi.setTitle("Book Infomation");
+                        // bi.pack();
+                        // bi.setSize(600, 800);
+                        // bi.setVisible(true);
                     }
             }
         });
@@ -113,11 +113,11 @@ public class TrainerPage extends Interface{
                     // System.out.println("This button is clicked.");
                     System.out.println("This trainer name is " + name ); // return is still error.
                     // System.out.println("This button is clicked.");
-                    BookInfo bi = new BookInfo(name, type, imagePath);
-                    bi.setTitle("Book Infomation");
-                    bi.pack();
-                    bi.setSize(600, 800);
-                    bi.setVisible(true);
+                    // BookInfo bi = new BookInfo(name, type, imagePath);
+                    // bi.setTitle("Book Infomation");
+                    // bi.pack();
+                    // bi.setSize(600, 800);
+                    // bi.setVisible(true);
                 }
             });
             totalPane.add(btn);
