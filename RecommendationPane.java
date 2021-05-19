@@ -101,7 +101,7 @@ public class RecommendationPane {
 	        recommendationPane.add(recommend);
 
             //getting trainer information from AllTrainer.txt
-            String[][] trainersInfo = Util.readFromFile("Source/AllTrainer.txt");
+            String[][] trainersInfo = Util.readFromFile("texts/AllTrainer.txt");
 
             recommend.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
@@ -120,7 +120,8 @@ public class RecommendationPane {
                                 String trainerName = trainersInfo[i][0];
                                 String trainerType = trainersInfo[i][1];
                                 String imagesPath = trainersInfo[i][2];
-                                new BookInfo(trainerName, trainerType, imagesPath);
+                                String intro = trainersInfo[i][3];
+                                new BookInfo(trainerName, trainerType, imagesPath,intro);
                             }
                             else{
                                 i++;
@@ -142,7 +143,8 @@ public class RecommendationPane {
                                 String trainerName = trainersInfo[i][0];
                                 String trainerType = trainersInfo[i][1];
                                 String imagesPath = trainersInfo[i][2];
-                                new BookInfo(trainerName, trainerType, imagesPath);
+                                String intro = trainersInfo[i][3];
+                                new BookInfo(trainerName, trainerType, imagesPath,intro);
 
                             }
                             else{
