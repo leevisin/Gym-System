@@ -7,3 +7,7 @@ Lmx,Jack,Explosive Power
 Lmx,Tom,Strength
 Lmx,Tom,Strength
 Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tina,Slim

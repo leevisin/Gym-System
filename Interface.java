@@ -126,8 +126,8 @@ import java.util.*;
         System.out.println("You have added video: " + videoName);
       }
   
-      public void addTrainer(String trainerName, String trainerType, String figPath){
-        Trainer trainer = new Trainer(trainerName, trainerType, figPath);
+      public void addTrainer(String trainerName, String trainerType, String figPath, String intro){
+        Trainer trainer = new Trainer(trainerName, trainerType, figPath, intro);
         new AllCourse().writeTrainerToFile(trainer);
         System.out.println("You have added Trainer: " + trainerName);
       }

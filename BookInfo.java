@@ -1,34 +1,35 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.DimensionUIResource;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.text.*;
 import java.nio.file.*;
 
-public class BookInfo extends JFrame {
+public class BookInfo extends Interface {
 
-    
-    public BookInfo(String trainerName, String trainerType, String imagePath){
+    JFrame frame = new JFrame();
+
+    public BookInfo(String trainerName, String trainerType, String imagePath, String intro){
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
-        JPanel totalPane = new JPanel();
-        totalPane.setLayout(new FlowLayout());
-        totalPane.setPreferredSize(new Dimension(400, 1000));
-        JButton btn = new JButton("You have booked " + trainerName + "'s " + trainerType + " course successfully!");
-        Button_Back(btn,imagePath);
-        recordBookInfo(trainerName, trainerType);
-        //JLabel info = new JLabel("You have booked " + trainerName + "'s " + trainerType + " course successfully!",JLabel.CENTER);
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.add("Center",btn);
-        //panel.add("Center",info);
-        totalPane.add("Center",panel);
-        getContentPane().add(panel);
+
+        // Need Add Available Time!!!!!!!!!
+        
+        frame.setTitle("Trainer Detail Infomation");
+        frame.pack();
+        frame.setSize(1280, 550);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath, intro));
     }
 
     public void recordBookInfo(String trainerName, String trainerType){
-        String filename = "Source/BookInfo.txt";
+        String filename = "texts/BookInfo.txt";
         try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -71,6 +72,103 @@ public class BookInfo extends JFrame {
         Button.setFocusPainted(false);
         Button.setVerticalTextPosition(JButton.BOTTOM);
         Button.setHorizontalTextPosition(JButton.CENTER);
+    }
+
+    public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath, String intro){
+        JPanel infoPanel = new JPanel(new BorderLayout());
+        JPanel imagesPanel = new JPanel();
+        JPanel textPanel = new JPanel(new BorderLayout());
+        JButton bookBtn = new JButton("Click to Book Trainer");
+        JButton returnBtn = new JButton("Return");
+
+        JPanel namePanel = trainerName(trainerName);
+        JPanel typePanel = trainerType(trainerType);
+        namePanel.add(typePanel);
+        
+        // Need to change line may be not JLabel
+        typePanel.add(new JLabel(intro));
+        textPanel.add(namePanel, BorderLayout.NORTH);
+
+
+        bookBtn.setSize(50,50);
+        bookBtn.setBackground(Color.YELLOW);
+        bookBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Object[] options ={ "Confirm", "Cancel" };
+                int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // Confirm Button
+                if(m==0){
+                    recordBookInfo(trainerName, trainerType);
+                    JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
+                    // new BookConfirm();
+                }
+            }
+        });
+        JPanel btnPanel = new JPanel(new BorderLayout());
+        btnPanel.add(bookBtn, BorderLayout.CENTER);
+
+        returnBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                // Close current window
+                frame.setVisible(false);
+            }
+        });
+
+        btnPanel.add(returnBtn, BorderLayout.EAST);
+
+        JPanel blankPanel = new JPanel();
+        blankPanel.setPreferredSize(new Dimension(10, 20));
+        btnPanel.add(blankPanel, BorderLayout.SOUTH);
+        
+        textPanel.add(btnPanel, BorderLayout.SOUTH);
+
+
+
+
+
+        imagesPanel.add(trainerPicture(imagePath));
+        
+
+        infoPanel.add(imagesPanel, BorderLayout.WEST);
+        infoPanel.add(textPanel, BorderLayout.CENTER);
+        return infoPanel;
+    }
+
+    public JButton trainerPicture(String imagePath){
+        ImageIcon icon = new ImageIcon(imagePath);
+        JButton trainerBtn = new JButton(icon);
+        trainerBtn.setMaximumSize(new Dimension(600,828));
+        trainerBtn.setIcon(icon);
+        trainerBtn.setHideActionText(true);
+        trainerBtn.setToolTipText("Click to Show Detail Information");
+        trainerBtn.setBorderPainted(false);
+        trainerBtn.setContentAreaFilled(false);
+        trainerBtn.setFocusPainted(false);
+        trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
+        trainerBtn.setHorizontalTextPosition(JButton.CENTER);
+        return trainerBtn;
+    }
+
+    public JPanel trainerName(String trainerName){
+        JPanel trainerNamePanel = new JPanel(new BorderLayout());
+
+        JLabel label = new JLabel(trainerName);
+        label.setFont(new Font(null, Font.BOLD, 150));
+        label.setHorizontalAlignment(SwingConstants.LEFT);
+
+        trainerNamePanel.add(label, BorderLayout.NORTH);
+        return trainerNamePanel;
+    }
+
+    public JPanel trainerType(String trainerType){
+        JPanel trainerTypePanel = new JPanel(new BorderLayout());
+
+        JLabel label = new JLabel(trainerType + "   ");
+        label.setFont(new Font(null, Font.ITALIC, 50));
+        label.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        trainerTypePanel.add(label, BorderLayout.NORTH);
+        return trainerTypePanel;
     }
 }
 

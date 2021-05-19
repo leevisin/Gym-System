@@ -6,18 +6,26 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 public class TrainerPanel extends Interface {
+    JPanel trainerPanel = new JPanel(new BorderLayout());
+    
     public TrainerPanel(){}
 
     public JPanel trainerPanel(){
-        JPanel trainerPanel = new JPanel(new BorderLayout());
+        try {
+            File file = new File("texts/AllTrainer.txt");
+            if(!file.exists()){
+                new AllCourse();
+            }
+        } catch (Exception e) {
+            System.out.println("Create Base Enviroment Error!");
+        }
         
-
-
         trainerPanel.add(searchPanel(), BorderLayout.NORTH);
-        trainerPanel.add(scrollPanel(), BorderLayout.CENTER);
+        trainerPanel.add(trainersPanel(), BorderLayout.CENTER);
         return trainerPanel;
     }
     
@@ -29,6 +37,17 @@ public class TrainerPanel extends Interface {
         URL url = TrainerPanel.class.getResource("images/search.png");
         Icon icon = new ImageIcon(url);
         JButton searchBtn = new JButton(icon);
+
+        searchBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               String[][] searchTrainers = searchCourse("texts/AllTrainer.txt", textField.getText());
+               trainerPanel.removeAll();
+               trainerPanel.add(searchPanel(), BorderLayout.NORTH);
+               trainerPanel.add(refreshTrainerPanel(searchTrainers), BorderLayout.CENTER);
+               trainerPanel.revalidate();
+            }
+        });
+
         searchBtn.setMaximumSize(new Dimension(32,32));
         searchBtn.setIcon(icon);
         searchBtn.setHideActionText(true);
@@ -43,9 +62,9 @@ public class TrainerPanel extends Interface {
         return searchPanel;
     }
 
-    public JScrollPane scrollPanel(){
+    public JPanel trainersPanel(){
         
-        int rows = readLine("Source/AllTrainer.txt"); // Trainer Number
+        int rows = readLine("texts/AllTrainer.txt"); // Trainer Number
         if(rows%3==0){
             rows /= 3;
         }
@@ -53,22 +72,26 @@ public class TrainerPanel extends Interface {
             rows = rows/3 + 1;
         }
         JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
-        
-        String[][] trainersInfo = readFromFile("Source/AllTrainer.txt");
-        
-        // Problem: Can't scroll
-        JScrollPane scrollPanel = new JScrollPane(
-                trainersPanel,
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
+
+        String[][] trainersInfo = readFromFile("texts/AllTrainer.txt");
 
         for(int i=0; i<trainersInfo.length; i++){
-            // URL url = TrainerPanel.class.getResource(trainersInfo[i][2]);
-            // Cause of pictures problem that it can't be shown correctly
-            URL url = TrainerPanel.class.getResource("images/Trainer6.jpg");
-            Icon icon = new ImageIcon(url);
+            String trainerName = trainersInfo[i][0];
+            String trainerType = trainersInfo[i][1];
+            String imagesPath = trainersInfo[i][2];
+            String intro = trainersInfo[i][3];
+            // Problem intro String can't be too long
+
+
+            ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
             JButton trainerBtn = new JButton(trainersInfo[i][0], icon);
+
+            trainerBtn.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    new BookInfo(trainerName, trainerType, imagesPath, intro);
+                }
+            });
+
             trainerBtn.setMaximumSize(new Dimension(600,828));
             trainerBtn.setIcon(icon);
             trainerBtn.setHideActionText(true);
@@ -79,9 +102,60 @@ public class TrainerPanel extends Interface {
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             trainersPanel.add(trainerBtn);
-            scrollPanel.revalidate();
         }
+
         
+        return trainersPanel;
+    }
+
+    public JPanel refreshTrainerPanel(String[][] searchTrainers){
+        
+        int rows = searchTrainers.length; // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
+
+        for(int i=0; i<searchTrainers.length; i++){
+            String trainerName = searchTrainers[i][0];
+            String trainerType = searchTrainers[i][1];
+            String imagesPath = searchTrainers[i][2];
+            String intro = searchTrainers[i][3];
+
+            ImageIcon icon = new ImageIcon(searchTrainers[i][2]);
+            JButton trainerBtn = new JButton(searchTrainers[i][0], icon);
+
+            trainerBtn.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    new BookInfo(trainerName, trainerType, imagesPath, intro);
+                }
+            });
+
+            trainerBtn.setMaximumSize(new Dimension(600,828));
+            trainerBtn.setIcon(icon);
+            trainerBtn.setHideActionText(true);
+            trainerBtn.setToolTipText("Click to Show Detail Information");
+            trainerBtn.setBorderPainted(false);
+            trainerBtn.setContentAreaFilled(false);
+            trainerBtn.setFocusPainted(false);
+            trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
+            trainerBtn.setHorizontalTextPosition(JButton.CENTER);
+            trainersPanel.add(trainerBtn);
+        }
+
+        
+        return trainersPanel;
+    }
+
+    public JScrollPane scrollPanel(){
+        JScrollPane scrollPanel = new JScrollPane(
+                trainerPanel(),
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
         return scrollPanel;
     }
 
