@@ -74,10 +74,8 @@ public class EditUserType2 extends JFrame{
                     eut3.setLocation(800,300);
                     eut3.setVisible(true);
                     //update the change to UserInfoPane
-                    jt1.remove(0);//remove the first page
-                    ImageIcon icon = Util.createImageIcon("images/middle.gif");
                     UserInfoPane uip = new UserInfoPane();
-                    jt1.insertTab("User Info", icon, uip.makeUserInfoPane(jt1), "UserInfo",0);
+                    jt1.setComponentAt(0, uip.makeUserInfoPane(jt1));
                 }
             
                 else{

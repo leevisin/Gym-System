@@ -96,11 +96,9 @@ public class EditPassword extends JFrame{
                             EditPassword.super.dispose();
                             
                            //update the change to the UserInfoPane
-                           
-                           jt1.remove(0);//remove the first page
-                           ImageIcon icon = Util.createImageIcon("images/middle.gif");
+
                            UserInfoPane uip = new UserInfoPane();
-                           jt1.insertTab("User Info", icon, uip.makeUserInfoPane(jt1), "UserInfo",0);
+                           jt1.setComponentAt(0, uip.makeUserInfoPane(jt1));
                             
                         }
                      }

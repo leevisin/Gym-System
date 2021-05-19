@@ -38,6 +38,8 @@ public class UserTabbedPane extends Interface{
         BookedTrainerPane btp = new BookedTrainerPane();
         userTabbedPane.addTab("BookedTrainer", icon,btp.makeBookedTrainerPane(userTabbedPane));
 
+        //No.3 Recommendation Page
+
 
 
 
