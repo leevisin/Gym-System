@@ -83,7 +83,7 @@ public class Register extends JFrame {
 
 
         JLabel backGroundLabel = new JLabel("");
-        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("background.jpg")));
+        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("Source/background.jpg")));
         backGroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backGroundLabel);
        
@@ -129,7 +129,7 @@ public class Register extends JFrame {
                     if (!password.equals(confirm)){
                         mess = "Entered passwords differ!";                //5. check for whether password meets confirmation
                     }else {
-                        Member member = new Member(account,password,email);//if all test passed, create new Member object
+                        Member member = new Member(account,password,email,"normal");//if all test passed, create new Member object
                         members.add(member);
                         if (Util.writeFile(members)){                      //write account information into file
                             mess = "Register Success!";

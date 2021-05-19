@@ -18,6 +18,7 @@ import java.awt.*;
 import java.util.Objects;
   /**
 	 * Created on 2021/05/06
+     * updated on 2021/5/18: modified to accomadate change in JTabbedPane
 	 * 
 	 */
 
@@ -31,10 +32,13 @@ public class EditPassword extends JFrame{
     JTextField newpassword2;
     JTextField confirmpassword2;
 
+    JTabbedPane jt1;
+
 
     
 
-    public EditPassword(String currentaccount) throws HeadlessException{
+    public EditPassword(String currentaccount,JTabbedPane jtb) throws HeadlessException{
+        jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);
         JPanel contentPane = new JPanel();
@@ -91,8 +95,10 @@ public class EditPassword extends JFrame{
                             JOptionPane.showMessageDialog(EditPassword.super.rootPane, "Password successfully changed");
                             EditPassword.super.dispose();
                             
-                            Profile pf = new Profile();
-			                pf.runpf();
+                           //update the change to the UserInfoPane
+
+                           UserInfoPane uip = new UserInfoPane();
+                           jt1.setComponentAt(0, uip.makeUserInfoPane(jt1));
                             
                         }
                      }
@@ -105,7 +111,7 @@ public class EditPassword extends JFrame{
     }
     public static void main(String[] args) {
        
-        new EditPassword("LMX").setVisible(true);
+        //new EditPassword("LMX").setVisible(true);
     } 
 }
 

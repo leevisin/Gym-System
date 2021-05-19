@@ -1,1 +1,1 @@
-Lmx,190,60,Fat-Loss,120min,1
+Lmx,2,3,Rehabilitation-training,180min,3
