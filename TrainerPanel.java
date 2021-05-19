@@ -34,8 +34,9 @@ public class TrainerPanel extends Interface {
         JTextField textField = new JTextField(20);
         String userInput = textField.getText();
 
-        URL url = TrainerPanel.class.getResource("images/search.png");
-        Icon icon = new ImageIcon(url);
+        // URL url = TrainerPanel.class.getResource("images/search.png");
+        // Icon icon = new ImageIcon(url);
+        ImageIcon icon = new ImageIcon("images/search.png");
         JButton searchBtn = new JButton(icon);
 
         searchBtn.addActionListener(new ActionListener(){
