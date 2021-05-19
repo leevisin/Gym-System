@@ -28,7 +28,7 @@ public class TabbedPaneDemo extends JPanel {
 
         JPanel panel2 = new JPanel();
         panel2.setPreferredSize(new Dimension(1280, 720));
-        panel2.add(new VideoDemo().videoPanel());
+        panel2.add(new VideoPanel().videoPanel());
         tabbedPane.addTab("Video", panel2);
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
         
