@@ -39,7 +39,8 @@ public class UserTabbedPane extends Interface{
         userTabbedPane.addTab("BookedTrainer", icon,btp.makeBookedTrainerPane(userTabbedPane));
 
         //No.3 Recommendation Page
-
+        RecommendationPane rdp = new RecommendationPane();
+        userTabbedPane.addTab("Recommendation", icon,rdp.makeRecomPane(userTabbedPane));
 
 
 
