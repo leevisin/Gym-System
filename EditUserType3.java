@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.Objects;
   /**
 	 * Created on 2021/05/18
-	 * 
+	 * updated on 2021/05/21: modify the page, now have two type of user 
 	 */
 
 

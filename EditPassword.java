@@ -19,6 +19,7 @@ import java.util.Objects;
   /**
 	 * Created on 2021/05/06
      * updated on 2021/5/18: modified to accomadate change in JTabbedPane
+     * updated on 2021/5/21
 	 * 
 	 */
 
@@ -75,6 +76,12 @@ public class EditPassword extends JFrame{
         confirmpassword2.setBounds(130, 120, 145, 25);  //reenter new password here to confirm
         confirmpassword2.setColumns(10);
         contentPane.add(confirmpassword2);
+
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                EditPassword.super.dispose();
+            }
+        });
 
 
         confirm.addActionListener(new ActionListener() {

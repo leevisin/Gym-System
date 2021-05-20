@@ -25,6 +25,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 /** 
  *  Created on 2021/5/18:The JPane contain 1 part of user information
+ *  updated on 2021/05/21: modify the appearance of this page
  * 
  * 
  */
@@ -36,6 +37,7 @@ public class UserInfoPane {
 	public String currentpassword = null;
 	public String currentemail = null;
     public String currentusertype = null;
+    public String currentvediotimes = null;
 
 
     /**
@@ -48,6 +50,7 @@ public class UserInfoPane {
         userInfoPane = new JPanel();
         userInfoPane.setLayout(null);
         userInfoPane.setBounds(0, 0, 1200, 800);
+        userInfoPane.setBackground(java.awt.Color.white);
 
         //accquire information of current user
 		String allinfo; 
@@ -63,6 +66,7 @@ public class UserInfoPane {
 		    currentpassword = info[1];
 		    currentemail = info[2];
             currentusertype = info[3];
+            currentvediotimes = info[4];
 
 		    br.close();
 		}catch (IOException e) {
@@ -71,51 +75,82 @@ public class UserInfoPane {
 
         //adding Component to display information
         JLabel aNewLabel = new JLabel("Profile");
-        aNewLabel.setBounds(580, 10, 72, 37);
+        aNewLabel.setBounds(400, 10, 400, 120);
+        aNewLabel.setFont(new Font(null, Font.PLAIN, 45));
+        aNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel);
 
         JLabel aNewLabel1 = new JLabel("Account:");
-        aNewLabel1.setBounds(420, 150, 138, 54);
+        aNewLabel1.setBounds(220, 130, 200, 54);
+        aNewLabel1.setFont(new Font(null, Font.PLAIN, 25));
+        //aNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel1);
 
         JLabel aNewLabel2 = new JLabel("Password:");
-        aNewLabel2.setBounds(420, 230, 138, 54);
+        aNewLabel2.setBounds(220, 230, 200, 80);
+        aNewLabel2.setFont(new Font(null, Font.PLAIN, 25));
+        //aNewLabel2.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel2);
 
         JLabel aNewLabel3 = new JLabel("Email:");
-        aNewLabel3.setBounds(420, 310, 138, 54);
+        aNewLabel3.setBounds(220, 330, 200, 80);
+        aNewLabel3.setFont(new Font(null, Font.PLAIN, 25));
+        //aNewLabel3.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel3);
 
         JLabel aNewLabel7 = new JLabel("User Type:");
-        aNewLabel7.setBounds(420, 390, 138, 54);
+        aNewLabel7.setBounds(220, 430, 200, 80);
+        aNewLabel7.setFont(new Font(null, Font.PLAIN, 25));
+        //aNewLabel7.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel7);
+
+        JLabel aNewLabel9 = new JLabel("Vedio Times:");
+        aNewLabel9.setBounds(220, 530, 200, 80);
+        aNewLabel9.setFont(new Font(null, Font.PLAIN, 25));
+        //aNewLabel9.setHorizontalAlignment(SwingConstants.CENTER);
+        userInfoPane.add(aNewLabel9);
         
         
 
         JLabel aNewLabel4 = new JLabel(currentaccount);
-        aNewLabel4.setBounds(490, 150, 138, 54);
+        aNewLabel4.setBounds(490, 130, 200, 80);
+        aNewLabel4.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel4.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel4);
 
         JLabel aNewLabel5 = new JLabel(currentpassword);
-        aNewLabel5.setBounds(490, 230, 138, 54);
+        aNewLabel5.setBounds(490, 230, 200, 80);
+        aNewLabel5.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel5.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel5);
 
         JLabel aNewLabel6 = new JLabel(currentemail);
-        aNewLabel6.setBounds(490, 310, 138, 54);
+        aNewLabel6.setBounds(490, 330, 200, 80);
+        aNewLabel6.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel6.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel6);
 
         JLabel aNewLabel8 = new JLabel(currentusertype);
-        aNewLabel8.setBounds(490, 390, 138, 54);
+        aNewLabel8.setBounds(490, 430, 200, 80);
+        aNewLabel8.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel8.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel8);
+
+        JLabel aNewLabel10 = new JLabel(currentvediotimes);
+        aNewLabel10.setBounds(490, 530, 200, 80);
+        aNewLabel10.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel10.setHorizontalAlignment(SwingConstants.CENTER);
+        userInfoPane.add(aNewLabel10);
 
     
 
         JButton editPassword = new JButton("Edit Password");
-        editPassword.setBounds(650, 240, 130, 25);
+        editPassword.setBounds(900, 240, 200, 40);
         userInfoPane.add(editPassword);
         editPassword.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 EditPassword ep = new EditPassword(currentaccount,jtb);
+                ep.setTitle("Edit Password");
                 ep.setLocation(800,300);
                 ep.setVisible(true);
 
@@ -123,12 +158,13 @@ public class UserInfoPane {
         });
 
         
-        JButton editEmail = new JButton("Edit Email");
-        editEmail.setBounds(650, 320, 130, 25);
+        JButton editEmail = new JButton("Edit E-mail");
+        editEmail.setBounds(900, 340, 200, 40);
         userInfoPane.add(editEmail);
         editEmail.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 EditEmail edt = new EditEmail(currentaccount,jtb);
+                edt.setTitle("Edit E-mail");
                 edt.setLocation(800,300);
                 edt.setVisible(true);
                 
@@ -136,16 +172,17 @@ public class UserInfoPane {
         });
 
         JButton editUserType = new JButton("Upgrade to VIP");
-        editUserType.setBounds(650, 405, 130, 25);
+        editUserType.setBounds(900, 440, 200, 40);
         userInfoPane.add(editUserType);
         editUserType.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(currentusertype.equals("VIP")){
-                JOptionPane.showMessageDialog(null, "You are already a VIP user"); 
+                if(currentusertype.equals("SVIP")){
+                JOptionPane.showMessageDialog(null, "You are already a SVIP user"); 
                 }
                 else{
                     EditUserType1 etu = new EditUserType1(currentaccount, jtb);
-                    etu.setLocation(800,300);
+                    etu.setTitle("Upgrade to VIP");
+                    etu.setLocation(400,100);
                     etu.setVisible(true);
                 }
             }

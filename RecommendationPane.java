@@ -40,6 +40,7 @@ public class RecommendationPane {
         recommendationPane = new JPanel();
         recommendationPane.setLayout(null);
         recommendationPane.setBounds(0, 0, 1200, 800);
+        recommendationPane.setBackground(java.awt.Color.white);
 
         
         //accquire information of current user
