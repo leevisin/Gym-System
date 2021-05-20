@@ -87,10 +87,16 @@ public class VideoPanel extends Interface{
         JButton vipBtn =new JButton("Vip");
         vipBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+
+                String[][] userInfor=new String[1][4];
+                userInfor=readFromFile("texts/currentuser.txt");
+                if(userInfor[0][3].equals("normal")){
+                    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                }else{
                     videoPanel.removeAll();
                     videoPanel.add(searchPanel(), BorderLayout.NORTH);
                     videoPanel.add(refreshVideoPanel(vipVideo), BorderLayout.CENTER);
-                    videoPanel.revalidate();
+                    videoPanel.revalidate();}
             }
         });
        
@@ -129,11 +135,22 @@ public class VideoPanel extends Interface{
             Button_Back(btn,allCourse[i][4],allCourse[i][5]);
             String name = allCourse[i][0];
                 String path = allCourse[i][3];
+                String vip=allCourse[i][5];
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        // System.out.println("This button is clicked.");
-                        playVideo(path);
-                        System.out.println("This course name is " + name ); // return is still error.
+                        if(vip.equals("1")){
+
+                            String[][] userInfor=new String[1][5];
+                            userInfor=readFromFile("texts/currentuser.txt");
+                            if(userInfor[0][3].equals("normal")){
+                                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                            }else
+                               {playVideo(path);
+                                System.out.println("This course name is " + name ); }
+                            }else{
+                                playVideo(path);
+                                System.out.println("This course name is " + name );
+                            }
                     }
                 });
             coursePanel.add(btn);
@@ -178,9 +195,20 @@ public class VideoPanel extends Interface{
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         // System.out.println("This button is clicked.");
-                        playVideo(videoPath);
-                        System.out.println("This course name is " + videoName ); // return is still error.
-                    }
+                        if(videoVip.equals("1")){
+
+                        String[][] userInfor=new String[1][5];
+                        userInfor=readFromFile("texts/currentuser.txt");
+                        if(userInfor[0][3].equals("normal")){
+                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                        }else
+                           {playVideo(videoPath);
+                            System.out.println("This course name is " + videoName ); }
+                        }else{
+                            playVideo(videoPath);
+                            System.out.println("This course name is " + videoName );
+                        }
+                }
                 });
             coursePanel.add(btn);
             
