@@ -28,8 +28,8 @@ public class MainMenu extends JPanel {
 
         JPanel panel2 = new JPanel();
         panel2.setPreferredSize(new Dimension(1280, 720));
-        panel2.add(new VideoDemo().videoPanel());
-        tabbedPane.addTab("Video", panel2);
+        panel2.add(new VideoPanel().videoPanel());
+        tabbedPane.addTab("Video",icon, panel2,"Ababaabb");
         tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
         
         JPanel panel3 = new JPanel();

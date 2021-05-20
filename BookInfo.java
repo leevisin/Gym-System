@@ -10,24 +10,26 @@ import java.nio.file.*;
 
 public class BookInfo extends Interface {
 
-    
-    public BookInfo(String trainerName, String trainerType, String imagePath){
+    JFrame frame = new JFrame();
+
+    public BookInfo(String trainerName, String trainerType, String imagePath, String intro){
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
 
-        JFrame frame = new JFrame();
+        // Need Add Available Time!!!!!!!!!
+        
         frame.setTitle("Trainer Detail Infomation");
         frame.pack();
         frame.setSize(1280, 550);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath));
+        frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath, intro));
     }
 
     public void recordBookInfo(String trainerName, String trainerType){
-        String filename = "Source/BookInfo.txt";
+        String filename = "texts/BookInfo.txt";
         try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
@@ -72,7 +74,7 @@ public class BookInfo extends Interface {
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
 
-    public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath){
+    public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath, String intro){
         JPanel infoPanel = new JPanel(new BorderLayout());
         JPanel imagesPanel = new JPanel();
         JPanel textPanel = new JPanel(new BorderLayout());
@@ -82,14 +84,35 @@ public class BookInfo extends Interface {
         JPanel namePanel = trainerName(trainerName);
         JPanel typePanel = trainerType(trainerType);
         namePanel.add(typePanel);
-        typePanel.add(new JLabel("Trainer Introduction"));
+        
+        // Need to change line may be not JLabel
+        typePanel.add(new JLabel(intro));
         textPanel.add(namePanel, BorderLayout.NORTH);
 
 
         bookBtn.setSize(50,50);
         bookBtn.setBackground(Color.YELLOW);
+        bookBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Object[] options ={ "Confirm", "Cancel" };
+                int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // Confirm Button
+                if(m==0){
+                    recordBookInfo(trainerName, trainerType);
+                    JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
+                    // new BookConfirm();
+                }
+            }
+        });
         JPanel btnPanel = new JPanel(new BorderLayout());
         btnPanel.add(bookBtn, BorderLayout.CENTER);
+
+        returnBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                // Close current window
+                frame.setVisible(false);
+            }
+        });
 
         btnPanel.add(returnBtn, BorderLayout.EAST);
 

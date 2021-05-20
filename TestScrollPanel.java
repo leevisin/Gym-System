@@ -16,13 +16,15 @@ public class TestScrollPanel {
 
         
         // 创建滚动面板, 指定滚动显示的视图组件(textArea), 垂直滚动条一直显示, 水平滚动条从不显示
-        JScrollPane scrollPane = new JScrollPane(
-                new TrainerPanel().trainerPanel(),
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
+        // JScrollPane scrollPane = new JScrollPane(
+        //         new TrainerPanel().trainerPanel(),
+        //         ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+        //         ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        // );
+        JTextField jtf = new JTextField(20);
+        System.out.println(jtf.getText());
 
-        jf.setContentPane(scrollPane);
+        jf.setContentPane(jtf);
         jf.setVisible(true);
     }
 

@@ -105,6 +105,7 @@ public class VideoPage extends Interface{
 
 
         }
+        
         videoPane.add(totalPane);
 
        /* fatPane = new JPanel();

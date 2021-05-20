@@ -1,0 +1,12 @@
+Lmx,Tina,Slim
+Lmx,Tina,Slim
+Lmx,Tina,Slim
+Lmx,Tina,Slim
+Lmx,Tina,Slim
+Lmx,Ann,Slim
+Lmx,Tina,Slim
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tom,Strength
+Lmx,Tina,Slim
+LMX,Tom,Strength
