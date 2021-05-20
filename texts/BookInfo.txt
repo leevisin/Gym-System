@@ -9,3 +9,4 @@ Lmx,Tom,Strength
 Lmx,Tom,Strength
 Lmx,Tom,Strength
 Lmx,Tina,Slim
+LMX,Tina,Slim

@@ -3,6 +3,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+   /**
+	 * updated on 2021/4/21: added the function of verify e-mail and password format
+	 * updated on 2021/4/21: added the function of record current user
+	 * updated on 2021/5/18: added the function of creating ImageIcon
+     * updated on 2021/5/18: added the function of verifying bank account format
+     * updated on 2021/5/18: added the function of read text file into a string array
+     * updated on 2021/5/20: added the funciton of recording vedio times and userType
+     * 
+	 */
 
 public class Util {
     public static String pathname = "texts/member.txt"; //text file record all user information
@@ -71,7 +80,12 @@ public class Util {
                         member.setEmail(world[1]);
                     } else if (world[0].equals("password")) {
                         member.setPassword(world[1]);
+                    } else if (world[0].equals("userType")) {
+                        member.setUserType(world[1]);
+                    } else if (world[0].equals("vediotimes")) {
+                        member.setVedioTimes(Integer.parseInt(world[1]));
                     }
+                      
                 }
                 members.add(member);
             }
@@ -87,7 +101,7 @@ public class Util {
         try{
         OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(new File(currentuser)), StandardCharsets.UTF_8);
         writer.flush();             //flush the buffer
-        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType());
+        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType()+','+member.getVedioTimes());
         writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -251,10 +265,3 @@ public class Util {
     
 }
 
-   /**
-	 * updated on 2021/4/21: added the function of verify e-mail and password format
-	 * updated on 2021/4/21: added the function of record current user
-	 * updated on 2021/5/18: added the function of creating ImageIcon
-     * updated on 2021/5/18: added the function of verifying bank account format
-     * updated on 2021/5/18: added the function of read text file into a string array
-	 */

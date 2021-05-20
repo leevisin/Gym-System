@@ -3,6 +3,7 @@ public class Member {
     private String password;
     private String email;
     private String userType;//userType is "normal" in default      can be "VIP" after updating
+    private int vediotimes;
 
     public Member() {
     }
@@ -12,6 +13,14 @@ public class Member {
         this.password = password;
         this.email = email;
         this.userType = userType;
+        this.vediotimes = 10;
+    }
+    public int getVedioTimes(){
+        return this.vediotimes;
+    }
+    public void setVedioTimes(int vediotimes){
+        this.vediotimes = vediotimes;
+
     }
 
     public String getAccount() {
@@ -51,6 +60,8 @@ public class Member {
                 "account='" + account + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", userType='" + userType + '\'' +
+                ", vediotimes='" + vediotimes + '\'' +
                 '}';
     }
 }

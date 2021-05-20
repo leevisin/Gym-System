@@ -79,6 +79,13 @@ public class EditEmail extends JFrame{
         confirmemail2.setColumns(10);
         contentPane.add(confirmemail2);
 
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                EditEmail.super.dispose();
+
+            }
+        });
+
 
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
