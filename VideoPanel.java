@@ -31,8 +31,7 @@ public class VideoPanel extends Interface{
         JPanel searchPanel = new JPanel();
         JTextField textField = new JTextField(20);
 
-        URL url = VideoPanel.class.getResource("images/search.png");
-        Icon icon = new ImageIcon(url);
+        ImageIcon icon = new ImageIcon("images/search.png");
         JButton searchBtn = new JButton(icon);
 
         searchBtn.addActionListener(new ActionListener(){
