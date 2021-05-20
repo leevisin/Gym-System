@@ -120,8 +120,8 @@ import java.util.*;
      // It should be extended in subclass
      public void addCourse(){}
 
-     public void addVideo(String videoName, int videoTime, String filePath, String tag){
-        Video video = new Video(videoName, videoTime, filePath, filePath, tag);
+     public void addVideo(String videoName, int videoTime, String filePath, String tag, int vip){
+        Video video = new Video(videoName, videoTime, filePath, filePath, tag, vip);
         new AllCourse().writeVideoToFile(video);
         System.out.println("You have added video: " + videoName);
       }
@@ -191,6 +191,43 @@ import java.util.*;
         }
         return courseArray;
      }
+
+     //Classify by Vip
+     public String[][] classifyByVip(){
+         String[][] courses =readFromFile("Source/allVideo.txt");
+         int lines =readLine("Source/allVideo.txt");
+         
+         int num=0;
+         for(int i=0;i<=lines-1;i++){
+            if(courses[i][5].equals("0"))
+            num++;
+        }
+        int vipLines=lines-num;
+        String[][] coursesVip =new String[vipLines][6];
+
+        int j=0;
+         for(int i=0;i<=lines-1;i++){
+             if(courses[i][5].equals("1"))
+               {        
+                   
+                   
+                     for(int l=0;l<=5;l++)
+                       {coursesVip[j][l]=courses[i][l];}
+                       j++;
+                    
+
+                }
+        }
+
+       
+
+
+               return coursesVip;
+         }
+
+         
+         
+     
 
 
      public static void main(String[] args) {

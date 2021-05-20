@@ -22,9 +22,9 @@ public class AllCourse{
       // Generate base enviroment
       File videoFile = new File("texts/AllVideo.txt");
       if(!videoFile.exists()){
-        addVideo("Functional Training", 30, "videos/FunctionalTraining.MP4", "videos/button_back1.jpg", "HIIT");
-        addVideo("Yoga Training", 35, "videos/YogaTraining.MP4","videos/button_back2.jpg", "Yoga");
-        addVideo("Training Muscles", 45, "videos/TrainingMuscles.MP4","videos/button_back3.jpg", "Strength");
+        addVideo("Functional Training", 30, "videos/FunctionalTraining.MP4", "videos/button_back1.jpg", "HIIT",1);
+        addVideo("Yoga Training", 35, "videos/YogaTraining.MP4","videos/button_back2.jpg", "Yoga",1);
+        addVideo("Training Muscles", 45, "videos/TrainingMuscles.MP4","videos/button_back3.jpg", "Strength",1);
       }
 
       File trainerFile = new File("texts/AllTrainer.txt");
@@ -45,9 +45,9 @@ public class AllCourse{
       // Need Panel to add video/trainer
     }
    
-    public void addVideo(String videoName, int videoTime, String filePath, String figPath, String tag){
+    public void addVideo(String videoName, int videoTime, String filePath, String figPath, String tag, int vip){
       // Video Name, Video Time, Video URL, Background Button URL
-      Video video = new Video(videoName, videoTime, filePath, figPath, tag);
+      Video video = new Video(videoName, videoTime, filePath, figPath, tag, vip);
       writeVideoToFile(video);
     }
 
@@ -66,7 +66,7 @@ public class AllCourse{
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
         BufferedWriter writer = new BufferedWriter(fileWriter);
         // Write to file order: Name, Time, Tag, videoPath, videoFig
-        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoTag()+ "," + video.getVideoPath() + "," + video.getVideoFig() + "\n");
+        writer.write(video.getVideoName() + "," + video.getVideoTime() + "," + video.getVideoTag()+ "," + video.getVideoPath() + "," + video.getVideoFig() +  "," + video.getVideoVip() + "\n");
         writer.close();
         fileWriter.close();
       } catch (Exception e) {

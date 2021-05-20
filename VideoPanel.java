@@ -7,6 +7,7 @@ import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 
 public class VideoPanel extends Interface{
     String fileName = "Source/AllVideo.txt";
@@ -30,8 +31,7 @@ public class VideoPanel extends Interface{
         JPanel searchPanel = new JPanel();
         JTextField textField = new JTextField(20);
 
-        URL url = VideoPanel.class.getResource("images/search.png");
-        Icon icon = new ImageIcon(url);
+        ImageIcon icon = new ImageIcon("images/search.png");
         JButton searchBtn = new JButton(icon);
 
         searchBtn.addActionListener(new ActionListener(){
@@ -82,22 +82,42 @@ public class VideoPanel extends Interface{
                     videoPanel.revalidate();
             }
         });
+
+        String[][] vipVideo = classifyByVip();
+        JButton vipBtn =new JButton("Vip");
+        vipBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                    videoPanel.removeAll();
+                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                    videoPanel.add(refreshVideoPanel(vipVideo), BorderLayout.CENTER);
+                    videoPanel.revalidate();
+            }
+        });
        
         searchPanel.add(textField);
         searchPanel.add(searchBtn);
         searchPanel.add(AllBtn);
         searchPanel.add(tagBtn);
+        searchPanel.add(vipBtn);
         return searchPanel;
     }
     
 
     public JPanel coursePanel(){
 
+        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        
         JPanel coursePanel=new JPanel();
         coursePanel.setLayout(new FlowLayout());
         
         
-        coursePanel.setPreferredSize(new Dimension(1000, 2000));
+        coursePanel.setPreferredSize(new Dimension(1000, rows*250));
           String[][] allCourse = readFromFile("Source/AllVideo.txt");
          int rowLength= allCourse.length;
          
@@ -106,7 +126,7 @@ public class VideoPanel extends Interface{
         for(int i=0; i<rowLength; i++){
 
             JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
-            Button_Back(btn,allCourse[i][4]);
+            Button_Back(btn,allCourse[i][4],allCourse[i][5]);
             String name = allCourse[i][0];
                 String path = allCourse[i][3];
                 btn.addActionListener(new ActionListener(){
@@ -128,12 +148,21 @@ public class VideoPanel extends Interface{
         return coursePanel;
     }
     public JPanel refreshVideoPanel(String[][] searchResult){
+
+        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        if(rows%3==0){
+            rows /= 3;
+        }
+        else{
+            rows = rows/3 + 1;
+        }
+        
         
         JPanel coursePanel=new JPanel();
         coursePanel.setLayout(new FlowLayout());
         
         
-        coursePanel.setPreferredSize(new Dimension(1000, 2000));
+        coursePanel.setPreferredSize(new Dimension(1000, rows*250));
 
         for(int i=0; i<searchResult.length; i++){
             String videoName = searchResult[i][0];
@@ -141,9 +170,10 @@ public class VideoPanel extends Interface{
             String videoType = searchResult[i][2];
             String videoPath = searchResult[i][3];
             String videoPicture = searchResult[i][4];
+            String videoVip = searchResult[i][5];
 
             JButton btn = new JButton(videoName+ "  "+ videoTime);
-            Button_Back(btn,videoPicture);
+            Button_Back(btn,videoPicture,videoVip);
             
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
@@ -159,13 +189,16 @@ public class VideoPanel extends Interface{
         return coursePanel;
     }
 
-    public static void Button_Back(JButton Button,String ImagePath){
+    public static void Button_Back(JButton Button,String ImagePath,String videoVip){
         Button.setBounds(0, 0, 300, 200);
         ImageIcon imageIcon = new ImageIcon(ImagePath);
         Image suitablImage = imageIcon.getImage().getScaledInstance(Button.getWidth(), Button.getHeight(), imageIcon.getImage().SCALE_DEFAULT);
         imageIcon = new ImageIcon(suitablImage);
         Button.setIcon(imageIcon);
-        Button.setToolTipText("COURSE");
+        if(videoVip.equals("1")){
+           Button.setToolTipText("VIP");
+        }else{Button.setToolTipText("Normal");}
+        Button.setBackground(Color.white);
         Button.setBorderPainted(false);
         Button.setFocusPainted(false);
         Button.setVerticalTextPosition(JButton.BOTTOM);
