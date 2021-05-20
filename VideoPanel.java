@@ -140,7 +140,7 @@ public class VideoPanel extends Interface{
                     public void actionPerformed(ActionEvent e){
                         if(vip.equals("1")){
 
-                            String[][] userInfor=new String[1][4];
+                            String[][] userInfor=new String[1][5];
                             userInfor=readFromFile("texts/currentuser.txt");
                             if(userInfor[0][3].equals("normal")){
                                 JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
@@ -197,7 +197,7 @@ public class VideoPanel extends Interface{
                         // System.out.println("This button is clicked.");
                         if(videoVip.equals("1")){
 
-                        String[][] userInfor=new String[1][4];
+                        String[][] userInfor=new String[1][5];
                         userInfor=readFromFile("texts/currentuser.txt");
                         if(userInfor[0][3].equals("normal")){
                             JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
