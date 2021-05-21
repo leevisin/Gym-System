@@ -32,7 +32,6 @@ public class TrainerPanel extends Interface {
     public JPanel searchPanel(){
         JPanel searchPanel = new JPanel();
         JTextField textField = new JTextField(20);
-        String userInput = textField.getText();
 
         ImageIcon icon = new ImageIcon("images/search.png");
         JButton searchBtn = new JButton(icon);
@@ -55,9 +54,12 @@ public class TrainerPanel extends Interface {
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
 
+        JLabel searchLabel = new JLabel("Search: ");
+        searchLabel.setForeground(Color.WHITE);
+        searchPanel.add(searchLabel);
         searchPanel.add(textField);
         searchPanel.add(searchBtn);
-
+        searchPanel.setBackground(Color.DARK_GRAY);
         return searchPanel;
     }
 
@@ -70,7 +72,7 @@ public class TrainerPanel extends Interface {
         else{
             rows = rows/3 + 1;
         }
-        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5));
 
         String[][] trainersInfo = readFromFile("texts/AllTrainer.txt");
 
@@ -83,7 +85,7 @@ public class TrainerPanel extends Interface {
 
 
             ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
-            JButton trainerBtn = new JButton(trainersInfo[i][0], icon);
+            JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon);
 
             trainerBtn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -93,17 +95,16 @@ public class TrainerPanel extends Interface {
 
             trainerBtn.setMaximumSize(new Dimension(600,828));
             trainerBtn.setIcon(icon);
+            trainerBtn.setBackground(Color.WHITE);
             trainerBtn.setHideActionText(true);
             trainerBtn.setToolTipText("Click to Show Detail Information");
             trainerBtn.setBorderPainted(false);
-            trainerBtn.setContentAreaFilled(false);
             trainerBtn.setFocusPainted(false);
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             trainersPanel.add(trainerBtn);
         }
 
-        
         return trainersPanel;
     }
 
@@ -116,7 +117,7 @@ public class TrainerPanel extends Interface {
         else{
             rows = rows/3 + 1;
         }
-        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3));
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5));
 
         for(int i=0; i<searchTrainers.length; i++){
             String trainerName = searchTrainers[i][0];
@@ -138,7 +139,7 @@ public class TrainerPanel extends Interface {
             trainerBtn.setHideActionText(true);
             trainerBtn.setToolTipText("Click to Show Detail Information");
             trainerBtn.setBorderPainted(false);
-            trainerBtn.setContentAreaFilled(false);
+            // trainerBtn.setContentAreaFilled(false);
             trainerBtn.setFocusPainted(false);
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);

@@ -1,11 +1,11 @@
-Tom,Strength,images/Trainer1.jpg,A long sentence. This is a Test. It can't be too long. And I don't know the reason. A long sentence. This is a Test. It can't be too long. And I don't know the reason. A long sentence. This is a Test. It can't be too long. And I don't know the reason.
-Tina,Slim,images/Trainer2.jpg,A long sentence.
-Ann,Slim,images/Trainer3.jpg,A long sentence.
-Vee,Slim,images/Trainer4.jpg,A long sentence.
-Dan,Slim,images/Trainer5.jpg,A long sentence.
-Ken,Strength,images/Trainer6.jpg,A long sentence.
-Andy,Strength,images/Trainer7.jpg,A long sentence.
-Lucia,Slim,images/Trainer8.jpg,A long sentence.
-Bert,Strength,images/Trainer9.jpg,A long sentence.
-Rita,Slim,images/Trainer10.jpg,A long sentence.
-Shelley,Slim,images/Trainer11.jpg,I just want to write something
+Tom,Strength,images/Trainer1.jpg,More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification
+Tina,Slim,images/Trainer2.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Ann,Slim,images/Trainer3.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Vee,Slim,images/Trainer4.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Dan,Slim,images/Trainer5.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Ken,Strength,images/Trainer6.jpg,More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification
+Andy,Strength,images/Trainer7.jpg,More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification
+Lucia,Slim,images/Trainer8.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Bert,Strength,images/Trainer9.jpg,More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification
+Rita,Slim,images/Trainer10.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
+Shelley,Slim,images/Trainer11.jpg,Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.
