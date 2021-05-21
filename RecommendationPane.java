@@ -25,7 +25,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 /** 
  *  Created on 2021/5/18:The JPane contain no.3 part of Recommendation activity
- * 
+ *  Updated on 2021/5/21:Change some of the font
  * 
  */
 public class RecommendationPane {
