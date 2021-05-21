@@ -20,7 +20,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 /** 
@@ -196,15 +195,7 @@ public class UserInfoPane {
         return userInfoPane;
     }
 
-    public static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = TabbedPaneDemo.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
+
 
     public static void main(String[] args){
         JFrame frame = new JFrame();

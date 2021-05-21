@@ -27,7 +27,7 @@ public class Main {
         tabbedPane.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
+                // System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
             }
         });
 

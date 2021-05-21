@@ -10,6 +10,8 @@ import java.io.IOException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+
+
 /** 
  *  Created on 2021/5/18:The Tabbed Pane contain 3 parts of user information and activity
  * 
@@ -32,7 +34,7 @@ public class UserTabbedPane extends Interface{
         //Adding 3 Pane
 
         //No.1 User information
-        ImageIcon icon = createImageIcon("images/middle.gif");
+        ImageIcon icon = new ImageIcon("images/middle.gif");
         UserInfoPane uip = new UserInfoPane();
         userTabbedPane.addTab("User Info", icon,uip.makeUserInfoPane(userTabbedPane));
 
@@ -55,23 +57,11 @@ public class UserTabbedPane extends Interface{
 
         
 
-
-
-
-
         return userTabbedPane;
         
     }
     
-protected static ImageIcon createImageIcon(String path) {
-    java.net.URL imgURL = TabbedPaneDemo.class.getResource(path);
-    if (imgURL != null) {
-        return new ImageIcon(imgURL);
-    } else {
-        System.err.println("Couldn't find file: " + path);
-        return null;
-    }
-}
+
 
 public static void main(String[] args){
     JFrame frame = new JFrame("TabbedPaneDemo");

@@ -3,6 +3,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
+
+
    /**
 	 * updated on 2021/4/21: added the function of verify e-mail and password format
 	 * updated on 2021/4/21: added the function of record current user
@@ -161,15 +163,7 @@ public class Util {
 
 
 
-    public static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = TabbedPaneDemo.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
+ 
 
      /**
 	 * Verify the format of a new email
