@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.plaf.DimensionUIResource;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -78,6 +77,8 @@ public class BookInfo extends Interface {
         JPanel infoPanel = new JPanel(new BorderLayout());
         JPanel imagesPanel = new JPanel();
         JPanel textPanel = new JPanel(new BorderLayout());
+        JPanel blankPanel = new JPanel();
+
         JButton bookBtn = new JButton("Click to Book Trainer");
         JButton returnBtn = new JButton("Return");
 
@@ -85,8 +86,17 @@ public class BookInfo extends Interface {
         JPanel typePanel = trainerType(trainerType);
         namePanel.add(typePanel);
         
+        blankPanel.setPreferredSize(new Dimension(10, 20));
+        blankPanel.setBackground(Color.WHITE);
+
         // Need to change line may be not JLabel
-        typePanel.add(new JLabel(intro));
+        JTextArea textArea = new JTextArea("    " + intro);
+        textArea.setLineWrap(true);
+        textArea.setFont(new Font("Microsoft Serif Pro", Font.PLAIN, 30));
+        textArea.setBackground(Color.WHITE);
+
+        typePanel.add(textArea);
+        textPanel.setBackground(Color.WHITE);
         textPanel.add(namePanel, BorderLayout.NORTH);
 
 
@@ -104,6 +114,7 @@ public class BookInfo extends Interface {
                 }
             }
         });
+
         JPanel btnPanel = new JPanel(new BorderLayout());
         btnPanel.add(bookBtn, BorderLayout.CENTER);
 
@@ -113,11 +124,11 @@ public class BookInfo extends Interface {
                 frame.setVisible(false);
             }
         });
-
+        returnBtn.setContentAreaFilled(false);
         btnPanel.add(returnBtn, BorderLayout.EAST);
 
-        JPanel blankPanel = new JPanel();
-        blankPanel.setPreferredSize(new Dimension(10, 20));
+
+
         btnPanel.add(blankPanel, BorderLayout.SOUTH);
         
         textPanel.add(btnPanel, BorderLayout.SOUTH);
@@ -127,7 +138,7 @@ public class BookInfo extends Interface {
 
 
         imagesPanel.add(trainerPicture(imagePath));
-        
+        imagesPanel.setBackground(Color.WHITE);
 
         infoPanel.add(imagesPanel, BorderLayout.WEST);
         infoPanel.add(textPanel, BorderLayout.CENTER);
@@ -153,10 +164,12 @@ public class BookInfo extends Interface {
         JPanel trainerNamePanel = new JPanel(new BorderLayout());
 
         JLabel label = new JLabel(trainerName);
+        label.setForeground(Color.WHITE);
         label.setFont(new Font(null, Font.BOLD, 150));
         label.setHorizontalAlignment(SwingConstants.LEFT);
 
         trainerNamePanel.add(label, BorderLayout.NORTH);
+        trainerNamePanel.setBackground(Color.DARK_GRAY);
         return trainerNamePanel;
     }
 
@@ -164,10 +177,12 @@ public class BookInfo extends Interface {
         JPanel trainerTypePanel = new JPanel(new BorderLayout());
 
         JLabel label = new JLabel(trainerType + "   ");
-        label.setFont(new Font(null, Font.ITALIC, 50));
+        label.setForeground(Color.BLACK);
+        label.setFont(new Font(null, Font.PLAIN, 50));
         label.setHorizontalAlignment(SwingConstants.RIGHT);
 
         trainerTypePanel.add(label, BorderLayout.NORTH);
+        trainerTypePanel.setBackground(Color.LIGHT_GRAY);
         return trainerTypePanel;
     }
 }
