@@ -56,7 +56,7 @@ public class BookedTrainerPane {
 
         //gettring trainer information
         trainerInfo = readFromFile("texts/BookInfo.txt");
-        System.out.println(trainerInfo);
+        
 
         //adding component to the JPanel
 
