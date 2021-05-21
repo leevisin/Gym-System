@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import NotUseFile.Information;
+
 /**
  * Title name.java Description This class contains a game which never will
  * success. Copyright (c) 2020 Copyright Holder All Rights Reserved.

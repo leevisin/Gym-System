@@ -10,6 +10,8 @@ import java.io.IOException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import NotUseFile.TabbedPaneDemo;
+
 /** 
  *  Created on 2021/5/18:The Tabbed Pane contain 3 parts of user information and activity
  * 
