@@ -194,8 +194,8 @@ import java.util.*;
 
      //Classify by Vip
      public String[][] classifyByVip(){
-         String[][] courses =readFromFile("Source/allVideo.txt");
-         int lines =readLine("Source/allVideo.txt");
+         String[][] courses =readFromFile("texts/allVideo.txt");
+         int lines =readLine("texts/allVideo.txt");
          
          int num=0;
          for(int i=0;i<=lines-1;i++){
@@ -244,7 +244,7 @@ import java.util.*;
         //      System.out.println();
         //  }
         //  Test for searchCourse() function
-         String[][] array = inter.searchCourse("Source/AllVideo.txt","c");
+         String[][] array = inter.searchCourse("texts/AllVideo.txt","c");
         for(int i=0; i<array.length; i++){
             for(int j=0; j<array[0].length; j++){
                 System.out.print(array[i][j] + " ");

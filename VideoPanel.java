@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.lang.ProcessBuilder.Redirect;
 
 public class VideoPanel extends Interface{
-    String fileName = "Source/AllVideo.txt";
+    String fileName = "texts/AllVideo.txt";
     Robot robot = null;
     JPanel videoPanel = new JPanel(new BorderLayout());
 
@@ -38,7 +38,7 @@ public class VideoPanel extends Interface{
             public void actionPerformed(ActionEvent e){
                 System.out.println("I am searching!");
                 String input = textField.getText();
-                String[][] searchResult=searchCourse("Source/AllVideo.txt",input);
+                String[][] searchResult=searchCourse("texts/AllVideo.txt",input);
                 /*for(int i=0;i<=searchResult.length;i++){
                     System.out.println(searchResult[i][0]);
                 }*/
@@ -60,10 +60,10 @@ public class VideoPanel extends Interface{
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
 
-        String[][] tagVideo = classifyByTag("Source/AllVideo.txt");
+        String[][] tagVideo = classifyByTag("texts/AllVideo.txt");
 
         JButton AllBtn =new JButton("All courses");
-        String[][] allvideo = readFromFile("Source/AllVideo.txt");
+        String[][] allvideo = readFromFile("texts/AllVideo.txt");
         AllBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                     videoPanel.removeAll();
@@ -111,7 +111,7 @@ public class VideoPanel extends Interface{
 
     public JPanel coursePanel(){
 
-        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        int rows = readLine("texts/AllVideo.txt"); // Trainer Number
         if(rows%3==0){
             rows /= 3;
         }
@@ -124,7 +124,7 @@ public class VideoPanel extends Interface{
         
         
         coursePanel.setPreferredSize(new Dimension(1000, rows*250));
-          String[][] allCourse = readFromFile("Source/AllVideo.txt");
+          String[][] allCourse = readFromFile("texts/AllVideo.txt");
          int rowLength= allCourse.length;
          
 
@@ -133,25 +133,28 @@ public class VideoPanel extends Interface{
 
             JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
             Button_Back(btn,allCourse[i][4],allCourse[i][5]);
-            String name = allCourse[i][0];
-                String path = allCourse[i][3];
-                String vip=allCourse[i][5];
+            String videoName = allCourse[i][0];
+                String videoPath = allCourse[i][3];
+                String videoVip=allCourse[i][5];
+                
+                
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        if(vip.equals("1")){
+                        // System.out.println("This button is clicked.");
+                        if(videoVip.equals("1")){
 
-                            String[][] userInfor=new String[1][5];
-                            userInfor=readFromFile("texts/currentuser.txt");
-                            if(userInfor[0][3].equals("normal")){
-                                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                            }else
-                               {playVideo(path);
-                                System.out.println("This course name is " + name ); }
-                            }else{
-                                playVideo(path);
-                                System.out.println("This course name is " + name );
-                            }
-                    }
+                        String[][] userInfor=new String[1][5];
+                        userInfor=readFromFile("texts/currentuser.txt");
+                        if(userInfor[0][3].equals("normal")){
+                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                        }else
+                           {playVideo(videoPath);
+                            System.out.println("This course name is " + videoName ); }
+                        }else{
+                            playVideo(videoPath);
+                            System.out.println("This course name is " + videoName );
+                        }
+                }
                 });
             coursePanel.add(btn);
         }
@@ -166,7 +169,7 @@ public class VideoPanel extends Interface{
     }
     public JPanel refreshVideoPanel(String[][] searchResult){
 
-        int rows = readLine("Source/AllVideo.txt"); // Trainer Number
+        int rows = readLine("texts/AllVideo.txt"); // Trainer Number
         if(rows%3==0){
             rows /= 3;
         }
