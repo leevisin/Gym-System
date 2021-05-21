@@ -8,6 +8,14 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.Objects;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+   /**
+	 * updated on 2021/4/21: able to record current user when log in
+     * updated on 2021/5/21: change to new main page after login
+	 * 
+	 */
+
 
 public class Login extends JFrame {
     JTextField accountField;
@@ -78,7 +86,37 @@ public class Login extends JFrame {
                 if (login) {
                     JOptionPane.showMessageDialog(Login.super.rootPane, "Login Success!");
                     Login.super.dispose();
-                    new Menu().setVisible(true);
+                    //new Menu().setVisible(true);
+                    JFrame jf = new JFrame("Main Menu");
+        jf.setSize(1280, 720);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.setLocationRelativeTo(null);
+
+        final JTabbedPane tabbedPane = new JTabbedPane();
+
+
+        tabbedPane.addTab("Home", createTextPanel("Home Panel"));
+
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
+
+        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel(), "This is a tab.");
+
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(), "This is a tab.");
+
+        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), createTextPanel("Administer Panel"), "This is a tab.");
+
+
+        tabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
+            }
+        });
+
+        tabbedPane.setSelectedIndex(0);
+
+        jf.setContentPane(tabbedPane);
+        jf.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(Login.super.rootPane, "Login Error!");
                 }
@@ -94,12 +132,21 @@ public class Login extends JFrame {
 
     }
 
+    private static JComponent createTextPanel(String text) {
+
+        JPanel panel = new JPanel(new GridLayout(1, 1));
+        
+        JLabel label = new JLabel(text);
+        label.setFont(new Font(null, Font.PLAIN, 50));
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+        panel.add(label);
+
+        return panel;
+    }
+
     public static void main(String[] args) {
         new Login().setVisible(true);
     }
 }
 
-   /**
-	 * updated on 2021/4/21: able to record current user when log in
-	 * 
-	 */

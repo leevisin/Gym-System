@@ -64,21 +64,25 @@ public class RecommendationPane {
 		}
 
         JLabel title = new JLabel("Recommendation");
-        title.setFont(new Font("Dialog", Font.PLAIN, 30));
-        title.setBounds(450, 10, 400, 70);
+        title.setFont(new Font("Dialog", Font.PLAIN, 45));
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setBounds(400, 10, 400, 120);
         recommendationPane.add(title);
 
         //adding components
         JLabel aNewLabel1 = new JLabel("Height(cm):");
 	        aNewLabel1.setBounds(394, 154, 138, 54);
+            aNewLabel1.setFont(new Font(null, Font.PLAIN, 18));
             recommendationPane.add(aNewLabel1);
 
 	        JLabel aNewLabel2 = new JLabel("Weight(kg):");
 	        aNewLabel2.setBounds(394, 234, 138, 54);
+            aNewLabel2.setFont(new Font(null, Font.PLAIN, 18));
             recommendationPane.add(aNewLabel2);
 
 	        JLabel aNewLabel3 = new JLabel("Target:");
 	        aNewLabel3.setBounds(394, 314, 138, 54);
+            aNewLabel3.setFont(new Font(null, Font.PLAIN, 18));
             recommendationPane.add(aNewLabel3);
 
             JTextField textField1 = new JTextField();
@@ -106,7 +110,12 @@ public class RecommendationPane {
 
             recommend.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    //check whether all field have value
+                    if(textField1.getText().equals("")||textField2.getText().equals("")){
+                        JOptionPane.showMessageDialog(null, "The height and weight can not be empty");
+                    }
                    //recommend directly based on Target
+                else{
                     String target = (String) comboBox1.getSelectedItem();
                     if(target.equals("Gain-muscle")){
                         //randomly recommend a Trainer of catagory Gain-muscle
@@ -157,9 +166,10 @@ public class RecommendationPane {
                     }
 
                 }
+            }
             });
 
-
+        
         return recommendationPane;
     }
 

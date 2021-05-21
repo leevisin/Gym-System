@@ -7,6 +7,8 @@ import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /** 
  *  Created on 2021/5/18:The Tabbed Pane contain 3 parts of user information and activity
@@ -41,6 +43,17 @@ public class UserTabbedPane extends Interface{
         //No.3 Recommendation Page
         RecommendationPane rdp = new RecommendationPane();
         userTabbedPane.addTab("Recommendation", icon,rdp.makeRecomPane(userTabbedPane));
+
+        //refresh the user info page every time the user enter it
+        userTabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                UserInfoPane uip = new UserInfoPane();
+                userTabbedPane.setComponentAt(0, uip.makeUserInfoPane(userTabbedPane));
+            }
+        });
+
+        
 
 
 
