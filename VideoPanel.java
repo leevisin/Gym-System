@@ -141,18 +141,27 @@ public class VideoPanel extends Interface{
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         // System.out.println("This button is clicked.");
-                        if(videoVip.equals("1")){
-
                         String[][] userInfor=new String[1][5];
                         userInfor=readFromFile("texts/currentuser.txt");
+                        int leftNum = Integer.parseInt(userInfor[0][4]);
+                        if(videoVip.equals("1")){
+
+                        
                         if(userInfor[0][3].equals("normal")){
                             JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
                         }else
-                           {playVideo(videoPath);
-                            System.out.println("This course name is " + videoName ); }
+                           {if(leftNum>-0){playVideo(videoPath);
+                            System.out.println("This course name is " + videoName ); leftNum--;}else{
+                                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
+                            }}
+
+
                         }else{
+                            if(leftNum>-0){
                             playVideo(videoPath);
-                            System.out.println("This course name is " + videoName );
+                            System.out.println("This course name is " + videoName );leftNum--;}else{
+                                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
+                            }
                         }
                 }
                 });
@@ -195,24 +204,33 @@ public class VideoPanel extends Interface{
             JButton btn = new JButton(videoName+ "  "+ videoTime);
             Button_Back(btn,videoPicture,videoVip);
             
-                btn.addActionListener(new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        // System.out.println("This button is clicked.");
-                        if(videoVip.equals("1")){
+            btn.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    // System.out.println("This button is clicked.");
+                    String[][] userInfor=new String[1][5];
+                    userInfor=readFromFile("texts/currentuser.txt");
+                    int leftNum = Integer.parseInt(userInfor[0][4]);
+                    if(videoVip.equals("1")){
 
-                        String[][] userInfor=new String[1][5];
-                        userInfor=readFromFile("texts/currentuser.txt");
-                        if(userInfor[0][3].equals("normal")){
-                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                        }else
-                           {playVideo(videoPath);
-                            System.out.println("This course name is " + videoName ); }
-                        }else{
-                            playVideo(videoPath);
-                            System.out.println("This course name is " + videoName );
+                    
+                    if(userInfor[0][3].equals("normal")){
+                        JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                    }else
+                       {if(leftNum>-0){playVideo(videoPath);
+                        System.out.println("This course name is " + videoName ); leftNum--;}else{
+                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
+                        }}
+
+
+                    }else{
+                        if(leftNum>-0){
+                        playVideo(videoPath);
+                        System.out.println("This course name is " + videoName );leftNum--;}else{
+                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
                         }
-                }
-                });
+                    }
+            }
+            });
             coursePanel.add(btn);
             
         }
