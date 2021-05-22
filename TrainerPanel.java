@@ -126,7 +126,7 @@ public class TrainerPanel extends Interface {
             String intro = searchTrainers[i][3];
 
             ImageIcon icon = new ImageIcon(searchTrainers[i][2]);
-            JButton trainerBtn = new JButton(searchTrainers[i][0], icon);
+            JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon);
 
             trainerBtn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -136,10 +136,10 @@ public class TrainerPanel extends Interface {
 
             trainerBtn.setMaximumSize(new Dimension(600,828));
             trainerBtn.setIcon(icon);
+            trainerBtn.setBackground(Color.WHITE);
             trainerBtn.setHideActionText(true);
             trainerBtn.setToolTipText("Click to Show Detail Information");
             trainerBtn.setBorderPainted(false);
-            // trainerBtn.setContentAreaFilled(false);
             trainerBtn.setFocusPainted(false);
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
