@@ -20,8 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 /** 
  *  Created on 2021/5/18:The JPane contain 1 part of user information
  *  updated on 2021/05/21: modify the appearance of this page
@@ -135,6 +134,9 @@ public class UserInfoPane {
         aNewLabel8.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel8);
 
+        if(currentusertype.equals("SVIP")){
+            currentvediotimes = "Unlimited";
+        }
         JLabel aNewLabel10 = new JLabel(currentvediotimes);
         aNewLabel10.setBounds(490, 530, 200, 80);
         aNewLabel10.setFont(new Font(null, Font.PLAIN, 25));

@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-
 import java.util.Objects;
   /**
 	 * Created on 2021/05/06
