@@ -27,37 +27,8 @@ public class BookInfo extends Interface {
         frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath, intro));
     }
 
-    public void recordBookInfo(String trainerName, String trainerType){
-        String filename = "texts/BookInfo.txt";
-        try {
-        FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
-        BufferedWriter writer = new BufferedWriter(fileWriter);
-        String userInfo = readCurrentUser();
-        writer.write(userInfo.split(",")[0] + "," + trainerName + "," + trainerType +"\n");
-        writer.close();
-        fileWriter.close();
-        } catch (Exception e) {
-        System.out.println("File Writer error!");
-        }
 
-    }
 
-    public String readCurrentUser(){
-        String userInfo = "";
-        try{
-            FileReader fileReader = new FileReader("Source/currentuser.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String oneLine = bufferedReader.readLine();
-                userInfo += oneLine;
-            bufferedReader.close();
-            fileReader.close();
-        }
-        catch (IOException e) {
-            System.out.println("Errors occured: IOException!");
-            System.exit(1);
-        }     
-        return userInfo;
-    }
 
     public static void Button_Back(JButton Button,String ImagePath){
 
@@ -104,14 +75,14 @@ public class BookInfo extends Interface {
         bookBtn.setBackground(Color.YELLOW);
         bookBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                Object[] options ={ "Confirm", "Cancel" };
-                int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                // Confirm Button
-                if(m==0){
-                    recordBookInfo(trainerName, trainerType);
-                    JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
-                    // new BookConfirm();
-                }
+                new BookConfirm(trainerName, trainerType);
+                // Object[] options ={ "Confirm", "Cancel" };
+                // int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                // // Confirm Button
+                // if(m==0){
+                //     recordBookInfo(trainerName, trainerType);
+                //     JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
+                // }
             }
         });
 

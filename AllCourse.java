@@ -29,17 +29,17 @@ public class AllCourse{
 
       File trainerFile = new File("texts/AllTrainer.txt");
       if(!trainerFile.exists()){
-        addTrainer("Tom", "Strength", "images/Trainer1.jpg","A long sentence.");
-        addTrainer("Tina", "Slim", "images/Trainer2.jpg", "A long sentence.");
-        addTrainer("Ann", "Slim", "images/Trainer3.jpg","A long sentence.");
-        addTrainer("Vee", "Slim", "images/Trainer4.jpg","A long sentence.");
-        addTrainer("Dan", "Slim", "images/Trainer5.jpg","A long sentence.");
-        addTrainer("Ken", "Strength", "images/Trainer6.jpg","A long sentence.");
-        addTrainer("Andy", "Strength", "images/Trainer7.jpg","A long sentence.");
-        addTrainer("Lucia", "Slim", "images/Trainer8.jpg","A long sentence.");
-        addTrainer("Bert", "Strength", "images/Trainer9.jpg","A long sentence.");
-        addTrainer("Rita", "Slim", "images/Trainer10.jpg","A long sentence.");
-        addTrainer("Shelley", "Slim", "images/Trainer11.jpg","I just want to write something");
+        addTrainer("Tom", "Strength", "images/Trainer1.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
+        addTrainer("Tina", "Slim", "images/Trainer2.jpg", "Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Ann", "Slim", "images/Trainer3.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Vee", "Slim", "images/Trainer4.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Dan", "Slim", "images/Trainer5.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Ken", "Strength", "images/Trainer6.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
+        addTrainer("Andy", "Strength", "images/Trainer7.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
+        addTrainer("Lucia", "Slim", "images/Trainer8.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Bert", "Strength", "images/Trainer9.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
+        addTrainer("Rita", "Slim", "images/Trainer10.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Shelley", "Slim", "images/Trainer11.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
 
       }      
       // Need Panel to add video/trainer
