@@ -76,8 +76,15 @@ public class HomePanel extends Interface{
             // Problem intro String can't be too long
             if(i==randomInt[0]||i==randomInt[1]||i==randomInt[2]){
             ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
+            JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon); 
+            // trainerBtn.setMaximumSize(new Dimension(30,20)); 
+            trainerBtn.setBounds(0,0,150,240);
             
-            JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon);
+
+            Image temp = icon.getImage().getScaledInstance(trainerBtn.getWidth(), trainerBtn.getHeight(), icon.getImage().SCALE_DEFAULT);  
+            icon = new ImageIcon(temp);  
+            
+
 
             trainerBtn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
@@ -85,7 +92,7 @@ public class HomePanel extends Interface{
                 }
             });
 
-            trainerBtn.setMaximumSize(new Dimension(600,828));
+            
             trainerBtn.setIcon(icon);
             trainerBtn.setBackground(Color.WHITE);
             trainerBtn.setHideActionText(true);
@@ -96,7 +103,6 @@ public class HomePanel extends Interface{
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             recommend2.add(trainerBtn);
             }
-            
             
             trainerRC.add(recommend2,BorderLayout.CENTER);
         }
