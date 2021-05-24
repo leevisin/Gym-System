@@ -119,7 +119,7 @@ public class BookedTrainerPane {
                 day1.setHorizontalAlignment(SwingConstants.CENTER);
                 bookedTrainerPane.add(day1);
                 //booked hours
-                JLabel hours1 = new JLabel(lessonInfo[i][3]);
+                JLabel hours1 = new JLabel(lessonInfo[i][4]);
                 hours1.setFont(new Font(null, Font.PLAIN, 15));
                 hours1.setHorizontalAlignment(SwingConstants.CENTER);
                 bookedTrainerPane.add(hours1);
