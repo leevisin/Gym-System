@@ -15,7 +15,7 @@ import java.io.IOException;
 public class BookConfirm extends Interface{
     public BookConfirm(String trainerName, String trainerType){
         JFrame jf = new JFrame("Confirm Book");
-        jf.setSize(300, 200);
+        jf.setSize(300, 170);
         jf.setLocationRelativeTo(null);
         jf.setVisible(true);
 

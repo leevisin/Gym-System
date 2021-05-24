@@ -18,3 +18,4 @@ LMX,Ann,Slim,1,3
 LMX,Ken,Strength,6,5
 LMX,Ken,Strength,1,1
 LMX,Dan,Slim,4,4
+LMX,Tina,Slim,1,3
