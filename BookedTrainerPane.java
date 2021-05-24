@@ -22,7 +22,7 @@ public class BookedTrainerPane {
     
     public JPanel bookedTrainerPane;
     public String currentaccount = null;
-    public String[][] trainerInfo;
+    public String[][] lessonInfo;
 
       /**
 	 * Created a JPanel to contain  user information
@@ -31,9 +31,42 @@ public class BookedTrainerPane {
 	 */
     public JPanel makeBookedTrainerPane(JTabbedPane jtb){
         //initialize the JPanel
-        bookedTrainerPane = new JPanel();
-        bookedTrainerPane.setLayout(null);
+        int rows = readLine("texts/BookInfo.txt");
+    
+        bookedTrainerPane = new JPanel(new GridLayout(rows+1, 5));
         bookedTrainerPane.setBounds(0, 0, 1200, 800);
+
+        JLabel title1 = new JLabel("User");
+        title1.setFont(new Font(null, Font.PLAIN, 19));
+        title1.setHorizontalAlignment(SwingConstants.CENTER);
+        title1.setBorder(BorderFactory.createLineBorder(Color.black));
+        bookedTrainerPane.add(title1);
+
+        JLabel title2 = new JLabel("Trainer");
+        title2.setFont(new Font(null, Font.PLAIN, 19));
+        title2.setHorizontalAlignment(SwingConstants.CENTER);
+        title2.setBorder(BorderFactory.createLineBorder(Color.black));
+        bookedTrainerPane.add(title2);
+    
+        JLabel title3 = new JLabel("Lesson Type");
+        title3.setFont(new Font(null, Font.PLAIN, 19));
+        title3.setHorizontalAlignment(SwingConstants.CENTER);
+        title3.setBorder(BorderFactory.createLineBorder(Color.black));
+        bookedTrainerPane.add(title3);
+
+        JLabel title4 = new JLabel("Booked Date");
+        title4.setFont(new Font(null, Font.PLAIN, 19));
+        title4.setHorizontalAlignment(SwingConstants.CENTER);
+        title4.setBorder(BorderFactory.createLineBorder(Color.black));
+        bookedTrainerPane.add(title4);
+
+        JLabel title5 = new JLabel("Booked Hours");
+        title5.setFont(new Font(null, Font.PLAIN, 19));
+        title5.setHorizontalAlignment(SwingConstants.CENTER);
+        title5.setBorder(BorderFactory.createLineBorder(Color.black));
+        bookedTrainerPane.add(title5);
+
+
 
         //accquire information of current user
 		String allinfo; 
@@ -54,20 +87,47 @@ public class BookedTrainerPane {
 			e.printStackTrace();
 		}
 
-        //gettring trainer information
-        trainerInfo = readFromFile("texts/BookInfo.txt");
+        //gettring booked trainer information for all users
+        lessonInfo = readFromFile("texts/BookInfo.txt");
+        //display the lesson booked by current user
+        for(int i=0; i<lessonInfo.length; i++){
+            String userAccount = lessonInfo[i][0];
+            //String trainerName = lessonInfo[i][1];
+            //String trainerType = lessonInfo[i][2];
+            //String day = lessonInfo[i][3];
+            //String hours = lessonInfo[i][4];
+            //display the lesson booked by current user
+            if(userAccount.equals(currentaccount)){
+                //user account
+                JLabel account1 = new JLabel(lessonInfo[i][0]);
+                account1.setFont(new Font(null, Font.PLAIN, 15));
+                account1.setHorizontalAlignment(SwingConstants.CENTER);
+                bookedTrainerPane.add(account1);
+                //triner Name
+                JLabel trainer1 = new JLabel(lessonInfo[i][1]);
+                trainer1.setFont(new Font(null, Font.PLAIN, 15));
+                trainer1.setHorizontalAlignment(SwingConstants.CENTER);
+                bookedTrainerPane.add(trainer1);
+                //trainer Type
+                JLabel type1 = new JLabel(lessonInfo[i][2]);
+                type1.setFont(new Font(null, Font.PLAIN, 15));
+                type1.setHorizontalAlignment(SwingConstants.CENTER);
+                bookedTrainerPane.add(type1);
+                //booked day
+                JLabel day1 = new JLabel(lessonInfo[i][3]);
+                day1.setFont(new Font(null, Font.PLAIN, 15));
+                day1.setHorizontalAlignment(SwingConstants.CENTER);
+                bookedTrainerPane.add(day1);
+                //booked hours
+                JLabel hours1 = new JLabel(lessonInfo[i][3]);
+                hours1.setFont(new Font(null, Font.PLAIN, 15));
+                hours1.setHorizontalAlignment(SwingConstants.CENTER);
+                bookedTrainerPane.add(hours1);
+
+
+            }
+        }
         
-
-        //adding component to the JPanel
-
-
-
-
-
-
-
-
-
 
 
 
@@ -143,6 +203,17 @@ public class BookedTrainerPane {
            System.out.println("readLine function error!");
         }
        return lines;
+    }
+
+    public JScrollPane scrollPanel(JTabbedPane jtb){
+        BookedTrainerPane btp = new BookedTrainerPane();
+
+        JScrollPane scrollPanel = new JScrollPane(
+                btp.makeBookedTrainerPane(jtb),
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
+        );
+        return scrollPanel;
     }
 
 

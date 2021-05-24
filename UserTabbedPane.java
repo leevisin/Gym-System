@@ -52,6 +52,8 @@ public class UserTabbedPane extends Interface{
             public void stateChanged(ChangeEvent e) {
                 UserInfoPane uip = new UserInfoPane();
                 userTabbedPane.setComponentAt(0, uip.makeUserInfoPane(userTabbedPane));
+                BookedTrainerPane btp = new BookedTrainerPane();
+                userTabbedPane.setComponentAt(1, btp.makeBookedTrainerPane(userTabbedPane));
             }
         });
 
