@@ -93,7 +93,9 @@ public class Register extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Register.super.dispose();
-                new Login().setVisible(true);
+                Login login = new Login();
+                login.setLocation(650,100);
+                login.setVisible(true);
             }
         });
 
@@ -141,7 +143,9 @@ public class Register extends JFrame {
                 JOptionPane.showMessageDialog(Register.super.rootPane, mess);
                 if (mess.equals("Register Success!")){
                     Register.super.dispose();
-                    new Login().setVisible(true);
+                    Login login = new Login();
+                    login.setLocation(650, 100);
+                    login.setVisible(true);
                 }
             }
         });
@@ -152,6 +156,7 @@ public class Register extends JFrame {
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
                 Login login = new Login();
+                login.setLocation(650, 100);
                 login.setVisible(true);
             }
         });

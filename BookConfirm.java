@@ -43,8 +43,8 @@ public class BookConfirm extends Interface{
         JPanel btnPanel = new JPanel();
         confirmBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                int week = comboBox1.getSelectedIndex() + 1;
-                int time = comboBox2.getSelectedIndex() + 1;
+                String week = (String)comboBox1.getSelectedItem();
+                String time = (String)comboBox2.getSelectedItem();
                 recordBookInfo(trainerName, trainerType, week, time);
                 jf.setVisible(false);
                 JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
@@ -68,7 +68,7 @@ public class BookConfirm extends Interface{
         jf.setContentPane(jp);
     }
 
-    public void recordBookInfo(String trainerName, String trainerType, int week, int time){
+    public void recordBookInfo(String trainerName, String trainerType, String week, String time){
         String filename = "texts/BookInfo.txt";
         try {
         FileWriter fileWriter = new FileWriter(filename, true); // It can write at the end of file.
@@ -86,7 +86,7 @@ public class BookConfirm extends Interface{
     public String readCurrentUser(){
         String userInfo = "";
         try{
-            FileReader fileReader = new FileReader("Source/currentuser.txt");
+            FileReader fileReader = new FileReader("texts/currentuser.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String oneLine = bufferedReader.readLine();
                 userInfo += oneLine;
