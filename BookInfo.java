@@ -76,13 +76,6 @@ public class BookInfo extends Interface {
         bookBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 new BookConfirm(trainerName, trainerType);
-                // Object[] options ={ "Confirm", "Cancel" };
-                // int m = JOptionPane.showOptionDialog(null, "Do You Want To Book The Trainer?", "Book Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                // // Confirm Button
-                // if(m==0){
-                //     recordBookInfo(trainerName, trainerType);
-                //     JOptionPane.showMessageDialog(null, "You Have Booked " + trainerName + " Successfully!", "Book Success",JOptionPane.PLAIN_MESSAGE);
-                // }
             }
         });
 
