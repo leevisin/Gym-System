@@ -38,23 +38,23 @@ public class Login extends JFrame {
         JLabel accountLabel = new JLabel("Account:");
         accountLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         accountLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        accountLabel.setBounds(50, 150, 100, 30);
+        accountLabel.setBounds(100, 150, 100, 30);
         contentPane.add(accountLabel);
 
         accountField = new JTextField();
-        accountField.setBounds(170, 150, 145, 25);
+        accountField.setBounds(220, 150, 145, 25);
         contentPane.add(accountField);
         accountField.setColumns(10);
 
         JLabel  passwordLabel= new JLabel("Password:");
         passwordLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         passwordLabel.setFont(new Font("Arial", Font.PLAIN, 20));
-        passwordLabel.setBounds(65, 225, 100, 30);
+        passwordLabel.setBounds(115, 225, 100, 30);
         contentPane.add(passwordLabel);
 
         passwordField = new JPasswordField();
         passwordField.setColumns(10);
-        passwordField.setBounds(170, 225, 145, 25);
+        passwordField.setBounds(220, 225, 145, 25);
         contentPane.add(passwordField);
 
         JButton registerButton = new JButton("Register");
@@ -126,7 +126,9 @@ public class Login extends JFrame {
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Login.super.dispose();
-                new Register().setVisible(true);
+                Register rg = new Register();
+                rg.setLocation(650, 100);
+                rg.setVisible(true);
             }
         });
 
@@ -146,7 +148,9 @@ public class Login extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Login().setVisible(true);
+        Login login = new Login();
+        login.setLocation(650,100);
+        login.setVisible(true);
     }
 }
 
