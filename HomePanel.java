@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import java.lang.Math;
 
 
-public class welcome extends Interface{
+public class HomePanel extends Interface{
     public JPanel adImage = new JPanel();
     public JPanel recommend1 = new JPanel(new BorderLayout());
     public JPanel recommend2 = new JPanel();
@@ -139,7 +139,7 @@ public class welcome extends Interface{
         JFrame frame = new JFrame();
         frame.setBounds(0, 0, 1280, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        welcome ui = new welcome();
+        HomePanel ui = new HomePanel();
         frame.getContentPane().add(ui.trainerRecommend());
         frame.setVisible(true);
     }
