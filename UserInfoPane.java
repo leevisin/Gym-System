@@ -22,9 +22,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /** 
+ *  Created a JPanel to contain  user information
  *  Created on 2021/5/18:The JPane contain 1 part of user information
  *  updated on 2021/05/21: modify the appearance of this page
- * 
  * 
  */
 

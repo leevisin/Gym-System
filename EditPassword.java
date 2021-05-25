@@ -15,13 +15,13 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.Objects;
-  /**
+   /**
+     * The window where user can edit their password
 	 * Created on 2021/05/06
      * updated on 2021/5/18: modified to accomadate change in JTabbedPane
      * updated on 2021/5/21
 	 * 
 	 */
-
 
 public class EditPassword extends JFrame{
 

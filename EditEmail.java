@@ -18,6 +18,7 @@ import java.util.Objects;
 
 
    /**
+     * The window where user can edit their e-mail
 	 * Created on 2021/05/06
      * Updated on 2021/5/18: change the output to correspond to the change in the JTabbedPane
 	 * 

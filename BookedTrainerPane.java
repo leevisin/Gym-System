@@ -13,10 +13,11 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 /** 
+ *  Created a JPanel to contain  information about all the trainer that was booked by a given user
  *  Created on 2021/5/18:The JPane contain no.2 part of booked Trainer
  * 
- * 
  */
+
 public class BookedTrainerPane {
 
     
@@ -25,7 +26,7 @@ public class BookedTrainerPane {
     public String[][] lessonInfo;
 
       /**
-	 * Created a JPanel to contain  user information
+	 * Created a JPanel to contain  information about all the trainer that was booked by a given user
 	 * @param  JTabbedPane jtb, jtb is the JTabbedPane that will contain this JPanel
 	 * @return JPanel, the created JPanel
 	 */
@@ -134,7 +135,11 @@ public class BookedTrainerPane {
 
 
 
-     // Get the user information from file.txt
+    /**
+	 * Reading booked trainer information from a text file
+	 * @param  String path name of the file
+	 * @return String[][], String array that contain all information
+	 */
      public String[][] readFromFile(String filename){
         // Exit when file not exist
         try {
@@ -181,6 +186,11 @@ public class BookedTrainerPane {
         return infoArray;
      }
 
+    /**
+	 * Returning how many lines are there in a given file
+	 * @param String the path of the file
+	 * @return int, how many lines are the file.
+	 */
      public int readLine(String filename){
         int lines = 0;
         try {
@@ -199,16 +209,6 @@ public class BookedTrainerPane {
        return lines;
     }
 
-    public JScrollPane scrollPanel(JTabbedPane jtb){
-        BookedTrainerPane btp = new BookedTrainerPane();
-
-        JScrollPane scrollPanel = new JScrollPane(
-                btp.makeBookedTrainerPane(jtb),
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
-        return scrollPanel;
-    }
 
 
     public static void main(String[] args){
