@@ -11,6 +11,7 @@ import java.util.Objects;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
    /**
+     * The Login window of the gym system
 	 * updated on 2021/4/21: able to record current user when log in
      * updated on 2021/5/21: change to new main page after login
 	 * 
@@ -134,6 +135,11 @@ public class Login extends JFrame {
 
     }
 
+    /**
+	 * Created a JPanel that display some text
+	 * @param  String the text to display
+	 * @return JComponent, the created JPanel
+	 */
     private static JComponent createTextPanel(String text) {
 
         JPanel panel = new JPanel(new GridLayout(1, 1));

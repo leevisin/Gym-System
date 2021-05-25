@@ -13,10 +13,11 @@ import java.awt.event.ActionListener;
 import java.io.*;
 
 /** 
+ *  Created a JPanel to contain  information about all the trainer that was booked by a given user
  *  Created on 2021/5/18:The JPane contain no.2 part of booked Trainer
  * 
- * 
  */
+
 public class BookedTrainerPane {
 
     
@@ -25,7 +26,7 @@ public class BookedTrainerPane {
     public String[][] lessonInfo;
 
       /**
-	 * Created a JPanel to contain  user information
+	 * Created a JPanel to contain  information about all the trainer that was booked by a given user
 	 * @param  JTabbedPane jtb, jtb is the JTabbedPane that will contain this JPanel
 	 * @return JPanel, the created JPanel
 	 */
@@ -79,9 +80,6 @@ public class BookedTrainerPane {
 		    allinfo = br.readLine(); //obtain all information of current user
 		    info = allinfo.split(",");
 	        currentaccount = info[0];
-		    //currentpassword = info[1];
-		    //currentemail = info[2];
-            //currentusertype = info[3];
 		    br.close();
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -92,10 +90,7 @@ public class BookedTrainerPane {
         //display the lesson booked by current user
         for(int i=0; i<lessonInfo.length; i++){
             String userAccount = lessonInfo[i][0];
-            //String trainerName = lessonInfo[i][1];
-            //String trainerType = lessonInfo[i][2];
-            //String day = lessonInfo[i][3];
-            //String hours = lessonInfo[i][4];
+ 
             //display the lesson booked by current user
             if(userAccount.equals(currentaccount)){
                 //user account
@@ -140,7 +135,11 @@ public class BookedTrainerPane {
 
 
 
-     // Get the user information from file.txt
+    /**
+	 * Reading booked trainer information from a text file
+	 * @param  String path name of the file
+	 * @return String[][], String array that contain all information
+	 */
      public String[][] readFromFile(String filename){
         // Exit when file not exist
         try {
@@ -187,6 +186,11 @@ public class BookedTrainerPane {
         return infoArray;
      }
 
+    /**
+	 * Returning how many lines are there in a given file
+	 * @param String the path of the file
+	 * @return int, how many lines are the file.
+	 */
      public int readLine(String filename){
         int lines = 0;
         try {
@@ -205,16 +209,6 @@ public class BookedTrainerPane {
        return lines;
     }
 
-    public JScrollPane scrollPanel(JTabbedPane jtb){
-        BookedTrainerPane btp = new BookedTrainerPane();
-
-        JScrollPane scrollPanel = new JScrollPane(
-                btp.makeBookedTrainerPane(jtb),
-                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER
-        );
-        return scrollPanel;
-    }
 
 
     public static void main(String[] args){

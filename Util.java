@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-
+/** 
+* Contains the static methods that is reused many times
+* including writing & reading files, validating data format
+* @since  2021/5/20
+*  
+*/
    /**
 	 * updated on 2021/4/21: added the function of verify e-mail and password format
 	 * updated on 2021/4/21: added the function of record current user
@@ -19,6 +24,11 @@ public class Util {
     public static String pathname = "texts/member.txt"; //text file record all user information
     public static String currentuser = "texts/currentuser.txt";//text file record current user
 
+     /**
+	 * Read the information of a List<Member> array from a text file
+	 * @param 
+	 * @return List<Member> Member array that contain all the members
+	 */
     public static List<Member> readFile() {
         List<Member> memberList = new ArrayList<>();
         BufferedReader br = null;
@@ -47,7 +57,11 @@ public class Util {
         }
     }
  
-
+    /**
+	 * Write the information of a List<Member> array into a text file
+	 * @param List<Member> Member array that contain all the members
+	 * @return boolean, indicating whether the writing of file is successful.
+	 */
     public static boolean writeFile(List<Member> memberList) {
         OutputStreamWriter writer = null;
         try {
@@ -62,7 +76,11 @@ public class Util {
             return false;
         }
     }
-    
+    /**
+	 * Store the information of members that read from a text file into arrayList
+	 * @param String the string that contain all the information of all the members
+	 * @return List<Member> arrayList that contain all the members
+	 */
     public static List<Member> StringToArrayList(String str) {
         List<Member> members = new ArrayList<>();
         if (str.length() == 2) {
@@ -188,7 +206,11 @@ public class Util {
         
     }
 
-    // Get the user information from file.txt
+    /**
+	 * Read information from a file and store it in a String array
+	 * @param String the path of the file
+	 * @return String[][] String array that contain all the information 
+	 */
     public static String[][] readFromFile(String filename){
         // Exit when file not exist
         try {
@@ -235,6 +257,11 @@ public class Util {
         return infoArray;
      }
 
+     /**
+	 * Returning how many lines are there in a given file
+	 * @param String the path of the file
+	 * @return int, how many lines are the file.
+	 */
      public static int readLine(String filename){
         int lines = 0;
         try {

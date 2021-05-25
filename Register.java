@@ -8,6 +8,12 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.Objects;
 
+ /**
+	 * The Register window of the online gym
+	 *
+     * 
+	 */
+
 public class Register extends JFrame {
     JTextField emailField;
     JTextField accountField;

@@ -10,13 +10,12 @@ import java.io.IOException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-
-
 /** 
- *  Created on 2021/5/18:The Tabbed Pane contain 3 parts of user information and activity
- * 
- * 
- */
+* Created the JTabbedPane that contain 3 user parts of user information
+* @since  2021/5/18
+*  
+*/
+
 
 public class UserTabbedPane extends Interface{
     public JTabbedPane userTabbedPane;
