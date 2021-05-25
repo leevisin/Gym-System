@@ -79,9 +79,6 @@ public class BookedTrainerPane {
 		    allinfo = br.readLine(); //obtain all information of current user
 		    info = allinfo.split(",");
 	        currentaccount = info[0];
-		    //currentpassword = info[1];
-		    //currentemail = info[2];
-            //currentusertype = info[3];
 		    br.close();
 		}catch (IOException e) {
 			e.printStackTrace();
@@ -92,10 +89,7 @@ public class BookedTrainerPane {
         //display the lesson booked by current user
         for(int i=0; i<lessonInfo.length; i++){
             String userAccount = lessonInfo[i][0];
-            //String trainerName = lessonInfo[i][1];
-            //String trainerType = lessonInfo[i][2];
-            //String day = lessonInfo[i][3];
-            //String hours = lessonInfo[i][4];
+ 
             //display the lesson booked by current user
             if(userAccount.equals(currentaccount)){
                 //user account

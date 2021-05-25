@@ -82,20 +82,7 @@ public class EditUserType1 extends JFrame{
         contentPane.add(svip1);
 
         
-        
 
-        //confirm = new JButton("Confirm");
-        //confirm.setBounds(160, 200, 100, 30);               // adding the Confirm Button
-        //contentPane.add(confirm);
-
-        //back = new JButton("Back");
-        //back.setBounds(40, 200, 100, 30);                   // adding the Back Button
-        //contentPane.add(back);
-
-        //newusertype = new JLabel("upgrade account: "+ currentaccount+" to VIP?");
-          
-        //newusertype.setBounds(40, 40, 220,120);            
-        //contentPane.add(newusertype);
 
         vip1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

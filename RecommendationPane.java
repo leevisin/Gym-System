@@ -54,10 +54,6 @@ public class RecommendationPane {
 		    allinfo = br.readLine(); //obtain all information of current user
 		    info = allinfo.split(",");
 	        currentaccount = info[0];
-		    //currentpassword = info[1];
-		    //currentemail = info[2];
-            //currentusertype = info[3];
-
 		    br.close();
 		}catch (IOException e) {
 			e.printStackTrace();
