@@ -21,7 +21,7 @@ public class Main {
 
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(), "This is a tab.");
 
-        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), createTextPanel("Administer Panel"), "This is a tab.");
+        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel(), "This is a tab.");
 
 
         tabbedPane.addChangeListener(new ChangeListener() {
