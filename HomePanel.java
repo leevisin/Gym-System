@@ -28,13 +28,14 @@ import java.lang.Math;
 public class HomePanel extends Interface{
     public JPanel adImage = new JPanel();
     public JPanel recommend1 = new JPanel(new BorderLayout());
-    public JPanel recommend2 = new JPanel();
-    public JPanel trainerRC = new JPanel(new GridLayout(0,3,200,0));
+    public JPanel recommend2 = new JPanel(new GridLayout(0,3,200,0));
+    public JPanel trainerRC = new JPanel();
     
     
     public JPanel recommend3 = new JPanel(new BorderLayout());
-    public JPanel recommend4 = new JPanel();
-    public JPanel videoRC = new JPanel(new GridLayout(0,3,50,0));
+    public JPanel recommend4 = new JPanel(new GridLayout(0,3,50,0));
+    public JPanel videoRC = new JPanel();
+    
     public JPanel homePanel1 = new JPanel();
     
     public JPanel homePanel(){
@@ -46,7 +47,7 @@ public class HomePanel extends Interface{
     
     public JPanel adimageJPanel(){
         JLabel label = new JLabel();
-        label.setIcon(new ImageIcon("images/Discount.jpg"));//文件路径
+        label.setIcon(new ImageIcon("images/LOGO.gif"));//文件路径
         // adjustmentWindow.add(label);
         // ImageIcon icon = new ImageIcon("images/Discount.jpg");
         // JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon); 
@@ -58,11 +59,11 @@ public class HomePanel extends Interface{
         
     }
     public JPanel trainerRecommend(){
-        // //写一个label
-        // JLabel RC = new JLabel("Trainer recommendation!");
-        // RC.setForeground(Color.BLACK);
-        // recommend1.add(RC,BorderLayout.WEST);
-        // trainerRC.add(recommend1, BorderLayout.NORTH);
+        //写一个label
+        JButton RC = new JButton("Trainer recommendation!");
+        RC.setForeground(Color.BLACK);
+        // RC.setBounds(0, 0, 1280, 1);
+        recommend1.add(RC,BorderLayout.NORTH);
         //数组存三个随机数
         int end = readLine("texts/AllTrainer.txt");
         System.out.println("一共有x行"+end);
@@ -114,15 +115,22 @@ public class HomePanel extends Interface{
             trainerBtn.setFocusPainted(false);
             trainerBtn.setVerticalTextPosition(JButton.BOTTOM);
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
-            trainerRC.add(trainerBtn);
+            recommend2.add(trainerBtn);
             }  
         }
+        recommend1.add(recommend2,BorderLayout.CENTER);
+        trainerRC.add(recommend1);
         return trainerRC; 
     }
 
     
     
     public JPanel videoRecommend(){
+        
+        JButton RC = new JButton("Trainer recommendation!");
+        RC.setForeground(Color.BLACK);
+        recommend3.add(RC,BorderLayout.NORTH);
+        
         // public JPanel recommend3 = new JPanel(new BorderLayout());
         // JLabel RC1 = new JLabel("Trainer recommendation!");
         // RC1.setForeground(Color.WHITE);
@@ -212,9 +220,11 @@ public class HomePanel extends Interface{
                         }
                 }
                 });
-                videoRC.add(btn);
-            }
+                recommend4.add(btn);
+            }   
         }
+        recommend3.add(recommend4,BorderLayout.CENTER);
+        videoRC.add(recommend3);
         return videoRC;
     }
 
