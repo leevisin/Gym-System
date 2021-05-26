@@ -1,1 +1,1 @@
-[Member{account='LMX', password='123456', email='1234@@@', userType='VIP', vediotimes='33'}, Member{account='LDS', password='111111', email='123456@', userType='normal', vediotimes='10'}, Member{account='LWX', password='123456', email='123456@@.COM', userType='normal', vediotimes='10'}]
+[Member{account='LMX', password='123456', email='1234@@@', userType='VIP', vediotimes='26'}, Member{account='LDS', password='111111', email='123456@', userType='normal', vediotimes='10'}, Member{account='LWX', password='123456', email='123456@@.COM', userType='normal', vediotimes='10'}]
