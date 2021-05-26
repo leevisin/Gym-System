@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class AdminPanel extends Interface{
 
-    JPanel adminPanel = new JPanel(new BorderLayout());
+    JPanel adminPanel = new JPanel();
 
     public AdminPanel(){
 
@@ -42,7 +42,7 @@ public class AdminPanel extends Interface{
         btnPanel.add(removeVideoBtn);
         btnPanel.add(removeTrainerBtn);
 
-        adminPanel.add(btnPanel, BorderLayout.CENTER);
+        adminPanel.add(btnPanel);
         return adminPanel;
     }
 
