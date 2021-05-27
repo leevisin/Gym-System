@@ -29,12 +29,17 @@ import javax.swing.JPanel;
  */
 
 public class UserInfoPane {
+    /**the JPanel called userInfoPane and contained user information that will be created */
     public JPanel userInfoPane;
-
+    /**the  account name of the user*/
     public String currentaccount = null;
+    /**the  the password of the user*/
 	public String currentpassword = null;
+    /**the  e-mail of the user*/
 	public String currentemail = null;
+    /**the  user type of the user*/
     public String currentusertype = null;
+    /**how many times this user can see videos*/
     public String currentvediotimes = null;
 
 

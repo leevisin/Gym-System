@@ -30,8 +30,9 @@ import java.awt.event.WindowEvent;
  * 
  */
 public class RecommendationPane {
-
+    /**The JPanel that provided the recommendation interface and functinality*/
     public JPanel recommendationPane;
+    /**The account name of the user*/
     public String currentaccount;
 
 

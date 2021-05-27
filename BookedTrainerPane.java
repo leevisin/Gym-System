@@ -20,9 +20,11 @@ import java.io.*;
 
 public class BookedTrainerPane {
 
-    
+    /**The JPanel that displayed the booked trainer*/
     public JPanel bookedTrainerPane;
+    /**The account name of the user*/
     public String currentaccount = null;
+    /**The string array that contains all the booked trainer information*/
     public String[][] lessonInfo;
 
       /**

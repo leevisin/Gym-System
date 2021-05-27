@@ -7,7 +7,7 @@ import javax.swing.*;
 /** 
 * Contains the static methods that is reused many times
 * including writing & reading files, validating data format
-* @since  2021/5/20
+* Last updated on :2021/5/27
 *  
 */
    /**
@@ -21,8 +21,10 @@ import javax.swing.*;
 	 */
 
 public class Util {
-    public static String pathname = "texts/member.txt"; //text file record all user information
-    public static String currentuser = "texts/currentuser.txt";//text file record current user
+    /**The file path of all user's information */
+    public static String pathname = "texts/member.txt"; 
+    /**The file path of the file that record the information of current user*/
+    public static String currentuser = "texts/currentuser.txt";
 
      /**
 	 * Read the information of a List<Member> array from a text file
@@ -135,7 +137,7 @@ public class Util {
 	 * @return int value indicate the verified outcome,1=success,0=require both number and character,-1=lenth less than 6 
 	 */
     public static int passwordFormat(String password){
-        //chek for the length of password
+        //chek for the length of password(bigger than 6)
         if(password.length()<6)
         {return -1;}
         //chek for the both character and number
@@ -144,11 +146,11 @@ public class Util {
         for (int i = 0; i < password.length(); i++) {
             if(password.charAt(i)<='9'||password.charAt(i)>='0')
             {havenum = true;}
-            if(password.charAt(i)<='z'||password.charAt(i)>='a'||password.charAt(i)<='Z'||password.charAt(i)>='A')
+            if(password.charAt(i)<='z'&&password.charAt(i)>='a'||password.charAt(i)<='Z'&&password.charAt(i)>='A')
             {havechar = true;}
         }
 
-        if(havenum&havechar){
+        if(havenum&&havechar){
             return 1;
         }
         else{
@@ -157,7 +159,7 @@ public class Util {
     }
  
     /**
-	 * Verify the format of a new email
+	 * Verify the format of a new email(must included @)
 	 * @param email the email choose by user
 	 * @return int value indicate the verified outcome,1=valid,0=invalid
 	 */

@@ -18,6 +18,7 @@ import javax.swing.event.ChangeListener;
 
 
 public class UserTabbedPane extends Interface{
+    /**the JTabbedPane called UserTabbedPane that will be created */
     public JTabbedPane userTabbedPane;
 
 

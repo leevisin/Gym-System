@@ -21,20 +21,21 @@ import java.util.Objects;
 
 public class EditUserType2 extends JFrame{
 
-    JButton confirm;
-    JButton back;
-    JLabel carddisplay;  
-    JLabel mess;   
-    JTextField cardnum;               
+               
     
     
-
+    /**The JTabbedPane where the change of user type will be updated to*/
     JTabbedPane jt1;
 
 
     
 
     public EditUserType2(String currentaccount,JTabbedPane jtb,String viptype) throws HeadlessException{
+        JButton confirm;
+        JButton back;
+        JLabel carddisplay;  
+        JLabel mess;   
+        JTextField cardnum; 
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);

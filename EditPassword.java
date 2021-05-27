@@ -25,19 +25,20 @@ import java.util.Objects;
 
 public class EditPassword extends JFrame{
 
-    JButton confirm;
-    JButton back;
-    JLabel newpassword1;                    
-    JLabel confirmpassword1;
-    JTextField newpassword2;
-    JTextField confirmpassword2;
 
+     /**The JTabbedPane where the change of password will be updated to*/
     JTabbedPane jt1;
 
 
     
 
     public EditPassword(String currentaccount,JTabbedPane jtb) throws HeadlessException{
+        JButton confirm;
+        JButton back;
+        JLabel newpassword1;                    
+        JLabel confirmpassword1;
+        JTextField newpassword2;
+        JTextField confirmpassword2;
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);
@@ -90,6 +91,12 @@ public class EditPassword extends JFrame{
                 String account = currentaccount;
                 if(!newpassword.equals(confirmpassword)){
                     JOptionPane.showMessageDialog(EditPassword.super.rootPane, "The two passwords are inconsistent, please enter it again"); //check whether this two passwords are indentical
+                }
+                else if(Util.passwordFormat(newpassword)==0){
+                    JOptionPane.showMessageDialog(EditPassword.super.rootPane, "The password should contain both number and character"); //check for correct password format
+                }
+                else if(Util.passwordFormat(newpassword)==-1){
+                    JOptionPane.showMessageDialog(EditPassword.super.rootPane, "The password should be over 6 digit");//check for correct password format
                 }
                 else{
                     List<Member> members = Util.readFile();

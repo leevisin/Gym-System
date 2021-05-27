@@ -20,16 +20,17 @@ import java.util.Objects;
 
 public class EditUserType3 extends JFrame{
 
-    JButton confirm;
-    JLabel display;     
+     
               
     
     
-
+    /**The JTabbedPane where the change of user type will be updated to*/
     JTabbedPane jt1;
 
 
     public EditUserType3(String currentaccount,JTabbedPane jtb) throws HeadlessException{
+        JButton confirm;
+        JLabel display; 
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);

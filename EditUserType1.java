@@ -21,21 +21,23 @@ import java.util.Objects;
 
 public class EditUserType1 extends JFrame{
 
-    JButton vip1;
-    JButton vip2;
-    JButton svip1;
-    JLabel newusertype;   
+    /**The path of the icon for vip*/  
     String vip1image = "images/vip1.jpg";   
+    /**The path of the icon for svip*/  
     String svip1image = "images/svip1.jpg";            
     
     
-
+    /**The JTabbedPane where the change of user type will be updated to*/
     JTabbedPane jt1;
 
 
     
 
     public EditUserType1(String currentaccount,JTabbedPane jtb) throws HeadlessException{
+        JButton vip1;
+        JButton vip2;
+        JButton svip1;
+        JLabel newusertype;  
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 1000, 600);
