@@ -1,16 +1,9 @@
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-import java.util.Objects;
    /**
      * The window where user can choose which type of VIP they wanted
 	 * Created on 2021/05/18
@@ -36,8 +29,7 @@ public class EditUserType1 extends JFrame{
     public EditUserType1(String currentaccount,JTabbedPane jtb) throws HeadlessException{
         JButton vip1;
         JButton vip2;
-        JButton svip1;
-        JLabel newusertype;  
+        JButton svip1; 
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 1000, 600);

@@ -2,7 +2,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
+
 
 /** 
 * Contains the static methods that is reused many times
@@ -32,7 +32,7 @@ public class Util {
 	 * @return List<Member> Member array that contain all the members
 	 */
     public static List<Member> readFile() {
-        List<Member> memberList = new ArrayList<>();
+        //List<Member> memberList = new ArrayList<>();
         BufferedReader br = null;
         InputStreamReader reader = null;
 

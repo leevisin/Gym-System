@@ -1,28 +1,16 @@
 import javax.swing.*;
-import java.net.*;
 import java.awt.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 /** 
  *  Created a JPanel that contains the Recommendation window
  *  Created on 2021/5/18:The JPane contain no.3 part of Recommendation activity
@@ -143,7 +131,7 @@ public class RecommendationPane {
                     }
                     else if(target.equals("Fat-Loss")){
                         //recommend a Trainer of catagory Gain-muscle
-                        String target2 = (String) comboBox1.getSelectedItem();
+                        //String target2 = (String) comboBox1.getSelectedItem();
                         int trainer = (int)(Math.random()*4+1);
                         int i = 0;
                         int j = 0;
