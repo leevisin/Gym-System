@@ -25,10 +25,35 @@ public class BookedTrainerPane extends Interface{
 	 * @return JPanel, the created JPanel
 	 */
     public JPanel makeBookedTrainerPane(JTabbedPane jtb){
-        //initialize the JPanel
-        int rows = readLine("texts/BookInfo.txt");
-        System.out.println(rows);
-    
+        
+        //accquire information of current user
+		String allinfo; 
+		String[] info;
+		BufferedReader br = null;
+		InputStreamReader reader = null;
+		try{
+		    reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
+            br = new BufferedReader(reader);
+		    allinfo = br.readLine(); //obtain all information of current user
+		    info = allinfo.split(",");
+	        currentaccount = info[0];
+		    br.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+
+        //gettring booked trainer information for all users
+        lessonInfo = readFromFile("texts/BookInfo.txt");
+
+        //initialize the JPanel 
+        int rows = 0;
+        for(int i=0; i<lessonInfo.length; i++){
+            String userAccount = lessonInfo[i][0];
+            if(userAccount.equals(currentaccount)){
+                rows++;
+            }
+        }
+
         bookedTrainerPane = new JPanel(new GridLayout(rows+1, 5));
         bookedTrainerPane.setBounds(0, 0, 1200, 720);
 
@@ -63,25 +88,6 @@ public class BookedTrainerPane extends Interface{
         bookedTrainerPane.add(title5);
 
 
-
-        //accquire information of current user
-		String allinfo; 
-		String[] info;
-		BufferedReader br = null;
-		InputStreamReader reader = null;
-		try{
-		    reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
-            br = new BufferedReader(reader);
-		    allinfo = br.readLine(); //obtain all information of current user
-		    info = allinfo.split(",");
-	        currentaccount = info[0];
-		    br.close();
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
-
-        //gettring booked trainer information for all users
-        lessonInfo = readFromFile("texts/BookInfo.txt");
         //display the lesson booked by current user
         for(int i=0; i<lessonInfo.length; i++){
             String userAccount = lessonInfo[i][0];
@@ -112,23 +118,12 @@ public class BookedTrainerPane extends Interface{
                 hours1.setFont(new Font(null, Font.PLAIN, 15));
                 hours1.setHorizontalAlignment(SwingConstants.CENTER);
                 bookedTrainerPane.add(hours1);
-
             }
         }
         
-
-
-
        return bookedTrainerPane;
 
     }
-
-
-
-
-
-
-
 
 
     public static void main(String[] args){
