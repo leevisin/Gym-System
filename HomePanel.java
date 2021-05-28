@@ -45,7 +45,14 @@ public class HomePanel extends Interface{
         //Randomly recommend three trainers
         //Generate three different random numbers,use the method of getRandom()
         int end = readLine("texts/AllTrainer.txt");
-        int[] randomInt = new int[3];
+        //catch an Exception if the line in the file is less than we need;
+        try{
+            fileLessline(end, 5);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        int[] randomInt = new int[5];
         randomInt[0]=getRandom(0, end-1);
         do{
             randomInt[1]= getRandom(0, end-1);
@@ -53,18 +60,25 @@ public class HomePanel extends Interface{
 
         do{
             randomInt[2]= getRandom(0, end-1);
-        }while(randomInt[2]==randomInt[1]||randomInt[2]==randomInt[0]);       
+        }while(randomInt[2]==randomInt[1]||randomInt[2]==randomInt[0]); 
+        do{
+            randomInt[3]= getRandom(0, end-1);
+        }while(randomInt[3]==randomInt[0]||randomInt[3]==randomInt[1]||randomInt[3]==randomInt[2]);
+        do{
+            randomInt[4]= getRandom(0, end-1);
+        }while(randomInt[4]==randomInt[3]||randomInt[4]==randomInt[2]||randomInt[4]==randomInt[1]||randomInt[4]==randomInt[0]);
+
         //Extract the information from the file, use the loop to make a button
         String[][] trainersInfo = readFromFile("texts/AllTrainer.txt");
         //GUILayout , BoxX is the The abscissa of the button
-        int BoxX = 135 ; 
+        int BoxX = 53 ; 
         for(int i=0; i<trainersInfo.length; i++){       
             String trainerName = trainersInfo[i][0];
             String trainerType = trainersInfo[i][1];
             String imagesPath = trainersInfo[i][2];
             String intro = trainersInfo[i][3];
             // Problem intro String can't be too long
-            if(i==randomInt[0]||i==randomInt[1]||i==randomInt[2]){
+            if(i==randomInt[0]||i==randomInt[1]||i==randomInt[2]||i==randomInt[3]||i==randomInt[4]){
             ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
             JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon); 
             // trainerBtn.setMaximumSize(new Dimension(30,20)); 
@@ -86,7 +100,7 @@ public class HomePanel extends Interface{
             trainerBtn.setHorizontalTextPosition(JButton.CENTER);
             trainerBtn.setBounds(BoxX,480,150,200);
             //the gap between the two buttons is 420
-            BoxX+=420;
+            BoxX+=256;
             homePanel1.add(trainerBtn);
             }  
         }
@@ -100,6 +114,13 @@ public class HomePanel extends Interface{
         //Randomly recommend three Videos
         //Generate three different random numbers,use the method of getRandom()
         int end1 = readLine("texts/AllVideo.txt");
+        //catch an Exception if the line in the file is less than we need;
+        try{
+            fileLessline(end1, 3);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
         int[] randomInt1 = new int[3];
         randomInt1[0]=getRandom(0, end1-1);
         do{
@@ -202,6 +223,11 @@ public class HomePanel extends Interface{
         Button.setFocusPainted(false);
         Button.setVerticalTextPosition(JButton.BOTTOM);
         Button.setHorizontalTextPosition(JButton.CENTER);
+    }
+
+    public void fileLessline(int fileLine , int needLine) throws Exception{
+        if (fileLine<needLine)
+            throw new Exception("the message in file is less than your need!");
     }
     //main method is use to test the homePanel()
     public static void main(String[] args){
