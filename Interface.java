@@ -207,7 +207,7 @@ import java.util.*;
 
         int j=0;
          for(int i=0;i<=lines-1;i++){
-             if(courses[i][5].equals("1"))
+             if(courses[i][5].equals("1")||courses[i][5].equals("2"))
                {        
                    
                    
