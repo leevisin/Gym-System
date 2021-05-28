@@ -29,7 +29,7 @@ public class BookedTrainerPane {
         int rows = readLine("texts/BookInfo.txt");
     
         bookedTrainerPane = new JPanel(new GridLayout(rows+1, 5));
-        bookedTrainerPane.setBounds(0, 0, 1200, 800);
+        bookedTrainerPane.setBounds(0, 0, 1200, 720);
 
         JLabel title1 = new JLabel("User");
         title1.setFont(new Font(null, Font.PLAIN, 19));
