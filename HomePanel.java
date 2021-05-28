@@ -195,7 +195,7 @@ public class HomePanel extends Interface{
                                         List<Member> members = Util.readFile();
                                         for (Member member: Objects.requireNonNull(members)) {
                                             if (member.getAccount().equals(userInfor[0][0])){
-                                                member.setVedioTimes(leftNum); 
+                                                member.setVideoTimes(leftNum); 
                                                 Util.writeFile(members);         
                                                 Util.recordCurrentUser(member);
                                              }

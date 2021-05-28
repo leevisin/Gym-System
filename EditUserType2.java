@@ -70,15 +70,15 @@ public class EditUserType2 extends JFrame{
                         if (member.getAccount().equals(currentaccount)){
                             if(viptype.equals("vip1")){
                                 member.setUserType("VIP"); //case1:vip1 pack
-                                member.setVedioTimes(50 + member.getVedioTimes());
+                                member.setVideoTimes(50 + member.getVideoTimes());
                             }
                             else if(viptype.equals("vip2")){
                                 member.setUserType("VIP");
-                                member.setVedioTimes(100 + member.getVedioTimes());//case2:vip2 pack
+                                member.setVideoTimes(100 + member.getVideoTimes());//case2:vip2 pack
                             }
                             else{
                                 member.setUserType("SVIP");
-                                member.setVedioTimes(-1);//case3:svip pack
+                                member.setVideoTimes(-1);//case3:svip pack
                             }                     
                         Util.writeFile(members);  //change the information in member.txt       
                         Util.recordCurrentUser(member);  //change the information in member.txt

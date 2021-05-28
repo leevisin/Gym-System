@@ -41,7 +41,7 @@ public class EditUserType1 extends JFrame{
         //adding 3 components
         ImageIcon vipicon = new ImageIcon(vip1image);
         ImageIcon svipicon = new ImageIcon(svip1image);
-        vip1 = new JButton("VIP1:50times of viewing vedio  20$", vipicon);
+        vip1 = new JButton("VIP1:50times of viewing video  20$", vipicon);
         vip1.setBounds(20, 30, 300, 400);
         //vip1.setIcon(vipicon);
         vip1.setHideActionText(true);
@@ -54,7 +54,7 @@ public class EditUserType1 extends JFrame{
         contentPane.add(vip1);
 
         
-        vip2 = new JButton("VIP2:100 times of viewing vedio  30$", vipicon);
+        vip2 = new JButton("VIP2:100 times of viewing video  30$", vipicon);
         vip2.setBounds(340, 30, 300, 400);
         vip2.setHideActionText(true);
         vip2.setToolTipText("25% Discount!!");
@@ -65,10 +65,10 @@ public class EditUserType1 extends JFrame{
         vip2.setHorizontalTextPosition(JButton.CENTER);
         contentPane.add(vip2);
 
-        svip1 = new JButton("SVIP:viewing vedio without limit  80$", svipicon);
+        svip1 = new JButton("SVIP:viewing video without limit  80$", svipicon);
         svip1.setBounds(660, 30, 300, 400);
         svip1.setHideActionText(true);
-        svip1.setToolTipText("Viewing all vedio without limit");
+        svip1.setToolTipText("Viewing all video without limit");
         svip1.setBorderPainted(false);
         svip1.setContentAreaFilled(false);
         svip1.setFocusPainted(false);

@@ -16,7 +16,7 @@ import java.util.List;
 	 * updated on 2021/5/18: added the function of creating ImageIcon
      * updated on 2021/5/18: added the function of verifying bank account format
      * updated on 2021/5/18: added the function of read text file into a string array
-     * updated on 2021/5/20: added the funciton of recording vedio times and userType
+     * updated on 2021/5/20: added the funciton of recording Video times and userType
      * 
 	 */
 
@@ -104,8 +104,8 @@ public class Util {
                         member.setPassword(world[1]);
                     } else if (world[0].equals("userType")) {
                         member.setUserType(world[1]);
-                    } else if (world[0].equals("vediotimes")) {
-                        member.setVedioTimes(Integer.parseInt(world[1]));
+                    } else if (world[0].equals("Videotimes")) {
+                        member.setVideoTimes(Integer.parseInt(world[1]));
                     }
                       
                 }
@@ -123,7 +123,7 @@ public class Util {
         try{
         OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(new File(currentuser)), StandardCharsets.UTF_8);
         writer.flush();             //flush the buffer
-        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType()+','+member.getVedioTimes());
+        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType()+','+member.getVideoTimes());
         writer.close();
         } catch (IOException e) {
             e.printStackTrace();

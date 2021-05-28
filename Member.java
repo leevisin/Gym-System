@@ -15,11 +15,11 @@ public class Member {
         this.userType = userType;
         this.videotimes = 10;
     }
-    public int getVedioTimes(){
+    public int getVideoTimes(){
         return this.videotimes;
     }
-    public void setVedioTimes(int vediotimes){
-        this.videotimes = vediotimes;
+    public void setVideoTimes(int videotimes){
+        this.videotimes = videotimes;
 
     }
 
@@ -61,7 +61,7 @@ public class Member {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", userType='" + userType + '\'' +
-                ", vediotimes='" + videotimes + '\'' +
+                ", videotimes='" + videotimes + '\'' +
                 '}';
     }
 }

@@ -29,7 +29,7 @@ public class UserInfoPane {
     /**the  user type of the user*/
     public String currentusertype = null;
     /**how many times this user can see videos*/
-    public String currentvediotimes = null;
+    public String currentvideotimes = null;
 
 
     /**
@@ -58,7 +58,7 @@ public class UserInfoPane {
 		    currentpassword = info[1];
 		    currentemail = info[2];
             currentusertype = info[3];
-            currentvediotimes = info[4];
+            currentvideotimes = info[4];
 
 		    br.close();
 		}catch (IOException e) {
@@ -96,7 +96,7 @@ public class UserInfoPane {
         //aNewLabel7.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel7);
 
-        JLabel aNewLabel9 = new JLabel("Vedio Times:");
+        JLabel aNewLabel9 = new JLabel("Video Times:");
         aNewLabel9.setBounds(220, 530, 200, 80);
         aNewLabel9.setFont(new Font(null, Font.PLAIN, 25));
         //aNewLabel9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -129,9 +129,9 @@ public class UserInfoPane {
         userInfoPane.add(aNewLabel8);
 
         if(currentusertype.equals("SVIP")){
-            currentvediotimes = "Unlimited";
+            currentvideotimes = "Unlimited";
         }
-        JLabel aNewLabel10 = new JLabel(currentvediotimes);
+        JLabel aNewLabel10 = new JLabel(currentvideotimes);
         aNewLabel10.setBounds(490, 530, 200, 80);
         aNewLabel10.setFont(new Font(null, Font.PLAIN, 25));
         aNewLabel10.setHorizontalAlignment(SwingConstants.CENTER);
