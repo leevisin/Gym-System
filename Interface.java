@@ -245,13 +245,25 @@ import java.util.*;
         String[][] coursesVip =new String[vipLines][6];
 
         int j=0;
-        for(int i=0;i<=lines-1;i++){
-            if(courses[i][5].equals("1")){        
-                for(int l=0;l<=5;l++)
-                {coursesVip[j][l]=courses[i][l];}
-                j++;
-            }
+         for(int i=0;i<=lines-1;i++){
+             if(courses[i][5].equals("1")||courses[i][5].equals("2"))
+               {        
+                   
+                   
+                     for(int l=0;l<=5;l++)
+                       {coursesVip[j][l]=courses[i][l];}
+                       j++;
+                    
+
+                }
         }
-        return coursesVip;
-    }
+
+       
+
+
+               return coursesVip;
+         }
+
+         
+
  }

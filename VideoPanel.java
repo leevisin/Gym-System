@@ -147,54 +147,50 @@ public class VideoPanel extends Interface{
                         String[][] userInfor=new String[1][5];
                         userInfor=readFromFile("texts/currentuser.txt");
                         int leftNum = Integer.parseInt(userInfor[0][4]);
-                        if(videoVip.equals("1")){
+//video is "2"
+if(videoVip.equals("2")){
+    if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
+        JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+    }else
+       {playVideo(videoPath);}
+}
 
-                        
-                        if(userInfor[0][3].equals("normal")){
-                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                        }else if(userInfor[0][3].equals("VIP"))
-                           {
-                               if(leftNum>-0)
-                                {   playVideo(videoPath);
-                                    System.out.println("This course name is " + videoName ); 
-                                    leftNum--;
-                                    //Recored the change in currentuser.txt and member.txt
-                                    List<Member> members = Util.readFile();
-                                    for (Member member: Objects.requireNonNull(members)) {
-                                        if (member.getAccount().equals(userInfor[0][0])){
-                                            member.setVedioTimes(leftNum); 
-                                            Util.writeFile(members);         
-                                            Util.recordCurrentUser(member);
-                                         }
-                                    } 
-                                }else{
-                                    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
-                            }}
-                        else{
-                            //when user is SVIP, then there is no need to change the times of video viewing
-                            playVideo(videoPath);
-                        }
+//video is "1"
+if(videoVip.equals("1")){
+if(userInfor[0][3].equals("normal")){
+    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+}
+if(userInfor[0][3].equals("VIP")){
+    // left num --
+    if(leftNum>-0)
+            {   System.out.println(leftNum+"\n");
+                playVideo(videoPath);
+                System.out.println("This course name is " + videoName ); 
+                leftNum--;
+                System.out.println(leftNum+"\n");
+                //Recored the change in currentuser.txt and member.txt
+                List<Member> members = Util.readFile();
+                for (Member member: Objects.requireNonNull(members)) {
+                    if (member.getAccount().equals(userInfor[0][0])){
+                        member.setVedioTimes(leftNum); 
+                        Util.writeFile(members);         
+                        Util.recordCurrentUser(member);
+                     }
+                } 
+            }else{
+                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
+        }}
+if(userInfor[0][3].equals("SVIP")){
+    playVideo(videoPath);
+}
+}
 
-
-                        }else{
-                            if(leftNum>-0||userInfor[0][3].equals("SVIP")){
-                            playVideo(videoPath);
-                            System.out.println("This course name is " + videoName );
-                                if(!userInfor[0][3].equals("SVIP")){ // only reduce video viewing times when user are not an SVIP
-                                    leftNum--;
-                                    List<Member> members = Util.readFile();
-                                    for (Member member: Objects.requireNonNull(members)) {
-                                        if (member.getAccount().equals(userInfor[0][0])){
-                                            member.setVedioTimes(leftNum); 
-                                            Util.writeFile(members);         
-                                            Util.recordCurrentUser(member);
-                                        }
-                                    }
-                                }
-                            }else{
-                                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
-                            }
-                        }
+//video is "0"
+if(videoVip.equals("0")){
+    
+    playVideo(videoPath);
+    System.out.println("This course name is " + videoName );
+}
                 }
                 });
             coursePanel.add(btn);
@@ -242,33 +238,62 @@ public class VideoPanel extends Interface{
                     String[][] userInfor=new String[1][5];
                     userInfor=readFromFile("texts/currentuser.txt");
                     int leftNum = Integer.parseInt(userInfor[0][4]);
-                    if(videoVip.equals("1")){
 
-                    
+                    //video is "2"
+                    if(videoVip.equals("2")){
+                        if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
+                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                        }else
+                           {playVideo(videoPath);}
+                    }
+
+                    //video is "1"
+                    if(videoVip.equals("1")){
                     if(userInfor[0][3].equals("normal")){
                         JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                    }else
-                       {if(leftNum>-0){playVideo(videoPath);
-                        System.out.println("This course name is " + videoName ); leftNum--;}else{
-                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
-                        }}
-
-
-                    }else{
-                        if(leftNum>-0){
-                        playVideo(videoPath);
-                        System.out.println("This course name is " + videoName );leftNum--;}else{
-                            JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
-                        }
                     }
-            }
+                    if(userInfor[0][3].equals("VIP")){
+                        // left num --
+                        if(leftNum>-0)
+                                {   System.out.println(leftNum+"\n");
+                                    playVideo(videoPath);
+                                    System.out.println("This course name is " + videoName ); 
+                                    leftNum--;
+                                    System.out.println(leftNum+"\n");
+                                    //Recored the change in currentuser.txt and member.txt
+                                    List<Member> members = Util.readFile();
+                                    for (Member member: Objects.requireNonNull(members)) {
+                                        if (member.getAccount().equals(userInfor[0][0])){
+                                            member.setVedioTimes(leftNum); 
+                                            Util.writeFile(members);         
+                                            Util.recordCurrentUser(member);
+                                         }
+                                    } 
+                                }else{
+                                    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
+                            }}
+                    if(userInfor[0][3].equals("SVIP")){
+                        playVideo(videoPath);
+                    }
+                    }
+
+                    //video is "0"
+                    if(videoVip.equals("0")){
+                        
+                        playVideo(videoPath);
+                        System.out.println("This course name is " + videoName );
+                    }
+                    }
             });
+
             coursePanel.add(btn);
+            }
             
+            return coursePanel;
         }
 
-        return coursePanel;
-    }
+        
+    
 
     public static void Button_Back(JButton Button,String ImagePath,String videoVip){
         Button.setBounds(0, 0, 300, 200);
@@ -276,9 +301,13 @@ public class VideoPanel extends Interface{
         Image suitablImage = imageIcon.getImage().getScaledInstance(Button.getWidth(), Button.getHeight(), imageIcon.getImage().SCALE_DEFAULT);
         imageIcon = new ImageIcon(suitablImage);
         Button.setIcon(imageIcon);
+        if(videoVip.equals("2")){
+            Button.setToolTipText("SVIP");
+        }
         if(videoVip.equals("1")){
            Button.setToolTipText("VIP");
-        }else{Button.setToolTipText("Normal");}
+        }
+        if(videoVip.equals("0")){Button.setToolTipText("Normal");}
         Button.setBackground(Color.white);
         Button.setBorderPainted(false);
         Button.setFocusPainted(false);
