@@ -240,7 +240,7 @@ public class HomePanel extends Interface{
         Button.setVerticalTextPosition(JButton.BOTTOM);
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
-
+    //the method is to throw the exception if the line in the file is less than we need
     public void fileLessline(int fileLine , int needLine) throws Exception{
         if (fileLine<needLine)
             throw new Exception("the message in file is less than your need!");
