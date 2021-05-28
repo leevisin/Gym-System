@@ -6,7 +6,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         JFrame jf = new JFrame("Main Menu");
-        jf.setSize(1280, 720);
+        jf.setSize(1280, 750);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);
 

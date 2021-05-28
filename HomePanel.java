@@ -32,11 +32,15 @@ public class HomePanel extends Interface{
         Image temp1 = icon1.getImage().getScaledInstance(LOGO.getWidth(), LOGO.getHeight(), icon1.getImage().SCALE_DEFAULT);  
         icon1 = new ImageIcon(temp1); 
         LOGO.setIcon(icon1);
+        LOGO.setBorderPainted(false);
+        LOGO.setFocusPainted(false);
         homePanel1.add(LOGO);
         //Trainer recoomendation navigation
         JButton TR = new JButton("Trainer recommendation!");
         TR.setForeground(Color.BLACK);
         TR.setBounds(0, 460, 1280, 20);
+        TR.setBorderPainted(false);
+        TR.setFocusPainted(false);
         homePanel1.add(TR);
         //Randomly recommend three trainers
         //Generate three different random numbers,use the method of getRandom()
@@ -90,6 +94,8 @@ public class HomePanel extends Interface{
         JButton VR = new JButton("Videos recommendation!");
         VR.setForeground(Color.BLACK);
         VR.setBounds(0, 240, 1280, 20);
+        VR.setBorderPainted(false);
+        VR.setFocusPainted(false);
         homePanel1.add(VR);
         //Randomly recommend three Videos
         //Generate three different random numbers,use the method of getRandom()
