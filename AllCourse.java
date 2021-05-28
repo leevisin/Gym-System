@@ -9,7 +9,9 @@
 import java.io.*;
 import java.nio.file.*;
 
-
+/**
+ * Generate base environment of video and trainer
+ */
 public class AllCourse{
 
     public static void main(String[] args) throws IOException{
@@ -45,18 +47,38 @@ public class AllCourse{
       // Need Panel to add video/trainer
     }
    
+    /**
+     * Add Video
+     * @param videoName
+     * @param videoTime
+     * @param filePath
+     * @param figPath
+     * @param tag
+     * @param vip
+     */
     public void addVideo(String videoName, int videoTime, String filePath, String figPath, String tag, int vip){
       // Video Name, Video Time, Video URL, Background Button URL
       Video video = new Video(videoName, videoTime, filePath, figPath, tag, vip);
       writeVideoToFile(video);
     }
 
+    /**
+     * Add Trainer
+     * @param trainerName
+     * @param trainerType
+     * @param figPath
+     * @param intro
+     */
     public void addTrainer(String trainerName, String trainerType, String figPath, String intro){
       // Trainer Name, Trainer Type, Background Button URL
       Trainer trainer = new Trainer(trainerName, trainerType, figPath, intro);
       writeTrainerToFile(trainer);
     }
 
+    /**
+     * Write Video Information to file
+     * @param video
+     */
     public void writeVideoToFile(Video video){
       String fileDirectory = "texts";
       fileExist(fileDirectory);
@@ -74,6 +96,10 @@ public class AllCourse{
       }
     }
     
+    /**
+     * Write Trainer information to file
+     * @param trainer
+     */
     public void writeTrainerToFile(Trainer trainer){
       String fileDirectory = "texts";
       fileExist(fileDirectory);
@@ -90,6 +116,10 @@ public class AllCourse{
       }
     }
 
+    /**
+     * Check directory exist or generate it
+     * @param pathName
+     */
     public void fileExist(String pathName){
       File file = new File(pathName);
       if(!file.exists()){

@@ -4,11 +4,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/** 
+ *  Created a JPanel that contains search tab and all trainers
+ *  Search Button can search trainer name and show in current panel
+ *  All trainers' picture can be clicked to show detail information
+ */
+
 public class TrainerPanel extends Interface {
+
+    /** The JPanel that displayed all trainers */
     JPanel trainerPanel = new JPanel(new BorderLayout());
     
     public TrainerPanel(){}
 
+    /**
+	 * Created a Trainer JPanel contains search panel and trainers panel
+	 * @return JPanel, to be add to Scroll Panel
+	 */
     public JPanel trainerPanel(){
         try {
             File file = new File("texts/AllTrainer.txt");
@@ -24,6 +36,10 @@ public class TrainerPanel extends Interface {
         return trainerPanel;
     }
     
+    /**
+	 * Created a Search JPanel can search by trainer's part or full name
+	 * @return JPanel, to be add to trainer panel
+	 */
     public JPanel searchPanel(){
         JPanel searchPanel = new JPanel();
         JTextField textField = new JTextField(20);
@@ -34,10 +50,10 @@ public class TrainerPanel extends Interface {
         searchBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                String[][] searchTrainers = searchCourse("texts/AllTrainer.txt", textField.getText());
-               trainerPanel.removeAll();
+               trainerPanel.removeAll(); // Clear trainerPanel all components
                trainerPanel.add(searchPanel(), BorderLayout.NORTH);
                trainerPanel.add(refreshTrainerPanel(searchTrainers), BorderLayout.CENTER);
-               trainerPanel.revalidate();
+               trainerPanel.revalidate(); // Refresh Panel
             }
         });
 
@@ -58,6 +74,10 @@ public class TrainerPanel extends Interface {
         return searchPanel;
     }
 
+    /**
+	 * Created a Trainers JPanel contains all trainers
+	 * @return JPanel, to be add to trainer panel
+	 */
     public JPanel trainersPanel(){
         
         int rows = readLine("texts/AllTrainer.txt"); // Trainer Number
@@ -67,7 +87,7 @@ public class TrainerPanel extends Interface {
         else{
             rows = rows/3 + 1;
         }
-        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5));
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5)); // Column is 3 and gap is 5
 
         String[][] trainersInfo = readFromFile("texts/AllTrainer.txt");
 
@@ -76,15 +96,13 @@ public class TrainerPanel extends Interface {
             String trainerType = trainersInfo[i][1];
             String imagesPath = trainersInfo[i][2];
             String intro = trainersInfo[i][3];
-            // Problem intro String can't be too long
-
 
             ImageIcon icon = new ImageIcon(trainersInfo[i][2]);
             JButton trainerBtn = new JButton(trainerName + ": " + trainerType, icon);
 
             trainerBtn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    new BookInfo(trainerName, trainerType, imagesPath, intro);
+                    new BookInfo(trainerName, trainerType, imagesPath, intro);  // Generate trainers' information
                 }
             });
 
@@ -103,6 +121,11 @@ public class TrainerPanel extends Interface {
         return trainersPanel;
     }
 
+    /**
+	 * Created a new Trainers JPanel contains all trainers when clicked search button
+     * @param searchTrainers contains eligible trainers' all information
+	 * @return JPanel, to be refresh to add to trainer panel
+	 */
     public JPanel refreshTrainerPanel(String[][] searchTrainers){
         
         int rows = searchTrainers.length; // Trainer Number
@@ -112,7 +135,7 @@ public class TrainerPanel extends Interface {
         else{
             rows = rows/3 + 1;
         }
-        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5));
+        JPanel trainersPanel = new JPanel(new GridLayout(rows, 3, 5, 5)); // Column is 3 and gap is 5
 
         for(int i=0; i<searchTrainers.length; i++){
             String trainerName = searchTrainers[i][0];
@@ -125,7 +148,7 @@ public class TrainerPanel extends Interface {
 
             trainerBtn.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    new BookInfo(trainerName, trainerType, imagesPath, intro);
+                    new BookInfo(trainerName, trainerType, imagesPath, intro); // Generate trainers' information
                 }
             });
 
@@ -145,6 +168,10 @@ public class TrainerPanel extends Interface {
         return trainersPanel;
     }
 
+    /**
+	 * Make Trainer Panel to scrool
+	 * @return JScrollPane, to be add to Main Panel
+	 */
     public JScrollPane scrollPanel(){
         JScrollPane scrollPanel = new JScrollPane(
                 trainerPanel(),

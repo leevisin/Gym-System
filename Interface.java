@@ -3,27 +3,36 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 
+/** 
+ *  Select week and time to book trainer
+ */
  public class Interface extends JFrame implements ActionListener{
 
-     // Base on fileName generate different interface page
+     /** Base on fileName generate different interface page */ 
      public String fileName;
 
-     // Whole information of course read from file
+     /** Whole information of course read from file */ 
      public String courseInfo;
 
-
-     // There are n row and one line
+     /** There are n row and one line */
      public Interface(){
 
      }
 
-     // When the button is clicked, play the course
-     // The method could be implement in public Interface(){}
+     /**
+	 * When the button is clicked, play the course
+     * The method could be implement in public Interface(){}
+     * @param ActionEvent, when button is clicked
+	 */
      public void actionPerformed(ActionEvent e){
         
      }
 
-     // Get the course information from file.txt
+     /**
+      * Get the course information from file.txt
+      * @param filename, while file to read
+      * @return file contents by format of String[][]
+      */
      public String[][] readFromFile(String filename){
         // Create base enviroment when file not exist
         // You can use new AllCourse(); to generate base environment
@@ -70,9 +79,11 @@ import java.util.*;
         return courseArray;
      }
      
-     
-
-     // Read Line, i.e number of course
+     /**
+      * Read Line, i.e number of course
+      * @param filename, file to be read
+      * @return file's line
+      */
      public int readLine(String filename){
          int lines = 0;
          try {
@@ -91,7 +102,12 @@ import java.util.*;
         return lines;
      }
 
-     // Search all course name, when course name contains part or all courseName
+     /**
+      * Search all course name, when course name contains part or all courseName
+      * @param filename, file to be searched
+      * @param courseName, course to be matched
+      * @return searched information
+      */
      public String[][] searchCourse(String filename, String courseName){
         
         int searchNum = 0;
@@ -117,22 +133,37 @@ import java.util.*;
 
      }
 
-     // It should be extended in subclass
-     public void addCourse(){}
-
+     /**
+      * Add Video by Interface
+      * @param videoName
+      * @param videoTime
+      * @param filePath
+      * @param tag
+      * @param vip
+      */
      public void addVideo(String videoName, int videoTime, String filePath, String tag, int vip){
         Video video = new Video(videoName, videoTime, filePath, filePath, tag, vip);
         new AllCourse().writeVideoToFile(video);
         System.out.println("You have added video: " + videoName);
       }
   
+      /**
+       * Add Trainer by Interface
+       * @param trainerName
+       * @param trainerType
+       * @param figPath
+       * @param intro
+       */
       public void addTrainer(String trainerName, String trainerType, String figPath, String intro){
         Trainer trainer = new Trainer(trainerName, trainerType, figPath, intro);
         new AllCourse().writeTrainerToFile(trainer);
         System.out.println("You have added Trainer: " + trainerName);
       }
 
-
+      /**
+       * Play video function
+       * @param filePath video path to be played
+       */
       public void playVideo(String filePath){
         Runtime runtime=Runtime.getRuntime();
         try{
@@ -144,7 +175,11 @@ import java.util.*;
 
     }
 
-     // Remove course, first search then remove
+     /**
+      * Remove course, first search then remove
+      * @param filename course in which file
+      * @param courseName which course to be removed
+      */
      public void removeCourse(String filename, String courseName){
         // courseName must be exact that can be removed
         try {
@@ -173,7 +208,11 @@ import java.util.*;
         System.out.println("You have remove the course successfully!");
      }
      
-     // Classify by Tag
+     /**
+      * Classify by Tag in dictionary order
+      * @param filename, which file to be classify
+      * @return
+      */
      public String[][] classifyByTag(String filename){
         String[][] courseArray = readFromFile(filename);
         for(int i=0; i<courseArray.length; i++){
@@ -206,63 +245,13 @@ import java.util.*;
         String[][] coursesVip =new String[vipLines][6];
 
         int j=0;
-         for(int i=0;i<=lines-1;i++){
-             if(courses[i][5].equals("1"))
-               {        
-                   
-                   
-                     for(int l=0;l<=5;l++)
-                       {coursesVip[j][l]=courses[i][l];}
-                       j++;
-                    
-
-                }
-        }
-
-       
-
-
-               return coursesVip;
-         }
-
-         
-         
-     
-
-
-     public static void main(String[] args) {
-         Interface inter = new Interface();
-         // Test for removeCourse() function
-         // inter.removeCourse("Video/AllVideo.txt", "Yoga");
-
-         // Test for classifyByTag
-        //  String[][] tagArray = inter.classifyByTag("Source/AllVideo.txt");
-        //  for(int i=0; i<tagArray.length; i++){
-        //      for(int j=0; j<tagArray[0].length; j++){
-        //          System.out.print(tagArray[i][j] + " ");
-        //      }
-        //      System.out.println();
-        //  }
-        //  Test for searchCourse() function
-         String[][] array = inter.searchCourse("texts/AllVideo.txt","c");
-        for(int i=0; i<array.length; i++){
-            for(int j=0; j<array[0].length; j++){
-                System.out.print(array[i][j] + " ");
+        for(int i=0;i<=lines-1;i++){
+            if(courses[i][5].equals("1")){        
+                for(int l=0;l<=5;l++)
+                {coursesVip[j][l]=courses[i][l];}
+                j++;
             }
-            System.out.println();
         }
-
-        // String[][] formArray = inter.readFromFile("form.txt");
-        // for(int i=0; i<formArray.length; i++){
-        //     for(int j=0; j<formArray[0].length; j++){
-        //         System.out.print(formArray[i][j] + " ");
-        //     }
-        //     System.out.println();
-        // }
-
-     }
-
-
-     
-     
+        return coursesVip;
+    }
  }

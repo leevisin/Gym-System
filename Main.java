@@ -52,9 +52,6 @@ public class Main {
 
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane());
 
-        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel());
-
-
         tabbedPane.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
