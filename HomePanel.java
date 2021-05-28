@@ -12,21 +12,23 @@ import javax.swing.JPanel;
 import org.w3c.dom.css.RGBColor;
 
 import java.lang.Math;
-
+/**
+ * Title	: HomePanel.java
+ * Description	: This class is primarily used to implement the creation of a Homepanel and includes methods to assist in the creation of its components.
+ * @author	: Tongxin Ma
+ * @version	: 3.0
+ */
 
 public class HomePanel extends Interface{
-    public JPanel adImage = new JPanel(null);
-    public JPanel recommend1 = new JPanel(null);
-    public JPanel recommend2 = new JPanel(null);
-    public JPanel trainerRC = new JPanel(null);
-    
-    
-    public JPanel recommend3 = new JPanel(null);
-    public JPanel recommend4 = new JPanel(null);
-    public JPanel videoRC = new JPanel(null);
     
     public JPanel homePanel1 = new JPanel(null);
-    
+    /** This method is to split and return needed string.
+   *  @param tabbedPane is used to let the button to call to switch the Tab
+   *  @param LOGO a button use to contain the image of our logo.gif
+   *  @param TR a button use to switch the Tab to Trainer
+   *  @param VR a button use to switch the Tab to Videos
+   *  @return Home panel 
+   */
     public JPanel homePanel(JTabbedPane tabbedPane){
         //logo on the top
         JButton  LOGO = new JButton();
@@ -60,7 +62,7 @@ public class HomePanel extends Interface{
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
+        //randomInt use to store the random numbers
         int[] randomInt = new int[5];
         randomInt[0]=getRandom(0, end-1);
         do{
@@ -220,11 +222,18 @@ public class HomePanel extends Interface{
         homePanel1.setBackground(Color.WHITE);
         return homePanel1; 
     }
-    //getRandom is a method to generate random number , return an integer.
+    /** This method is to generate random number , return an integer.
+    *  @param start is the interval of random numbers begins
+    *  @param end is the end of interval of random number
+    *  @return a random number between start and end  
+    */
+    
     public static int getRandom(int start, int end){
         return (int)(Math.random() * (end-start+1) + start);
     }
-    //Button_back is a method to defines the properties of the button
+
+    /** This method is to defines the properties of the button.
+    */
     public static void Button_Back(JButton Button,String ImagePath,String videoVip){
         Button.setBounds(0, 0, 270, 180);
         ImageIcon imageIcon = new ImageIcon(ImagePath);
@@ -240,12 +249,16 @@ public class HomePanel extends Interface{
         Button.setVerticalTextPosition(JButton.BOTTOM);
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
-    //the method is to throw the exception if the line in the file is less than we need
+    /** This method is to throw the exception if the line in the file is less than we need.
+    *  @param fileLine is the line of the file
+    *  @param needLine is the line we need 
+    *  @return a random number between start and end  
+    */
     public void fileLessline(int fileLine , int needLine) throws Exception{
         if (fileLine<needLine)
             throw new Exception("the message in file is less than your need!");
     }
-    //main method is use to test the homePanel()
+    
     public static void main(String[] args){
         JFrame frame = new JFrame();
         frame.setBounds(0, 0, 1280, 720);
