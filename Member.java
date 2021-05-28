@@ -61,7 +61,7 @@ public class Member {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", userType='" + userType + '\'' +
-                ", vediotimes='" + vediotimes + '\'' +
+                ", vediotimes='" + videotimes + '\'' +
                 '}';
     }
 }

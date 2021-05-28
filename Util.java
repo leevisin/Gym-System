@@ -144,7 +144,7 @@ public class Util {
         boolean havechar = false;
         boolean havenum = false;
         for (int i = 0; i < password.length(); i++) {
-            if(password.charAt(i)<='9'||password.charAt(i)>='0')
+            if(password.charAt(i)<='9'&& password.charAt(i)>='0')
             {havenum = true;}
             if(password.charAt(i)<='z'&&password.charAt(i)>='a'||password.charAt(i)<='Z'&&password.charAt(i)>='A')
             {havechar = true;}
