@@ -37,6 +37,39 @@ public class Main {
         jf.setVisible(true);
     }
 
+    public void MainPanel(){
+        JFrame jf = new JFrame("Main Menu");
+        jf.setSize(1280, 750);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.setLocationRelativeTo(null);
+
+        final JTabbedPane tabbedPane = new JTabbedPane();
+
+
+        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
+
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel());
+
+        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
+
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane());
+
+        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel());
+
+
+        tabbedPane.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                // System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
+            }
+        });
+
+        tabbedPane.setSelectedIndex(0);
+
+        jf.setContentPane(tabbedPane);
+        jf.setVisible(true);
+    }
+
     private static JComponent createTextPanel(String text) {
 
         JPanel panel = new JPanel(new GridLayout(1, 1));

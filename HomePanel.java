@@ -8,6 +8,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import org.w3c.dom.css.RGBColor;
+
 import java.lang.Math;
 
 
@@ -41,7 +44,7 @@ public class HomePanel extends Interface{
         TR.setBounds(0, 460, 1280, 20);
         TR.setBorderPainted(false);
         TR.setFocusPainted(false);
-        TR.setContentAreaFilled(false);
+        TR.setBackground(Color.ORANGE);
         TR.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                tabbedPane.setSelectedIndex(2);
@@ -102,7 +105,7 @@ public class HomePanel extends Interface{
         VR.setBounds(0, 240, 1280, 20);
         VR.setBorderPainted(false);
         VR.setFocusPainted(false);
-        VR.setContentAreaFilled(false);
+        VR.setBackground(Color.ORANGE);;
         VR.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                tabbedPane.setSelectedIndex(1);
@@ -193,6 +196,7 @@ public class HomePanel extends Interface{
                 BoxX1+= 420;
             }   
         }
+        homePanel1.setBackground(Color.WHITE);
         return homePanel1; 
     }
     //getRandom is a method to generate random number , return an integer.
