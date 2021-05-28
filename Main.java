@@ -18,7 +18,7 @@ public class Main {
 
         tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
-        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane());
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
 
 
         tabbedPane.addChangeListener(new ChangeListener() {
@@ -49,7 +49,7 @@ public class Main {
 
         tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
-        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane());
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
 
         tabbedPane.addChangeListener(new ChangeListener() {
             @Override

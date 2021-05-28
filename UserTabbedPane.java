@@ -17,10 +17,10 @@ public class UserTabbedPane extends Interface{
 
   /**
 	 * Created a JTabedPane to contain 3 parts of user information
-	 * @param 
+	 * @param  JTabbedPane, the JTabbedPane contain this JTabbedPane
 	 * @return JTabbedPane, the created JTabbedPane
 	 */
-    public JTabbedPane userTabbedPane(){
+    public JTabbedPane userTabbedPane(JTabbedPane main){
         //initialize the JTabbedpanel
         userTabbedPane = new JTabbedPane(JTabbedPane.LEFT, JTabbedPane.SCROLL_TAB_LAYOUT);
         
@@ -50,6 +50,16 @@ public class UserTabbedPane extends Interface{
             }
         });
 
+        main.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                UserInfoPane uip = new UserInfoPane();
+                userTabbedPane.setComponentAt(0, uip.makeUserInfoPane(userTabbedPane));
+                BookedTrainerPane btp = new BookedTrainerPane();
+                userTabbedPane.setComponentAt(1, btp.makeBookedTrainerPane(userTabbedPane));
+            }
+        });
+
         
 
         return userTabbedPane;
@@ -66,7 +76,7 @@ public static void main(String[] args){
     frame.setLocation(1100, 600);
     // frame.setLocationRelativeTo(null);
     //Add content to the window.
-    frame.add(new UserTabbedPane().userTabbedPane(), BorderLayout.CENTER);
+    // frame.add(new UserTabbedPane().userTabbedPane(), BorderLayout.CENTER);
     
     //Display the window.   
     frame.pack();
