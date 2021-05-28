@@ -13,7 +13,7 @@ public class Main {
         final JTabbedPane tabbedPane = new JTabbedPane();
 
 
-        tabbedPane.addTab("Home", createTextPanel("Home Panel"));
+        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(), "This is a tab.");
 
         tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
 
