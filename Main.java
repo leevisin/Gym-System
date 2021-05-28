@@ -13,15 +13,15 @@ public class Main {
         final JTabbedPane tabbedPane = new JTabbedPane();
 
 
-        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(), "This is a tab.");
+        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
 
-        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel());
 
-        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel(), "This is a tab.");
+        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
-        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(), "This is a tab.");
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane());
 
-        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel(), "This is a tab.");
+        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel());
 
 
         tabbedPane.addChangeListener(new ChangeListener() {

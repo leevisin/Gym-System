@@ -24,7 +24,7 @@ public class HomePanel extends Interface{
     
     public JPanel homePanel1 = new JPanel(null);
     
-    public JPanel homePanel(){
+    public JPanel homePanel(JTabbedPane tabbedPane){
         //logo on the top
         JButton  LOGO = new JButton();
         ImageIcon icon1 = new ImageIcon("images/LOGO.gif");
@@ -41,6 +41,12 @@ public class HomePanel extends Interface{
         TR.setBounds(0, 460, 1280, 20);
         TR.setBorderPainted(false);
         TR.setFocusPainted(false);
+        TR.setContentAreaFilled(false);
+        TR.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               tabbedPane.setSelectedIndex(2);
+            }
+        });
         homePanel1.add(TR);
         //Randomly recommend three trainers
         //Generate three different random numbers,use the method of getRandom()
@@ -96,6 +102,12 @@ public class HomePanel extends Interface{
         VR.setBounds(0, 240, 1280, 20);
         VR.setBorderPainted(false);
         VR.setFocusPainted(false);
+        VR.setContentAreaFilled(false);
+        VR.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+               tabbedPane.setSelectedIndex(1);
+            }
+        });
         homePanel1.add(VR);
         //Randomly recommend three Videos
         //Generate three different random numbers,use the method of getRandom()
@@ -209,7 +221,7 @@ public class HomePanel extends Interface{
         frame.setBounds(0, 0, 1280, 720);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         HomePanel ui = new HomePanel();
-        frame.add(ui.homePanel());
+        // frame.add(ui.homePanel());
         frame.setVisible(true);
     }
 }
