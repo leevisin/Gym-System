@@ -3,7 +3,7 @@ public class Member {
     private String password;
     private String email;
     private String userType;//userType is "normal" in default      can be "VIP" after updating
-    private int vediotimes;
+    private int videotimes;
 
     public Member() {
     }
@@ -13,13 +13,13 @@ public class Member {
         this.password = password;
         this.email = email;
         this.userType = userType;
-        this.vediotimes = 10;
+        this.videotimes = 10;
     }
     public int getVedioTimes(){
-        return this.vediotimes;
+        return this.videotimes;
     }
     public void setVedioTimes(int vediotimes){
-        this.vediotimes = vediotimes;
+        this.videotimes = vediotimes;
 
     }
 
