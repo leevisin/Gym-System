@@ -12,7 +12,6 @@ public class Main {
 
         final JTabbedPane tabbedPane = new JTabbedPane();
 
-
         tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
 
         tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel());
