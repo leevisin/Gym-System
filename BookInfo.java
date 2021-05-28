@@ -1,11 +1,6 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
-import java.text.*;
-import java.nio.file.*;
 
 public class BookInfo extends Interface {
 
@@ -15,8 +10,6 @@ public class BookInfo extends Interface {
         // Show BookInfo Page to User
         // Record the book information into BookInfo.txt
         // Add Back Button
-
-        // Need Add Available Time!!!!!!!!!
         
         frame.setTitle("Trainer Detail Infomation");
         frame.pack();
