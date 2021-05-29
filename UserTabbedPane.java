@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 

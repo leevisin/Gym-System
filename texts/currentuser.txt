@@ -1,1 +1,1 @@
-MTX,123456a,123456@qq.com,normal,10
+MTX,123456A,1234567@qq.com,VIP,50
