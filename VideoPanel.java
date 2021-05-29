@@ -39,12 +39,8 @@ public class VideoPanel extends Interface{
 
         searchBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                System.out.println("I am searching!");
                 String input = textField.getText();
                 String[][] searchResult=searchCourse("texts/AllVideo.txt",input);
-                /*for(int i=0;i<=searchResult.length;i++){
-                    System.out.println(searchResult[i][0]);
-                }*/
                 if(input.equals("")) {
                     JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
                 else{
@@ -164,11 +160,8 @@ if(userInfor[0][3].equals("normal")){
 if(userInfor[0][3].equals("VIP")){
     // left num --
     if(leftNum>-0)
-            {   System.out.println(leftNum+"\n");
-                playVideo(videoPath);
-                System.out.println("This course name is " + videoName ); 
+            {   playVideo(videoPath);
                 leftNum--;
-                System.out.println(leftNum+"\n");
                 //Recored the change in currentuser.txt and member.txt
                 List<Member> members = Util.readFile();
                 for (Member member: Objects.requireNonNull(members)) {
@@ -190,7 +183,6 @@ if(userInfor[0][3].equals("SVIP")){
 if(videoVip.equals("0")){
     
     playVideo(videoPath);
-    System.out.println("This course name is " + videoName );
 }
                 }
                 });
@@ -256,11 +248,8 @@ if(videoVip.equals("0")){
                     if(userInfor[0][3].equals("VIP")){
                         // left num --
                         if(leftNum>-0)
-                                {   System.out.println(leftNum+"\n");
-                                    playVideo(videoPath);
-                                    System.out.println("This course name is " + videoName ); 
+                                {   playVideo(videoPath);
                                     leftNum--;
-                                    System.out.println(leftNum+"\n");
                                     //Recored the change in currentuser.txt and member.txt
                                     List<Member> members = Util.readFile();
                                     for (Member member: Objects.requireNonNull(members)) {
@@ -282,7 +271,6 @@ if(videoVip.equals("0")){
                     if(videoVip.equals("0")){
                         
                         playVideo(videoPath);
-                        System.out.println("This course name is " + videoName );
                     }
                     }
             });

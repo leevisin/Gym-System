@@ -163,7 +163,7 @@ public class HomePanel extends Interface{
             if(i==randomInt1[0]||i==randomInt1[1]||i==randomInt1[2]){ 
                 btn.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                        // System.out.println("This button is clicked.");
+                        
                         String[][] userInfor=new String[1][5];
                         userInfor=readFromFile("texts/currentuser.txt");
                         int leftNum = Integer.parseInt(userInfor[0][4]);
@@ -184,11 +184,9 @@ public class HomePanel extends Interface{
                         if(userInfor[0][3].equals("VIP")){
                             // left num --
                             if(leftNum>-0)
-                                    {   System.out.println(leftNum+"\n");
+                                    {   
                                         playVideo(videoPath);
-                                        System.out.println("This course name is " + videoName ); 
                                         leftNum--;
-                                        System.out.println(leftNum+"\n");
                                         //Recored the change in currentuser.txt and member.txt
                                         List<Member> members = Util.readFile();
                                         for (Member member: Objects.requireNonNull(members)) {
@@ -210,7 +208,7 @@ public class HomePanel extends Interface{
                         if(videoVip.equals("0")){
                             
                             playVideo(videoPath);
-                            System.out.println("This course name is " + videoName );
+                            
                         }
                         }
                 });

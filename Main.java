@@ -22,12 +22,7 @@ public class Main {
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
 
 
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                // System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
-            }
-        });
+   
 
         tabbedPane.setSelectedIndex(0);
 
@@ -53,12 +48,7 @@ public class Main {
 
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
 
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                // System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
-            }
-        });
+    
 
         tabbedPane.setSelectedIndex(0);
 
