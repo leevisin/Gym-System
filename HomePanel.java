@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import org.w3c.dom.css.RGBColor;
-
 import java.lang.Math;
 /**
  * Title	: HomePanel.java

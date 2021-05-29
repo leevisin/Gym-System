@@ -45,7 +45,7 @@ public class BookInfo extends Interface {
         blankPanel.setPreferredSize(new Dimension(10, 20));
         blankPanel.setBackground(Color.WHITE);
 
-        // Need to change line may be not JLabel
+        // Add TextArea to show trainer introduction
         JTextArea textArea = new JTextArea("    " + intro);
         textArea.setLineWrap(true);
         textArea.setFont(new Font("Microsoft Serif Pro", Font.PLAIN, 30));

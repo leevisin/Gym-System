@@ -48,9 +48,7 @@ public class AllCourse{
         addTrainer("Bert", "Strength", "images/Trainer9.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
         addTrainer("Rita", "Slim", "images/Trainer10.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
         addTrainer("Shelley", "Slim", "images/Trainer11.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-
-      }      
-      // Need Panel to add video/trainer
+      }
     }
    
     /**

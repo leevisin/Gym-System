@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -66,18 +65,4 @@ public class Main {
         jf.setContentPane(tabbedPane);
         jf.setVisible(true);
     }
-
-    private static JComponent createTextPanel(String text) {
-
-        JPanel panel = new JPanel(new GridLayout(1, 1));
-        
-        JLabel label = new JLabel(text);
-        label.setFont(new Font(null, Font.PLAIN, 50));
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-
-        panel.add(label);
-
-        return panel;
-    }
-
 }

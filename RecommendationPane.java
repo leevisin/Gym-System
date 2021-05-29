@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -106,6 +108,12 @@ public class RecommendationPane {
                     }
                    //recommend directly based on Target
                 else{
+                    // Get height and weight, then calculate BMI
+                    double height = Double.parseDouble(textField1.getText());
+                    double weight = Double.parseDouble(textField2.getText());
+                    double BMI = calBMI(height, weight);
+                    DecimalFormat df = new DecimalFormat("#.00");
+
                     String target = (String) comboBox1.getSelectedItem();
                     if(target.equals("Gain-muscle")){
                         //randomly recommend a Trainer of catagory Gain-muscle
@@ -126,6 +134,9 @@ public class RecommendationPane {
                             else{
                                 i++;
                             }
+                        }
+                        if(BMI>24.9){
+                            JOptionPane.showMessageDialog(null, "You BMI is " + df.format(BMI) + " and in "  + BMIFeedback(BMI) + ", we recommend to choose Fat-Loss.", "Suggestion", JOptionPane.PLAIN_MESSAGE);
                         }
                         
                     }
@@ -151,7 +162,9 @@ public class RecommendationPane {
                                 i++;
                             }
                         }
-                       
+                        if(BMI<=18.4){
+                            JOptionPane.showMessageDialog(null, "You BMI is " + df.format(BMI) + " and in "  + BMIFeedback(BMI) + ", we recommend to choose Strength.", "Suggestion", JOptionPane.PLAIN_MESSAGE);
+                        }
 
                     }
 
@@ -162,6 +175,30 @@ public class RecommendationPane {
         
         return recommendationPane;
     }
+
+        // Calculate BMI value based on heigt(cm) and weight(kg)
+        public double calBMI(Double height, Double weight){
+            return 100*100*weight/(height*height);
+        }
+    
+        // Get BMI range feedback
+        public String BMIFeedback(double BMI){
+            if(BMI<=0){
+                return "BMI Error.";
+            }
+            else if(BMI<=18.4){
+                return "Underweight";
+            }
+            else if(BMI<=24.9){
+                return "Normal Weight";
+            }
+            else if(BMI<=29.9){
+                return  "Overweight";
+            }
+            else{
+                return "Obesity";
+            }
+        }
 
     public static void main(String[] args){
         JFrame frame = new JFrame();

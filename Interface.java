@@ -14,14 +14,13 @@ import java.util.*;
      /** Whole information of course read from file */ 
      public String courseInfo;
 
-     /** There are n row and one line */
      public Interface(){
 
      }
 
      /**
 	 * When the button is clicked, play the course
-     * The method could be implement in public Interface(){}
+     * The method could be implement in subclass
      * @param ActionEvent, when button is clicked
 	 */
      public void actionPerformed(ActionEvent e){
