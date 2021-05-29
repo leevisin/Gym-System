@@ -1,6 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-public class BankAccountTest {
+public class AccountTest {
     @Test
     void testAccount(){
         assertEquals(false, Util.accountFormat("40085323a"));
