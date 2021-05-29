@@ -156,7 +156,7 @@ public class HomePanel extends Interface{
         int BoxX1 = 75;
         //use loop to make videos button
         for(int i=0; i<rowLength; i++){
-            JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
+            JButton btn = new JButton(allCourse[i][0]  + ": "+ allCourse[i][1] + " mins");
             Button_Back(btn,allCourse[i][4],allCourse[i][5]);
             String videoName = allCourse[i][0];
             String videoPath = allCourse[i][3];
@@ -221,7 +221,7 @@ public class HomePanel extends Interface{
                 BoxX1+= 420;
             }   
         }
-        homePanel1.setBackground(Color.WHITE);
+        // homePanel1.setBackground(Color.WHITE);
         return homePanel1; 
     }
     /** This method is to generate random number , return an integer.

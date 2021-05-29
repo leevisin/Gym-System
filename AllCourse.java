@@ -24,9 +24,15 @@ public class AllCourse{
       // Generate base enviroment
       File videoFile = new File("texts/AllVideo.txt");
       if(!videoFile.exists()){
-        addVideo("Functional Training", 30, "videos/FunctionalTraining.MP4", "videos/button_back1.jpg", "HIIT",1);
-        addVideo("Yoga Training", 35, "videos/YogaTraining.MP4","videos/button_back2.jpg", "Yoga",1);
-        addVideo("Training Muscles", 45, "videos/TrainingMuscles.MP4","videos/button_back3.jpg", "Strength",1);
+        addVideo("Functional Training", 30, "videos/FunctionalTraining.MP4", "images/button_back1.jpg", "HIIT",0);
+        addVideo("Yoga Training", 35, "videos/YogaTraining.MP4","images/button_back2.jpg", "Yoga",0);
+        addVideo("Training Muscles", 45, "videos/TrainingMuscles.MP4","images/button_back3.jpg", "Strength",0);
+        addVideo("Functional Training", 38, "videos/FunctionalTraining.MP4", "images/button_back8.jpg", "HIIT",1);
+        addVideo("Yoga Training", 33, "videos/YogaTraining.MP4","images/button_back4.jpg", "Yoga",1);
+        addVideo("Training Muscles", 50, "videos/TrainingMuscles.MP4","images/button_back7.jpg", "Strength",1);
+        addVideo("Functional Training", 67, "videos/FunctionalTraining.MP4", "images/button_back9.jpg", "HIIT",2);
+        addVideo("Yoga Training", 45, "videos/YogaTraining.MP4","images/button_back5.jpg", "Yoga",2);
+        addVideo("Training Muscles", 40, "videos/TrainingMuscles.MP4","images/button_back6.jpg", "Strength",2);
       }
 
       File trainerFile = new File("texts/AllTrainer.txt");

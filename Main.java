@@ -10,6 +10,8 @@ public class Main {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);
 
+        new AllCourse(); // Check Environment File, and generate it when not exist
+
         final JTabbedPane tabbedPane = new JTabbedPane();
 
         tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
@@ -40,8 +42,9 @@ public class Main {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);
 
-        final JTabbedPane tabbedPane = new JTabbedPane();
+        new AllCourse(); // Check Environment File, and generate it when not exist
 
+        final JTabbedPane tabbedPane = new JTabbedPane();
 
         tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
 

@@ -108,6 +108,7 @@ public class VideoPanel extends Interface{
         searchPanel.add(AllBtn);
         searchPanel.add(tagBtn);
         searchPanel.add(vipBtn);
+        searchPanel.setBackground(Color.DARK_GRAY);
         return searchPanel;
     }
     
@@ -134,7 +135,7 @@ public class VideoPanel extends Interface{
         // Generate Total Button for each course
         for(int i=0; i<rowLength; i++){
 
-            JButton btn = new JButton(allCourse[i][0]  + "  "+ allCourse[i][1]);
+            JButton btn = new JButton(allCourse[i][0]  + ": "+ allCourse[i][1] + " mins");
             Button_Back(btn,allCourse[i][4],allCourse[i][5]);
             String videoName = allCourse[i][0];
                 String videoPath = allCourse[i][3];
@@ -229,7 +230,7 @@ if(videoVip.equals("0")){
             String videoPicture = searchResult[i][4];
             String videoVip = searchResult[i][5];
 
-            JButton btn = new JButton(videoName+ "  "+ videoTime);
+            JButton btn = new JButton(videoName+ ": "+ videoTime + " mins");
             Button_Back(btn,videoPicture,videoVip);
             
             btn.addActionListener(new ActionListener(){
@@ -288,7 +289,6 @@ if(videoVip.equals("0")){
 
             coursePanel.add(btn);
             }
-            
             return coursePanel;
         }
 
