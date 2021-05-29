@@ -116,10 +116,7 @@ public class EditPassword extends JFrame{
         
 
     }
-    public static void main(String[] args) {
-       
-        //new EditPassword("LMX").setVisible(true);
-    } 
+     
 }
 
 

@@ -119,10 +119,7 @@ public class EditUserType1 extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-       
-        new EditUserType1("LMX",new JTabbedPane()).setVisible(true);
-    } 
+   
     
 }
 

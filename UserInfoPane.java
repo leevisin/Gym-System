@@ -193,15 +193,6 @@ public class UserInfoPane {
 
 
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setBounds(0, 0, 1200, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        UserInfoPane ui = new UserInfoPane();
-        JTabbedPane jt1 = new JTabbedPane();
-        frame.getContentPane().add(ui.makeUserInfoPane(jt1));
-        frame.setVisible(true);
-    }
 
     
 }

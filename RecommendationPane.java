@@ -200,13 +200,5 @@ public class RecommendationPane {
             }
         }
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setBounds(0, 0, 1200, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        RecommendationPane ui = new RecommendationPane();
-        JTabbedPane jt1 = new JTabbedPane();
-        frame.getContentPane().add(ui.makeRecomPane(jt1));
-        frame.setVisible(true);
-    }
+   
 }

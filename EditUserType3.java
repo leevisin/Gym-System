@@ -57,9 +57,6 @@ public class EditUserType3 extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-       
-        new EditUserType3("LMX",new JTabbedPane()).setVisible(true);
-    } 
+  
     
 }

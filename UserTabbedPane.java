@@ -67,20 +67,5 @@ public class UserTabbedPane extends Interface{
     
 
 
-public static void main(String[] args){
-    JFrame frame = new JFrame("TabbedPaneDemo");
-        
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-    frame.setLocation(1100, 600);
-    // frame.setLocationRelativeTo(null);
-    //Add content to the window.
-    // frame.add(new UserTabbedPane().userTabbedPane(), BorderLayout.CENTER);
-    
-    //Display the window.   
-    frame.pack();
-    frame.setVisible(true);
-}
-
 
 }

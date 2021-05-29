@@ -116,9 +116,6 @@ public class EditUserType2 extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-       
-        new EditUserType2("LMX",new JTabbedPane(),"vip1").setVisible(true);
-    } 
+
     
 }
