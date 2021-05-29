@@ -14,12 +14,6 @@ import java.nio.file.*;
  */
 public class AllCourse{
 
-    public static void main(String[] args) throws IOException{
-
-        new AllCourse();
-
-    }
-
     public AllCourse(){
       // Generate base enviroment
       File videoFile = new File("texts/AllVideo.txt");
@@ -38,16 +32,16 @@ public class AllCourse{
       File trainerFile = new File("texts/AllTrainer.txt");
       if(!trainerFile.exists()){
         addTrainer("Tom", "Strength", "images/Trainer1.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
-        addTrainer("Tina", "Slim", "images/Trainer2.jpg", "Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Ann", "Slim", "images/Trainer3.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Vee", "Slim", "images/Trainer4.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Dan", "Slim", "images/Trainer5.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Ken", "Strength", "images/Trainer6.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
-        addTrainer("Andy", "Strength", "images/Trainer7.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
-        addTrainer("Lucia", "Slim", "images/Trainer8.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Bert", "Strength", "images/Trainer9.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
-        addTrainer("Rita", "Slim", "images/Trainer10.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
-        addTrainer("Shelley", "Slim", "images/Trainer11.jpg","Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Tina", "Strength", "images/Trainer2.jpg", "Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
+        addTrainer("Ann", "Slim", "images/Trainer3.jpg","I have worked in fitness industry for ten years. I have worked at London Fitness as a Group Fitness Trainer for three years. I am also certified in Personal Training ans Spinning. I can help you decrease body fat and build muscle strength.");
+        addTrainer("Vee", "Slim", "images/Trainer4.jpg","Our mission is to help people enjoy life to its fullest by supervising and creating expertly designed fitness programs. Whether it's improving lean muscle we value and individual's need to improve their quality of life.");
+        addTrainer("Jane", "Slim", "images/Trainer5.jpg","You might have tries other programs or methods in hte past with nothing to show for it. Dan has designed and reshaped his system to make sure it provides all the knowledge and support you need to achieve the desired results.");
+        addTrainer("Ken", "Strength", "images/Trainer6.jpg","After eight years in the finace industry then Ken left his desk job behind for a career in fitness. Ken quickly developed a fiercely loyal following through teaching at various gyms in the city. ");
+        addTrainer("Andy", "Strength", "images/Trainer7.jpg","I first gained an interest in fitness when I was 8 years old. The interest quickly developed into a passion and since then I have been dedicated to understanding the most effective and efficient way to increase muscle mass and decrease body fat through training and nutrition.");
+        addTrainer("Lucia", "Slim", "images/Trainer8.jpg","Being active has always been very important to me growing up in an athletic household. I specialize in athletic and sports performace as well as MMA conditioning. Fitness has instilled so much disciplince and confidence in me.");
+        addTrainer("Bert", "Strength", "images/Trainer9.jpg","Bert specialized in training clients all ages from beginners to professional athletes. Bert's main passion is to develop healthy training & nutrition lifestyles. Along with an absolute mindset to be healthy & get younger for life.");
+        addTrainer("Rita", "Slim", "images/Trainer10.jpg","Define Motivational Interviewing(MI). Explore ambivalence as a barrier to change. Examine and practive the Spirit of MI. Practice core skills of MI.");
+        addTrainer("Shelley", "Slim", "images/Trainer11.jpg","I was once overweight and now I've found what makes me happy. All I want to do is help others achieve that health journey. I can relate to people that don't like to work out because I used to be one of those people.");
       }
     }
    
