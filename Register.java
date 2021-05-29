@@ -89,7 +89,7 @@ public class Register extends JFrame {
 
 
         JLabel backGroundLabel = new JLabel("");
-        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("Source/background.jpg")));
+        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("images/background.jpg")));
         backGroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backGroundLabel);
        

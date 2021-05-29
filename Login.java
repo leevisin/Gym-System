@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Objects;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+
    /**
      * The Login window of the gym system
 	 * updated on 2021/4/21: able to record current user when log in
@@ -65,7 +64,7 @@ public class Login extends JFrame {
         contentPane.add(loginButton);
 
         JLabel backgroundLabel = new JLabel("");
-        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("Source/background.jpg")));
+        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("images/background.jpg")));
         backgroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backgroundLabel);
 
