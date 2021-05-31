@@ -1,14 +1,7 @@
 import javax.swing.*;
-import java.net.*;
 import java.awt.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,8 +14,9 @@ import java.util.Objects;
  */
 
 public class VideoPanel extends Interface{
+    /**The file that contains all information about courses */
     String fileName = "texts/AllVideo.txt";
-    Robot robot = null;
+    /** The JPanel that displayed all courses */
     JPanel videoPanel = new JPanel(new BorderLayout());
 
     public VideoPanel(){}
@@ -32,14 +26,11 @@ public class VideoPanel extends Interface{
 	 * @return JPanel, to be add to Scroll Panel
 	 */
     public JPanel videoPanel(){
-        
-        
 
-
-        videoPanel.add(searchPanel(), BorderLayout.NORTH);
-        videoPanel.add(coursePanel(), BorderLayout.CENTER);
+    videoPanel.add(searchPanel(), BorderLayout.NORTH);
+    videoPanel.add(coursePanel(), BorderLayout.CENTER);
         
-        return videoPanel;    
+    return videoPanel;    
     }
 
     /**
@@ -54,18 +45,18 @@ public class VideoPanel extends Interface{
         JButton searchBtn = new JButton(icon);
 
         searchBtn.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                String input = textField.getText();
-                String[][] searchResult=searchCourse("texts/AllVideo.txt",input);
-                if(input.equals("")) {
-                    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
-                else{
-                    videoPanel.removeAll();
-                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
-                    videoPanel.add(refreshVideoPanel(searchResult), BorderLayout.CENTER);
-                    videoPanel.revalidate();
-                }   
-            }
+        public void actionPerformed(ActionEvent e){
+            String input = textField.getText();
+            String[][] searchResult=searchCourse("texts/AllVideo.txt",input);
+            if(input.equals("")) {
+                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "Search can't be empty!","Warning!",JOptionPane.WARNING_MESSAGE);}
+            else{
+                videoPanel.removeAll();// Clear trainerPanel all components
+                videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                videoPanel.add(refreshVideoPanel(searchResult), BorderLayout.CENTER);
+                videoPanel.revalidate();// Refresh Panel
+            }   
+        }
         });
         searchBtn.setMaximumSize(new Dimension(32,32));
         searchBtn.setIcon(icon);
@@ -75,43 +66,50 @@ public class VideoPanel extends Interface{
         searchBtn.setContentAreaFilled(false);
         searchBtn.setFocusPainted(false);
 
+        //The information about the courses after classified by type attributes
         String[][] tagVideo = classifyByTag("texts/AllVideo.txt");
 
+        //The button that used to present all videos in the GYM
         JButton AllBtn =new JButton("All courses");
+        //all information about video in the text
         String[][] allvideo = readFromFile("texts/AllVideo.txt");
         AllBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                    videoPanel.removeAll();
+                    videoPanel.removeAll();// Clear trainerPanel all components
                     videoPanel.add(searchPanel(), BorderLayout.NORTH);
                     videoPanel.add(refreshVideoPanel(allvideo), BorderLayout.CENTER);
-                    videoPanel.revalidate();
+                    videoPanel.revalidate();// Refresh Panel
             }
         });
 
+
+        //The button used for classifing by types
         JButton tagBtn =new JButton("Classsified");
         tagBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                    videoPanel.removeAll();
+                    videoPanel.removeAll();// Clear trainerPanel all components
                     videoPanel.add(searchPanel(), BorderLayout.NORTH);
                     videoPanel.add(refreshVideoPanel(tagVideo), BorderLayout.CENTER);
-                    videoPanel.revalidate();
+                    videoPanel.revalidate();// Refresh Panel
             }
         });
 
+
+        //The information about the courses after classified by the vip attribute
         String[][] vipVideo = classifyByVip();
         JButton vipBtn =new JButton("Vip");
         vipBtn.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-
-                String[][] userInfor=new String[1][4];
-                userInfor=readFromFile("texts/currentuser.txt");
-                if(userInfor[0][3].equals("normal")){
-                    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                }else{
-                    videoPanel.removeAll();
-                    videoPanel.add(searchPanel(), BorderLayout.NORTH);
-                    videoPanel.add(refreshVideoPanel(vipVideo), BorderLayout.CENTER);
-                    videoPanel.revalidate();}
+        public void actionPerformed(ActionEvent e){
+            //Used for storing user's information
+            String[][] userInfor=new String[1][4];
+            userInfor=readFromFile("texts/currentuser.txt");
+            if(userInfor[0][3].equals("normal")){
+                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+            }else{
+                videoPanel.removeAll();
+                videoPanel.add(searchPanel(), BorderLayout.NORTH);
+                videoPanel.add(refreshVideoPanel(vipVideo), BorderLayout.CENTER);
+                videoPanel.revalidate();}
             }
         });
        
@@ -144,8 +142,8 @@ public class VideoPanel extends Interface{
         
         
         coursePanel.setPreferredSize(new Dimension(1000, rows*250));
-          String[][] allCourse = readFromFile("texts/AllVideo.txt");
-         int rowLength= allCourse.length;
+        String[][] allCourse = readFromFile("texts/AllVideo.txt");
+        int rowLength= allCourse.length;
          
 
         // Generate Total Button for each course
@@ -154,48 +152,48 @@ public class VideoPanel extends Interface{
             JButton btn = new JButton(allCourse[i][0]  + ": "+ allCourse[i][1] + " mins");
             Button_Back(btn,allCourse[i][4],allCourse[i][5]);
             String videoName = allCourse[i][0];
-                String videoPath = allCourse[i][3];
-                String videoVip=allCourse[i][5];
+            String videoPath = allCourse[i][3];
+            String videoVip=allCourse[i][5];
                 
                 
-                btn.addActionListener(new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        // System.out.println("This button is clicked.");
-                        String[][] userInfor=new String[1][5];
-                        userInfor=readFromFile("texts/currentuser.txt");
-                        int leftNum = Integer.parseInt(userInfor[0][4]);
-                //video is "2"
-               if(videoVip.equals("2")){
-               if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
-                  JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-                }else
-                {playVideo(videoPath);}
+            btn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+            // System.out.println("This button is clicked.");
+            String[][] userInfor=new String[1][5];
+            userInfor=readFromFile("texts/currentuser.txt");
+            int leftNum = Integer.parseInt(userInfor[0][4]);
+            //video is "2"
+            if(videoVip.equals("2")){
+            if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
+                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+            }else
+            {playVideo(videoPath);}
             }
 
-                 //video is "1"
-               if(videoVip.equals("1")){
-                if(userInfor[0][3].equals("normal")){
-                  JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+            //video is "1"
+            if(videoVip.equals("1")){
+            if(userInfor[0][3].equals("normal")){
+                JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+            }
+            if(userInfor[0][3].equals("VIP")){
+            // left num --
+            if(leftNum>-0)
+            {   playVideo(videoPath);
+            leftNum--;
+            //Recored the change in currentuser.txt and member.txt
+            List<Member> members = Util.readFile();
+            for (Member member: Objects.requireNonNull(members)) {
+                if (member.getAccount().equals(userInfor[0][0])){
+                    member.setVideoTimes(leftNum); 
+                    Util.writeFile(members);         
+                    Util.recordCurrentUser(member);
                 }
-              if(userInfor[0][3].equals("VIP")){
-                // left num --
-              if(leftNum>-0)
-              {   playVideo(videoPath);
-                leftNum--;
-                //Recored the change in currentuser.txt and member.txt
-                List<Member> members = Util.readFile();
-                for (Member member: Objects.requireNonNull(members)) {
-                    if (member.getAccount().equals(userInfor[0][0])){
-                        member.setVideoTimes(leftNum); 
-                        Util.writeFile(members);         
-                        Util.recordCurrentUser(member);
-                     }
-                } 
+            } 
             }else{
                 JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
-        }}
-                  if(userInfor[0][3].equals("SVIP")){
-                  playVideo(videoPath);
+            }}
+                if(userInfor[0][3].equals("SVIP")){
+                playVideo(videoPath);
                 }
             }
 
@@ -207,7 +205,7 @@ public class VideoPanel extends Interface{
                 }
                 });
              coursePanel.add(btn);
-         }
+            }
        
 
         return coursePanel;
