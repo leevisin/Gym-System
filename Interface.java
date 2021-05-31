@@ -230,7 +230,11 @@ import java.util.*;
         return courseArray;
      }
 
-     //Classify by Vip
+     /**
+       * function used to classify in the VideoPanel
+       * It can filter the SVIP and VIP out of normal video
+       * @return classified information where the video is only vip or svip
+       */
      public String[][] classifyByVip(){
          String[][] courses =readFromFile("texts/allVideo.txt");
          int lines =readLine("texts/allVideo.txt");
