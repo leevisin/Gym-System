@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 /** 
  *  Trainer detail information includes Name, Type, Introduction
@@ -60,8 +61,13 @@ public class BookInfo extends Interface {
         bookBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 // Check VIP
-                
-                new BookConfirm(trainerName, trainerType); // New a frame to select time to book
+                String userType = readCurrentUser().split(",")[3];
+                if(userType.equals("Normal")){
+                    JOptionPane.showMessageDialog(null, "You are not a VIP user", "",JOptionPane.PLAIN_MESSAGE);
+                }
+                else{
+                    new BookConfirm(trainerName, trainerType); // New a frame to select time to book
+                }
             }
         });
 
@@ -143,6 +149,27 @@ public class BookInfo extends Interface {
         trainerTypePanel.add(label, BorderLayout.NORTH);
         trainerTypePanel.setBackground(Color.LIGHT_GRAY);
         return trainerTypePanel;
+    }
+
+    /**
+	 * Read current user
+     * @return current user name
+	 */
+    public String readCurrentUser(){
+        String userInfo = "";
+        try{
+            FileReader fileReader = new FileReader("texts/currentuser.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String oneLine = bufferedReader.readLine();
+                userInfo += oneLine;
+            bufferedReader.close();
+            fileReader.close();
+        }
+        catch (IOException e) {
+            System.out.println("Errors occured: IOException!");
+            System.exit(1);
+        }     
+        return userInfo;
     }
 }
 
