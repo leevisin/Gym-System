@@ -12,6 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/** 
+ *  Created a JPanel that contains search tab and all courses
+ *  Search Button can search all videos and show in current panel
+ * The first button is used to present all courses in the GYM.
+ *  Two more buttons can be used to classify on types and on vip/svip. 
+ * When clicking the video, it can play the video on your local video player.
+ */
+
 public class VideoPanel extends Interface{
     String fileName = "texts/AllVideo.txt";
     Robot robot = null;
@@ -19,6 +27,10 @@ public class VideoPanel extends Interface{
 
     public VideoPanel(){}
 
+    /**
+	 * Created a Video JPanel contains search panel and videos panel
+	 * @return JPanel, to be add to Scroll Panel
+	 */
     public JPanel videoPanel(){
         
         
@@ -30,6 +42,10 @@ public class VideoPanel extends Interface{
         return videoPanel;    
     }
 
+    /**
+	 * Created a Search JPanel can search by videos' part or in full-name
+	 * @return JPanel, to be add to video panel
+	 */
     public JPanel searchPanel(){
         JPanel searchPanel = new JPanel();
         JTextField textField = new JTextField(20);
@@ -109,6 +125,10 @@ public class VideoPanel extends Interface{
     }
     
 
+     /**
+	 * Created a Videos JPanel contains all courses could be played
+	 * @return JPanel, to be add to video panel
+	 */
     public JPanel coursePanel(){
 
         int rows = readLine("texts/AllVideo.txt"); // Trainer Number
@@ -144,23 +164,23 @@ public class VideoPanel extends Interface{
                         String[][] userInfor=new String[1][5];
                         userInfor=readFromFile("texts/currentuser.txt");
                         int leftNum = Integer.parseInt(userInfor[0][4]);
-//video is "2"
-if(videoVip.equals("2")){
-    if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
-        JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-    }else
-       {playVideo(videoPath);}
-}
+                //video is "2"
+               if(videoVip.equals("2")){
+               if(userInfor[0][3].equals("normal")||userInfor[0][3].equals("VIP")){
+                  JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a SVIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                }else
+                {playVideo(videoPath);}
+            }
 
-//video is "1"
-if(videoVip.equals("1")){
-if(userInfor[0][3].equals("normal")){
-    JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
-}
-if(userInfor[0][3].equals("VIP")){
-    // left num --
-    if(leftNum>-0)
-            {   playVideo(videoPath);
+                 //video is "1"
+               if(videoVip.equals("1")){
+                if(userInfor[0][3].equals("normal")){
+                  JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You are not a VIP customer!","Warning!",JOptionPane.WARNING_MESSAGE);
+                }
+              if(userInfor[0][3].equals("VIP")){
+                // left num --
+              if(leftNum>-0)
+              {   playVideo(videoPath);
                 leftNum--;
                 //Recored the change in currentuser.txt and member.txt
                 List<Member> members = Util.readFile();
@@ -174,29 +194,32 @@ if(userInfor[0][3].equals("VIP")){
             }else{
                 JOptionPane.showMessageDialog(VideoPanel.super.rootPane, "You have no try left !","Warning!",JOptionPane.WARNING_MESSAGE);
         }}
-if(userInfor[0][3].equals("SVIP")){
-    playVideo(videoPath);
-}
-}
+                  if(userInfor[0][3].equals("SVIP")){
+                  playVideo(videoPath);
+                }
+            }
 
-//video is "0"
-if(videoVip.equals("0")){
+           //video is "0"
+              if(videoVip.equals("0")){
     
-    playVideo(videoPath);
-}
+                playVideo(videoPath);
+                }
                 }
                 });
-            coursePanel.add(btn);
-        }
-
-
-        
-
-        
+             coursePanel.add(btn);
+         }
        
 
         return coursePanel;
     }
+
+
+    /**
+	 * Created a new Videos JPanel contains all courses when clicked search button
+     * @param searchResult contains eligible videos' all information
+	 * @return JPanel, to be refresh to add to video panel
+	 */
+
     public JPanel refreshVideoPanel(String[][] searchResult){
 
         int rows = readLine("texts/AllVideo.txt"); // Trainer Number
@@ -281,7 +304,13 @@ if(videoVip.equals("0")){
         }
 
         
-    
+    /**
+	 * Used to generate the video frame, whcin can be used to click and play the particular course
+     * @param Button the course's button
+     * @param ImagePath the picture used by the button
+     * @param videoVip which presents whether the video is normal, vip or svip
+	 * @return
+	 */
 
     public static void Button_Back(JButton Button,String ImagePath,String videoVip){
         Button.setBounds(0, 0, 300, 200);
@@ -303,6 +332,10 @@ if(videoVip.equals("0")){
         Button.setHorizontalTextPosition(JButton.CENTER);
     }
 
+    /**
+	 * Make Video Panel to scrool
+	 * @return JScrollPane, to be add to Main Panel
+	 */
     public JScrollPane scrollPanel(){
         JScrollPane scrollPanel = new JScrollPane(
                 videoPanel(),
