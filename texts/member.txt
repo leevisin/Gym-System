@@ -1,1 +1,1 @@
-[Member{account='MTX', password='123456a', email='1234567@qq.com', userType='VIP', videotimes='0'}]
+[Member{account='Davis', password='123456a', email='43668902@gmail.com', userType='normal', videotimes='0'}, Member{account='Lisey', password='123456A', email='lisery032@gmail.com', userType='VIP', videotimes='49'}]

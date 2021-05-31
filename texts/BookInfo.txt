@@ -1,10 +1,5 @@
-LMX,Tina,Slim,Monday,8:00-10:00
-LMX,Tom,Strength,Monday,8:00-10:00
-LMX,Tina,Slim,Tuesday,13:00-15:00
-LMX,Ann,Slim,Friday,19:00-21:00
-LMX,Andy,Strength,Thursday,15:00-17:00
-LMX,Bert,Strength,Monday,10:00-12:00
-MTX,Tina,Slim,Saturday,13:00-15:00
-MTX,Tom,Strength,Monday,8:00-10:00
-MTX,Tom,Strength,Monday,15:00-17:00
-MTX,Vee,Slim,Monday,8:00-10:00
+Davis,Tom,Strength,Monday,8:00-10:00
+Davis,Tina,Slim,Tuesday,13:00-15:00
+Lisey,Tom,Strength,Monday,8:00-10:00
+Lisey,Lucia,Slim,Thursday,13:00-15:00
+Lisey,Lucia,Slim,Friday,19:00-21:00
