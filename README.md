@@ -1,5 +1,5 @@
 # Introduction
-“London Fitness” is a small gym operating in London. Our Online Gym Program is designed 
+"London Fitness" is a small gym operating in London. Our Online Gym Program is designed 
 to be a stand alone application and doesn't require connection to Internet during running time.
 
 ## Requirements
@@ -21,11 +21,13 @@ to be a stand alone application and doesn't require connection to Internet durin
 - Enter `javac -cp Requirements/junit-platform-console-standalone-1.7.1.jar *.java` in the command line
 
 ## Run
+- Open the cmd command line (Press `Win + R`, and input cmd, then press Enter) 
+- Enter the location of the file (By using command `cd` )
 - Enter `java Login` in the command line to run the code
 
 ![Login](Requirements/Login.png)
 
-- After Register and Login in, you enter Main Menu
+- After Login in, you enter Main Menu
 
 ![Login](Requirements/MainMenu.png)
 
