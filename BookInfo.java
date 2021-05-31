@@ -62,8 +62,8 @@ public class BookInfo extends Interface {
             public void actionPerformed(ActionEvent e){
                 // Check VIP
                 String userType = readCurrentUser().split(",")[3];
-                if(userType.equals("Normal")){
-                    JOptionPane.showMessageDialog(null, "You are not a VIP user", "",JOptionPane.PLAIN_MESSAGE);
+                if(userType.equals("normal")){
+                    JOptionPane.showMessageDialog(null, "You are not a VIP user, please upgrade to VIP", "Can't Book Trainer",JOptionPane.PLAIN_MESSAGE);
                 }
                 else{
                     new BookConfirm(trainerName, trainerType); // New a frame to select time to book

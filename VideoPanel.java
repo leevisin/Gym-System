@@ -177,7 +177,7 @@ public class VideoPanel extends Interface{
             }
             if(userInfor[0][3].equals("VIP")){
             // left num --
-            if(leftNum>-0)
+            if(leftNum>0)
             {   playVideo(videoPath);
             leftNum--;
             //Recored the change in currentuser.txt and member.txt
