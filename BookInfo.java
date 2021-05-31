@@ -59,6 +59,8 @@ public class BookInfo extends Interface {
         bookBtn.setBackground(Color.YELLOW);
         bookBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                // Check VIP
+                
                 new BookConfirm(trainerName, trainerType); // New a frame to select time to book
             }
         });
