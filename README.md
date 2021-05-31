@@ -23,7 +23,7 @@ If encountering errors when compiling TDD code, please refer to **Compile** Part
 - Enter `Software` directory (By using command `cd` )
 - Enter `javac Login.java` in the command line to compile the application without JUnit
 - **Get `{file}Test.java` from `Test` directory to `Software` directory**, and then enter 
-`javac -cp Software/Requirements/junit-platform-console-standalone-1.7.1.jar {file}Test.java` in the command line 
+`javac -cp Requirements/junit-platform-console-standalone-1.7.1.jar {file}Test.java` in the command line 
 to compile TDD, where `{file}` is one of `Account/Email/Member/Password/Trainer/Video`
 
 ## Run
