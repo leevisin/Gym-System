@@ -16,14 +16,14 @@ If encountering errors when compiling TDD code, please refer to **Compile** Part
 - Enter the location of the file (By using command `cd` )
 - Enter `java --version` in the command line to check environment
 
-![Success Install Screenshot](Requirements/JavaVersion.png)
+![Success Install Screenshot](Software/Requirements/JavaVersion.png)
 
 ## Compile
 - Open the cmd command line (Press `Win + R`, and input `cmd`, then press Enter) 
 - Enter the location of the file (By using command `cd` )
 - Enter `javac Login.java` in the command line to compile the application without JUnit
 - **Get `{file}Test.java` from `Test` directory to the location of the file**, and then enter 
-`javac -cp Requirements/junit-platform-console-standalone-1.7.1.jar {file}Test.java` in the command line 
+`javac -cp Software/Requirements/junit-platform-console-standalone-1.7.1.jar {file}Test.java` in the command line 
 to compile TDD, where `{file}` is one of `Account/Email/Member/Password/Trainer/Video`
 
 ## Run
@@ -31,14 +31,14 @@ to compile TDD, where `{file}` is one of `Account/Email/Member/Password/Trainer/
 - Enter the location of the file (By using command `cd` )
 - Enter `java Login` in the command line to start up the Online Gym application
 - We have registered two user accounts in advance to let you try our application
-- (1)Account: Davis; Password:123456a; User Type: Normal
-- (2)Account: Lisey; Password:123456A; User Type: VIP
+1. Account: Davis; Password:123456a; User Type: Normal
+2. Account: Lisey; Password:123456A; User Type: VIP
 
-![Login](Requirements/Login.png)
+![Login](Software/Requirements/Login.png)
 
 - After Login in, you enter Main Menu
 
-![Login](Requirements/MainMenu.png)
+![Login](Software/Requirements/MainMenu.png)
 
 - **Get `{file}Test.java` from `Test` directory to the location of the file**, 
 and then enter `java -jar junit-platform-console-standalone-1.7.1.jar -cp . -c {file}Test` 
