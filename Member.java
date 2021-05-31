@@ -20,7 +20,7 @@ public class Member {
         this.password = password;
         this.email = email;
         this.userType = userType;
-        this.videotimes = 10;
+        this.videotimes = 0;
     }
     /**
 	 * Getter for videotimes

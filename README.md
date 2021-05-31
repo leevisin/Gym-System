@@ -1,6 +1,7 @@
 # Introduction
 "London Fitness" is a small gym operating in London. Our Online Gym Program is designed 
 to be a stand alone application and doesn't require connection to Internet during running time.
+We have registered two user accounts in advance to let you try our application.
 
 ## Requirements
 - Windows 10
@@ -26,6 +27,9 @@ to be a stand alone application and doesn't require connection to Internet durin
 - Open the cmd command line (Press `Win + R`, and input `cmd`, then press Enter) 
 - Enter the location of the file (By using command `cd` )
 - Enter `java Login` in the command line to start up the Online Gym application
+- We have registered two user accounts in advance to let you try our application
+- (1)Account:Davis   Password:123456a   User Type: Normal
+- (2)Account:Lisey   Password:123456A   User Type: VIP
 
 ![Login](Requirements/Login.png)
 
