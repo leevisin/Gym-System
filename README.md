@@ -3,6 +3,8 @@
 to be a stand alone application and doesn't require connection to Internet during running time.
 We have registered two user accounts in advance to let you try our application.
 
+If encountering errors when compiling TDD code, please refer to **Compile** Part for further indication.
+
 ## Requirements
 - Windows 10
 - [openJDK 11.0.11](https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.11+9/OpenJDK11U-jdk_x64_windows_hotspot_11.0.11_9.msi)
