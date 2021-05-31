@@ -31,8 +31,8 @@ to compile TDD, where `{file}` is one of `Account/Email/Member/Password/Trainer/
 - Enter `Software` directory (By using command `cd` )
 - Enter `java Login` in the command line to start up the Online Gym application
 - We have registered two user accounts in advance to let you try our application
-- (1)Account: Davis; Password:123456a; User Type: Normal
-- (2)Account: Lisey; Password:123456A; User Type: VIP
+1. Account: Davis; Password:123456a; User Type: Normal
+2. Account: Lisey; Password:123456A; User Type: VIP
 
 ![Login](Requirements/Login.png)
 
