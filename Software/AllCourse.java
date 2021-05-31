@@ -31,7 +31,7 @@ public class AllCourse{
 
       File trainerFile = new File("texts/AllTrainer.txt");
       if(!trainerFile.exists()){
-        addTrainer("Tom", "Strength", "images/Trainer1.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer. Certificate in Advanced Sports Anatomy. Sports nutrition and physiology certification");
+        addTrainer("Tom", "Strength", "images/Trainer1.jpg","More than 20 years of experience in martial arts training. Disciplinary sports club fitness instructor Boundlss online coach. Watahhh fitness personal trainer IPTA Certified Senior Fitness Trainer.");
         addTrainer("Tina", "Strength", "images/Trainer2.jpg", "Students can strengthen their core muscles and improve poor posture and pain. And make their body shape more beautiful. I teach in small classes and hoping that students can get professional guidance and provide teaching according to different levels of people.");
         addTrainer("Ann", "Slim", "images/Trainer3.jpg","I have worked in fitness industry for ten years. I have worked at London Fitness as a Group Fitness Trainer for three years. I am also certified in Personal Training ans Spinning. I can help you decrease body fat and build muscle strength.");
         addTrainer("Vee", "Slim", "images/Trainer4.jpg","Our mission is to help people enjoy life to its fullest by supervising and creating expertly designed fitness programs. Whether it's improving lean muscle we value and individual's need to improve their quality of life.");
