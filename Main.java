@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,26 +9,20 @@ public class Main {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);
 
+        new AllCourse(); // Check Environment File, and generate it when not exist
+
         final JTabbedPane tabbedPane = new JTabbedPane();
 
+        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
 
-        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(), "This is a tab.");
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel());
 
-        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
+        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
-        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel(), "This is a tab.");
-
-        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(), "This is a tab.");
-
-        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), new AdminPanel().AdminsterPanel(), "This is a tab.");
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
 
 
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                // System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
-            }
-        });
+   
 
         tabbedPane.setSelectedIndex(0);
 
@@ -37,17 +30,29 @@ public class Main {
         jf.setVisible(true);
     }
 
-    private static JComponent createTextPanel(String text) {
+    public void MainPanel(){
+        JFrame jf = new JFrame("Main Menu");
+        jf.setSize(1280, 750);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel(new GridLayout(1, 1));
-        
-        JLabel label = new JLabel(text);
-        label.setFont(new Font(null, Font.PLAIN, 50));
-        label.setHorizontalAlignment(SwingConstants.CENTER);
+        new AllCourse(); // Check Environment File, and generate it when not exist
 
-        panel.add(label);
+        final JTabbedPane tabbedPane = new JTabbedPane();
 
-        return panel;
+        tabbedPane.addTab("Home", new ImageIcon("bb.jpg"), new HomePanel().homePanel(tabbedPane));
+
+        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel());
+
+        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
+
+        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
+
+    
+
+        tabbedPane.setSelectedIndex(0);
+
+        jf.setContentPane(tabbedPane);
+        jf.setVisible(true);
     }
-
 }

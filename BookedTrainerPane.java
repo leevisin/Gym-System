@@ -1,15 +1,7 @@
 import javax.swing.*;
-import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.awt.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 
 /** 
@@ -18,24 +10,52 @@ import java.io.*;
  * 
  */
 
-public class BookedTrainerPane {
+public class BookedTrainerPane extends Interface{
 
-    
+    /**The JPanel that displayed the booked trainer*/
     public JPanel bookedTrainerPane;
+    /**The account name of the user*/
     public String currentaccount = null;
+    /**The string array that contains all the booked trainer information*/
     public String[][] lessonInfo;
 
-      /**
+    /**
 	 * Created a JPanel to contain  information about all the trainer that was booked by a given user
 	 * @param  JTabbedPane jtb, jtb is the JTabbedPane that will contain this JPanel
 	 * @return JPanel, the created JPanel
 	 */
     public JPanel makeBookedTrainerPane(JTabbedPane jtb){
-        //initialize the JPanel
-        int rows = readLine("texts/BookInfo.txt");
-    
+        
+        //accquire information of current user
+		String allinfo; 
+		String[] info;
+		BufferedReader br = null;
+		InputStreamReader reader = null;
+		try{
+		    reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
+            br = new BufferedReader(reader);
+		    allinfo = br.readLine(); //obtain all information of current user
+		    info = allinfo.split(",");
+	        currentaccount = info[0];
+		    br.close();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+
+        //gettring booked trainer information for all users
+        lessonInfo = readFromFile("texts/BookInfo.txt");
+
+        //initialize the JPanel 
+        int rows = 0;
+        for(int i=0; i<lessonInfo.length; i++){
+            String userAccount = lessonInfo[i][0];
+            if(userAccount.equals(currentaccount)){
+                rows++;
+            }
+        }
+
         bookedTrainerPane = new JPanel(new GridLayout(rows+1, 5));
-        bookedTrainerPane.setBounds(0, 0, 1200, 800);
+        bookedTrainerPane.setBounds(0, 0, 1200, 720);
 
         JLabel title1 = new JLabel("User");
         title1.setFont(new Font(null, Font.PLAIN, 19));
@@ -68,29 +88,9 @@ public class BookedTrainerPane {
         bookedTrainerPane.add(title5);
 
 
-
-        //accquire information of current user
-		String allinfo; 
-		String[] info;
-		BufferedReader br = null;
-		InputStreamReader reader = null;
-		try{
-		    reader = new InputStreamReader(new FileInputStream(new File(Util.currentuser)), StandardCharsets.UTF_8);
-            br = new BufferedReader(reader);
-		    allinfo = br.readLine(); //obtain all information of current user
-		    info = allinfo.split(",");
-	        currentaccount = info[0];
-		    br.close();
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
-
-        //gettring booked trainer information for all users
-        lessonInfo = readFromFile("texts/BookInfo.txt");
         //display the lesson booked by current user
         for(int i=0; i<lessonInfo.length; i++){
             String userAccount = lessonInfo[i][0];
- 
             //display the lesson booked by current user
             if(userAccount.equals(currentaccount)){
                 //user account
@@ -118,106 +118,13 @@ public class BookedTrainerPane {
                 hours1.setFont(new Font(null, Font.PLAIN, 15));
                 hours1.setHorizontalAlignment(SwingConstants.CENTER);
                 bookedTrainerPane.add(hours1);
-
-
             }
         }
         
-
-
-
        return bookedTrainerPane;
 
     }
 
 
-
-
-
-
-    /**
-	 * Reading booked trainer information from a text file
-	 * @param  String path name of the file
-	 * @return String[][], String array that contain all information
-	 */
-     public String[][] readFromFile(String filename){
-        // Exit when file not exist
-        try {
-            File file = new File(filename);
-            if(!file.exists()){
-                System.out.println("No such file, then we will exit..");
-                System.exit(0);
-            }
-        } catch (Exception e) {
-            System.out.println("Create Base Enviroment Error!");
-        }
-
-        String contents = "";
-        try{
-            FileReader fileReader = new FileReader(filename);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String oneLine = bufferedReader.readLine();
-            while(oneLine != null){
-                contents += oneLine + ",";
-                oneLine = bufferedReader.readLine();
-            }
-            bufferedReader.close();
-            fileReader.close();
-        }
-        catch (IOException e) {
-            System.out.println("Errors occured: IOException!");
-            System.exit(1);
-        }     
-
-        // Store file contents into array
-        int rows = readLine(filename);
-        String[] courseContents = contents.split(",");
-        int columns = courseContents.length/rows;
-        String[][] infoArray = new String[rows][columns];
-        int k=0;
-        for(int i=0; i<rows; i++){
-            for(int j=0; j<columns; j++){
-                infoArray[i][j] = courseContents[k];
-                k++;
-            }
-        }
-
-        // Read information to an array and storage it, so that it needn't read twice.
-        return infoArray;
-     }
-
-    /**
-	 * Returning how many lines are there in a given file
-	 * @param String the path of the file
-	 * @return int, how many lines are the file.
-	 */
-     public int readLine(String filename){
-        int lines = 0;
-        try {
-           FileReader fileReader = new FileReader(filename);
-           BufferedReader bufferedReader = new BufferedReader(fileReader);
-           String oneLine = bufferedReader.readLine();
-           while(oneLine != null){
-               lines++;
-               oneLine = bufferedReader.readLine();
-           }
-           bufferedReader.close();
-           fileReader.close();
-        } catch (Exception e) {
-           System.out.println("readLine function error!");
-        }
-       return lines;
-    }
-
-
-
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setBounds(0, 0, 1200, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BookedTrainerPane ui = new BookedTrainerPane();
-        JTabbedPane jt1 = new JTabbedPane();
-        frame.getContentPane().add(ui.makeBookedTrainerPane(jt1));
-        frame.setVisible(true);
-    }
+    
 }

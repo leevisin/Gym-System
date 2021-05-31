@@ -2,12 +2,12 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.*;
+
 
 /** 
 * Contains the static methods that is reused many times
 * including writing & reading files, validating data format
-* @since  2021/5/20
+* Last updated on :2021/5/27
 *  
 */
    /**
@@ -16,13 +16,15 @@ import javax.swing.*;
 	 * updated on 2021/5/18: added the function of creating ImageIcon
      * updated on 2021/5/18: added the function of verifying bank account format
      * updated on 2021/5/18: added the function of read text file into a string array
-     * updated on 2021/5/20: added the funciton of recording vedio times and userType
+     * updated on 2021/5/20: added the funciton of recording Video times and userType
      * 
 	 */
 
 public class Util {
-    public static String pathname = "texts/member.txt"; //text file record all user information
-    public static String currentuser = "texts/currentuser.txt";//text file record current user
+    /**The file path of all user's information */
+    public static String pathname = "texts/member.txt"; 
+    /**The file path of the file that record the information of current user*/
+    public static String currentuser = "texts/currentuser.txt";
 
      /**
 	 * Read the information of a List<Member> array from a text file
@@ -30,7 +32,7 @@ public class Util {
 	 * @return List<Member> Member array that contain all the members
 	 */
     public static List<Member> readFile() {
-        List<Member> memberList = new ArrayList<>();
+        //List<Member> memberList = new ArrayList<>();
         BufferedReader br = null;
         InputStreamReader reader = null;
 
@@ -102,8 +104,8 @@ public class Util {
                         member.setPassword(world[1]);
                     } else if (world[0].equals("userType")) {
                         member.setUserType(world[1]);
-                    } else if (world[0].equals("vediotimes")) {
-                        member.setVedioTimes(Integer.parseInt(world[1]));
+                    } else if (world[0].equals("Videotimes")) {
+                        member.setVideoTimes(Integer.parseInt(world[1]));
                     }
                       
                 }
@@ -121,7 +123,7 @@ public class Util {
         try{
         OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(new File(currentuser)), StandardCharsets.UTF_8);
         writer.flush();             //flush the buffer
-        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType()+','+member.getVedioTimes());
+        writer.write(member.getAccount()+','+member.getPassword()+','+member.getEmail()+','+member.getUserType()+','+member.getVideoTimes());
         writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,20 +137,20 @@ public class Util {
 	 * @return int value indicate the verified outcome,1=success,0=require both number and character,-1=lenth less than 6 
 	 */
     public static int passwordFormat(String password){
-        //chek for the length of password
+        //chek for the length of password(bigger than 6)
         if(password.length()<6)
         {return -1;}
         //chek for the both character and number
         boolean havechar = false;
         boolean havenum = false;
         for (int i = 0; i < password.length(); i++) {
-            if(password.charAt(i)<='9'||password.charAt(i)>='0')
+            if(password.charAt(i)<='9'&& password.charAt(i)>='0')
             {havenum = true;}
-            if(password.charAt(i)<='z'||password.charAt(i)>='a'||password.charAt(i)<='Z'||password.charAt(i)>='A')
+            if(password.charAt(i)<='z'&&password.charAt(i)>='a'||password.charAt(i)<='Z'&&password.charAt(i)>='A')
             {havechar = true;}
         }
 
-        if(havenum&havechar){
+        if(havenum&&havechar){
             return 1;
         }
         else{
@@ -157,7 +159,7 @@ public class Util {
     }
  
     /**
-	 * Verify the format of a new email
+	 * Verify the format of a new email(must included @)
 	 * @param email the email choose by user
 	 * @return int value indicate the verified outcome,1=valid,0=invalid
 	 */

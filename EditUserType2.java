@@ -1,15 +1,9 @@
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-
 import java.util.Objects;
    /**
      * The window where user confirmed and pay for VIP upgrade
@@ -21,20 +15,21 @@ import java.util.Objects;
 
 public class EditUserType2 extends JFrame{
 
-    JButton confirm;
-    JButton back;
-    JLabel carddisplay;  
-    JLabel mess;   
-    JTextField cardnum;               
+               
     
     
-
+    /**The JTabbedPane where the change of user type will be updated to*/
     JTabbedPane jt1;
 
 
     
 
     public EditUserType2(String currentaccount,JTabbedPane jtb,String viptype) throws HeadlessException{
+        JButton confirm;
+        JButton back;
+        JLabel carddisplay;  
+        JLabel mess;   
+        JTextField cardnum; 
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);
@@ -75,15 +70,15 @@ public class EditUserType2 extends JFrame{
                         if (member.getAccount().equals(currentaccount)){
                             if(viptype.equals("vip1")){
                                 member.setUserType("VIP"); //case1:vip1 pack
-                                member.setVedioTimes(50 + member.getVedioTimes());
+                                member.setVideoTimes(50 + member.getVideoTimes());
                             }
                             else if(viptype.equals("vip2")){
                                 member.setUserType("VIP");
-                                member.setVedioTimes(100 + member.getVedioTimes());//case2:vip2 pack
+                                member.setVideoTimes(100 + member.getVideoTimes());//case2:vip2 pack
                             }
                             else{
                                 member.setUserType("SVIP");
-                                member.setVedioTimes(-1);//case3:svip pack
+                                member.setVideoTimes(-1);//case3:svip pack
                             }                     
                         Util.writeFile(members);  //change the information in member.txt       
                         Util.recordCurrentUser(member);  //change the information in member.txt
@@ -121,9 +116,6 @@ public class EditUserType2 extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-       
-        new EditUserType2("LMX",new JTabbedPane(),"vip1").setVisible(true);
-    } 
+
     
 }

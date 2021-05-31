@@ -1,16 +1,9 @@
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-import java.util.Objects;
    /**
      * The window indicating a successful VIP upgrading
 	 * Created on 2021/05/18
@@ -20,16 +13,17 @@ import java.util.Objects;
 
 public class EditUserType3 extends JFrame{
 
-    JButton confirm;
-    JLabel display;     
+     
               
     
     
-
+    /**The JTabbedPane where the change of user type will be updated to*/
     JTabbedPane jt1;
 
 
     public EditUserType3(String currentaccount,JTabbedPane jtb) throws HeadlessException{
+        JButton confirm;
+        JLabel display; 
         jt1 = jtb;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(0, 0, 300, 300);
@@ -63,9 +57,6 @@ public class EditUserType3 extends JFrame{
 
     }
 
-    public static void main(String[] args) {
-       
-        new EditUserType3("LMX",new JTabbedPane()).setVisible(true);
-    } 
+  
     
 }

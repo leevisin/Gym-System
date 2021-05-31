@@ -1,1 +1,0 @@
-[Member{account='abcd', password='123456', email='123456@qq.com'}, Member{account='abcde', password='123456', email='12345@'}, Member{account='abcdef', password='123456', email='123456@'}, Member{account='123', password='123', email='123@123.123'}, Member{account='Lmx', password='12345', email='12345@'}, Member{account='LMX', password='11111111', email='11111@@'}]

@@ -4,12 +4,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.Objects;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+
    /**
      * The Login window of the gym system
 	 * updated on 2021/4/21: able to record current user when log in
@@ -67,7 +64,7 @@ public class Login extends JFrame {
         contentPane.add(loginButton);
 
         JLabel backgroundLabel = new JLabel("");
-        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("Source/background.jpg")));
+        backgroundLabel.setIcon(new ImageIcon(Login.class.getResource("images/background.jpg")));
         backgroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backgroundLabel);
 
@@ -88,36 +85,7 @@ public class Login extends JFrame {
                     JOptionPane.showMessageDialog(Login.super.rootPane, "Login Success!");
                     Login.super.dispose();
                     //new Menu().setVisible(true);
-                    JFrame jf = new JFrame("Main Menu");
-        jf.setSize(1280, 720);
-        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jf.setLocationRelativeTo(null);
-
-        final JTabbedPane tabbedPane = new JTabbedPane();
-
-
-        tabbedPane.addTab("Home", createTextPanel("Home Panel"));
-
-        tabbedPane.addTab("Video", new ImageIcon("bb.jpg"), new VideoPanel().scrollPanel(), "This is a tab.");
-
-        tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel(), "This is a tab.");
-
-        tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(), "This is a tab.");
-
-        tabbedPane.addTab("Administer", new ImageIcon("bb.jpg"), createTextPanel("Administer Panel"), "This is a tab.");
-
-
-        tabbedPane.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("Selected Tab: " + tabbedPane.getSelectedIndex());
-            }
-        });
-
-        tabbedPane.setSelectedIndex(0);
-
-        jf.setContentPane(tabbedPane);
-        jf.setVisible(true);
+                    new Main().MainPanel();
                 } else {
                     JOptionPane.showMessageDialog(Login.super.rootPane, "Login Error!");
                 }

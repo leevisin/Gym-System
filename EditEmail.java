@@ -1,12 +1,7 @@
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,19 +22,20 @@ import java.util.Objects;
 
 public class EditEmail extends JFrame{
 
-    JButton confirm;
-    JButton back;
-    JLabel newemail1;                    
-    JLabel confirmemail1;
-    JTextField newemail2;
-    JTextField confirmemail2;
-
-    JTabbedPane jt1;// the Tabbed Pane is passed in
+ 
+    /**The JTabbedPane where the change of E-mail will be updated to*/
+    JTabbedPane jt1;
 
 
     
 
     public EditEmail(String currentaccount,JTabbedPane jt) throws HeadlessException{
+        JButton confirm;
+        JButton back;
+        JLabel newemail1;                    
+        JLabel confirmemail1;
+        JTextField newemail2;
+        JTextField confirmemail2;
         //accquire the JTabbedPane that created this page
         jt1 = jt;
 
@@ -125,9 +121,6 @@ public class EditEmail extends JFrame{
     }
 
     
-    public static void main(String[] args) {
-      
-    //new EditEmail("LMX").setVisible(true);
-    } 
+ 
 }
 

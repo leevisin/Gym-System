@@ -10,8 +10,8 @@ import java.util.Objects;
 
  /**
 	 * The Register window of the online gym
-	 *
-     * 
+	 * updated on 2021/4/21: added the verification of password and e-mail
+     * updated on 2021/5/27: modified the verification of password and e-mail
 	 */
 
 public class Register extends JFrame {
@@ -89,7 +89,7 @@ public class Register extends JFrame {
 
 
         JLabel backGroundLabel = new JLabel("");
-        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("Source/background.jpg")));
+        backGroundLabel.setIcon(new ImageIcon(Register.class.getResource("images/background.jpg")));
         backGroundLabel.setBounds(0, 0, 600, 800);
         contentPane.add(backGroundLabel);
        
@@ -131,6 +131,14 @@ public class Register extends JFrame {
                 if(Util.emailFormat(email)==0){
                     register = false;
                     mess = "The e-mail format is uncorrect,need to include @ "; //3. check for e-mail format
+                }
+                if(Util.passwordFormat(password)==-1){
+                    register = false;
+                    mess = "The password should be longer than 6 digit "; //4.check for password length
+                }
+                if(Util.passwordFormat(password)==0){
+                    register = false;
+                    mess = "The password should include both character and number "; //5.check for password have both character and number
                 }
 
                 if (register){                                             //4. check if previous tests have passed 
@@ -175,8 +183,4 @@ public class Register extends JFrame {
 }
 
 
-   /**
-	 * updated on 2021/4/21: added the verifacation of e-mail format
-	 * 
-	 *
-	 */
+ 

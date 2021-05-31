@@ -1,21 +1,10 @@
 import javax.swing.*;
-import java.net.*;
 import java.awt.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,13 +18,18 @@ import javax.swing.JPanel;
  */
 
 public class UserInfoPane {
+    /**the JPanel called userInfoPane and contained user information that will be created */
     public JPanel userInfoPane;
-
+    /**the  account name of the user*/
     public String currentaccount = null;
+    /**the  the password of the user*/
 	public String currentpassword = null;
+    /**the  e-mail of the user*/
 	public String currentemail = null;
+    /**the  user type of the user*/
     public String currentusertype = null;
-    public String currentvediotimes = null;
+    /**how many times this user can see videos*/
+    public String currentvideotimes = null;
 
 
     /**
@@ -64,7 +58,7 @@ public class UserInfoPane {
 		    currentpassword = info[1];
 		    currentemail = info[2];
             currentusertype = info[3];
-            currentvediotimes = info[4];
+            currentvideotimes = info[4];
 
 		    br.close();
 		}catch (IOException e) {
@@ -102,7 +96,7 @@ public class UserInfoPane {
         //aNewLabel7.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel7);
 
-        JLabel aNewLabel9 = new JLabel("Vedio Times:");
+        JLabel aNewLabel9 = new JLabel("Video Times:");
         aNewLabel9.setBounds(220, 530, 200, 80);
         aNewLabel9.setFont(new Font(null, Font.PLAIN, 25));
         //aNewLabel9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -124,7 +118,7 @@ public class UserInfoPane {
 
         JLabel aNewLabel6 = new JLabel(currentemail);
         aNewLabel6.setBounds(490, 330, 200, 80);
-        aNewLabel6.setFont(new Font(null, Font.PLAIN, 25));
+        aNewLabel6.setFont(new Font(null, Font.PLAIN, 20));
         aNewLabel6.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel6);
 
@@ -135,9 +129,9 @@ public class UserInfoPane {
         userInfoPane.add(aNewLabel8);
 
         if(currentusertype.equals("SVIP")){
-            currentvediotimes = "Unlimited";
+            currentvideotimes = "Unlimited";
         }
-        JLabel aNewLabel10 = new JLabel(currentvediotimes);
+        JLabel aNewLabel10 = new JLabel(currentvideotimes);
         aNewLabel10.setBounds(490, 530, 200, 80);
         aNewLabel10.setFont(new Font(null, Font.PLAIN, 25));
         aNewLabel10.setHorizontalAlignment(SwingConstants.CENTER);
@@ -199,15 +193,6 @@ public class UserInfoPane {
 
 
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setBounds(0, 0, 1200, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        UserInfoPane ui = new UserInfoPane();
-        JTabbedPane jt1 = new JTabbedPane();
-        frame.getContentPane().add(ui.makeUserInfoPane(jt1));
-        frame.setVisible(true);
-    }
 
     
 }

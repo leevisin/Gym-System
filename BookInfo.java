@@ -1,49 +1,34 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
-import java.text.*;
-import java.nio.file.*;
 
+/** 
+ *  Trainer detail information includes Name, Type, Introduction
+ *  User can book the trainer by clicking the book button
+ */
 public class BookInfo extends Interface {
 
+    /** Frame to show setVisible() by all methods */
     JFrame frame = new JFrame();
 
     public BookInfo(String trainerName, String trainerType, String imagePath, String intro){
-        // Show BookInfo Page to User
-        // Record the book information into BookInfo.txt
-        // Add Back Button
-
-        // Need Add Available Time!!!!!!!!!
-        
         frame.setTitle("Trainer Detail Infomation");
         frame.pack();
         frame.setSize(1280, 550);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
         frame.setContentPane(trainerDetailInfo(trainerName, trainerType, imagePath, intro));
     }
 
-
-
-
-    public static void Button_Back(JButton Button,String ImagePath){
-
-        Button.setBounds(0, 0, 300, 200);
-        ImageIcon imageBack = new ImageIcon(ImagePath);
-        Image suitable = imageBack.getImage().getScaledInstance(Button.getWidth(), Button.getHeight(), imageBack.getImage().SCALE_DEFAULT);
-        imageBack = new ImageIcon(suitable);
-        Button.setIcon(imageBack);
-        Button.setToolTipText("image");
-        Button.setBorderPainted(false);
-        Button.setFocusPainted(false);
-        Button.setVerticalTextPosition(JButton.BOTTOM);
-        Button.setHorizontalTextPosition(JButton.CENTER);
-    }
-
+    /**
+     * Trainer detail information includes Name, Type, Introduction
+     * Also including book button and cancel button
+     * @param trainerName
+     * @param trainerType
+     * @param imagePath
+     * @param intro
+     * @return JPanel, contains trainer detail information and buttons
+     */
     public JPanel trainerDetailInfo(String trainerName, String trainerType, String imagePath, String intro){
         JPanel infoPanel = new JPanel(new BorderLayout());
         JPanel imagesPanel = new JPanel();
@@ -60,7 +45,7 @@ public class BookInfo extends Interface {
         blankPanel.setPreferredSize(new Dimension(10, 20));
         blankPanel.setBackground(Color.WHITE);
 
-        // Need to change line may be not JLabel
+        // Add TextArea to show trainer introduction
         JTextArea textArea = new JTextArea("    " + intro);
         textArea.setLineWrap(true);
         textArea.setFont(new Font("Microsoft Serif Pro", Font.PLAIN, 30));
@@ -70,12 +55,11 @@ public class BookInfo extends Interface {
         textPanel.setBackground(Color.WHITE);
         textPanel.add(namePanel, BorderLayout.NORTH);
 
-
         bookBtn.setSize(50,50);
         bookBtn.setBackground(Color.YELLOW);
         bookBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                new BookConfirm(trainerName, trainerType);
+                new BookConfirm(trainerName, trainerType); // New a frame to select time to book
             }
         });
 
@@ -84,31 +68,30 @@ public class BookInfo extends Interface {
 
         returnBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                // Close current window
-                frame.setVisible(false);
+                frame.setVisible(false); // Close current window
             }
         });
         returnBtn.setContentAreaFilled(false);
+
         btnPanel.add(returnBtn, BorderLayout.EAST);
-
-
-
         btnPanel.add(blankPanel, BorderLayout.SOUTH);
         
         textPanel.add(btnPanel, BorderLayout.SOUTH);
-
-
-
-
 
         imagesPanel.add(trainerPicture(imagePath));
         imagesPanel.setBackground(Color.WHITE);
 
         infoPanel.add(imagesPanel, BorderLayout.WEST);
         infoPanel.add(textPanel, BorderLayout.CENTER);
+
         return infoPanel;
     }
 
+    /**
+	 * Set picture in button
+     * @param imagePath
+	 * @return JButton, it's used as a picture
+	 */
     public JButton trainerPicture(String imagePath){
         ImageIcon icon = new ImageIcon(imagePath);
         JButton trainerBtn = new JButton(icon);
@@ -124,6 +107,11 @@ public class BookInfo extends Interface {
         return trainerBtn;
     }
 
+    /**
+	 * Set trainer name panel format
+     * @param trainerName
+	 * @return JPanel
+	 */
     public JPanel trainerName(String trainerName){
         JPanel trainerNamePanel = new JPanel(new BorderLayout());
 
@@ -137,6 +125,11 @@ public class BookInfo extends Interface {
         return trainerNamePanel;
     }
 
+    /**
+	 * Set trainer type panel format
+     * @param trainerType
+	 * @return JPanel
+	 */
     public JPanel trainerType(String trainerType){
         JPanel trainerTypePanel = new JPanel(new BorderLayout());
 
