@@ -12,7 +12,7 @@ to be a stand alone application and doesn't require connection to Internet durin
 - Enter the location of the file (By using command "cd" )
 - Enter `java --version` in the command line to check environment
 
-<div align=center>![Success Install Screenshot](Requirements/JavaVersion.png)
+<center>![Success Install Screenshot](Requirements/JavaVersion.png)</center>
 
 ## Compile
 - Open the cmd command line (Press Win + R, and input cmd, then press Enter) 
@@ -22,11 +22,11 @@ to be a stand alone application and doesn't require connection to Internet durin
 ## Run
 - Enter `java Login` in the command line to run the code
 
-<div align=center>![Login](Requirements/Login.png)
+<center>![Login](Requirements/Login.png)</center>
 
 - After Register and Login in, you enter Main Menu
 
-<div align=center>![Login](Requirements/MainMenu.png)
+<center>![Login](Requirements/MainMenu.png)</center>
 
 - Enter `java -jar junit-platform-console-standalone-1.7.1.jar -cp . -c {file}Test` to run TDD, where
 `{file}` is one of `Account/Email/Member/Password/Trainer/Video`
