@@ -104,7 +104,7 @@ public class Util {
                         member.setPassword(world[1]);
                     } else if (world[0].equals("userType")) {
                         member.setUserType(world[1]);
-                    } else if (world[0].equals("Videotimes")) {
+                    } else if (world[0].equals("videotimes")) {
                         member.setVideoTimes(Integer.parseInt(world[1]));
                     }
                       
