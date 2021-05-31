@@ -1,3 +1,6 @@
+/**
+ * Trainer attributes including Trainer Name, Type, Self Picture, Introduction
+ */
 public class Trainer {
     private String trainerName;
     private String trainerType;

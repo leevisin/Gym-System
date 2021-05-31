@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,9 +18,6 @@ public class Main {
         tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
-
-
-   
 
         tabbedPane.setSelectedIndex(0);
 
@@ -47,8 +42,6 @@ public class Main {
         tabbedPane.addTab("Trainer", new ImageIcon("bb.jpg"), new TrainerPanel().scrollPanel());
 
         tabbedPane.addTab("User", new ImageIcon("bb.jpg"), new UserTabbedPane().userTabbedPane(tabbedPane));
-
-    
 
         tabbedPane.setSelectedIndex(0);
 

@@ -163,7 +163,7 @@ public class RecommendationPane {
                             }
                         }
                         if(BMI<=18.4){
-                            JOptionPane.showMessageDialog(null, "You BMI is " + df.format(BMI) + " and in "  + BMIFeedback(BMI) + ", we recommend to choose Strength.", "Suggestion", JOptionPane.PLAIN_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "You BMI is " + df.format(BMI) + " and in "  + BMIFeedback(BMI) + ", we recommend to choose Gain-muscle.", "Suggestion", JOptionPane.PLAIN_MESSAGE);
                         }
 
                     }

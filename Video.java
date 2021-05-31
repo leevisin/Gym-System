@@ -1,3 +1,6 @@
+/**
+ * Video attributes including Video Name, Time, Video Path, Tag(Type), VIP
+ */
 public class Video {
     private String videoName;
     private int videoTime;

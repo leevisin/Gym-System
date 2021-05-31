@@ -103,24 +103,6 @@ public class Login extends JFrame {
 
     }
 
-    /**
-	 * Created a JPanel that display some text
-	 * @param  String the text to display
-	 * @return JComponent, the created JPanel
-	 */
-    private static JComponent createTextPanel(String text) {
-
-        JPanel panel = new JPanel(new GridLayout(1, 1));
-        
-        JLabel label = new JLabel(text);
-        label.setFont(new Font(null, Font.PLAIN, 50));
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-
-        panel.add(label);
-
-        return panel;
-    }
-
     public static void main(String[] args) {
         Login login = new Login();
         login.setLocation(650,100);
