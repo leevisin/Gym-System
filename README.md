@@ -3,8 +3,9 @@
 to be a stand alone application and doesn't require connection to Internet during running time.
 
 ## Requirements
+- Windows 10
 - [openJDK 11.0.11](https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.11+9/OpenJDK11U-jdk_x64_windows_hotspot_11.0.11_9.msi)
-
+([Configure Environment Variables](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html))
 - junit-platform-console-standalone-1.7.1.jar (Already In `Requirements` Directory)
 
 ### Check Environment
