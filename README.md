@@ -18,12 +18,14 @@ to be a stand alone application and doesn't require connection to Internet durin
 ## Compile
 - Open the cmd command line (Press `Win + R`, and input `cmd`, then press Enter) 
 - Enter the location of the file (By using command `cd` )
-- Enter `javac -cp Requirements/junit-platform-console-standalone-1.7.1.jar *.java` in the command line
+- Enter `javac Login.java` in the command line to compile the application without JUnit
+- Enter `javac -cp Requirements/junit-platform-console-standalone-1.7.1.jar {file}Test.java` in the command line to compile TDD, where
+`{file}` is one of `Account/Email/Member/Password/Trainer/Video`
 
 ## Run
 - Open the cmd command line (Press `Win + R`, and input `cmd`, then press Enter) 
 - Enter the location of the file (By using command `cd` )
-- Enter `java Login` in the command line to run the code
+- Enter `java Login` in the command line to start up the Online Gym application
 
 ![Login](Requirements/Login.png)
 
