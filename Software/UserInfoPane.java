@@ -118,7 +118,7 @@ public class UserInfoPane {
 
         JLabel aNewLabel6 = new JLabel(currentemail);
         aNewLabel6.setBounds(490, 330, 200, 80);
-        aNewLabel6.setFont(new Font(null, Font.PLAIN, 20));
+        //aNewLabel6.setFont(new Font(null, Font.PLAIN, 20));
         aNewLabel6.setHorizontalAlignment(SwingConstants.CENTER);
         userInfoPane.add(aNewLabel6);
 
