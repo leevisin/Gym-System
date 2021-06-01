@@ -16,7 +16,7 @@ If encountering errors when compiling TDD code, please refer to **Compile** Part
 - Enter `Software` directory (By using command `cd` )
 - Enter `java --version` in the command line to check environment
 
-![Success Install Screenshot](Software/Requirements/JavaVersion.png)
+![Success Install Screenshot](Requirements/JavaVersion.png)
 
 ## Compile
 - Open the cmd command line (Press `Win + R`, and input `cmd`, then press Enter) 
@@ -34,11 +34,11 @@ to compile TDD, where `{file}` is one of `Account/Email/Member/Password/Trainer/
 1. Account: Davis; Password:123456a; User Type: Normal
 2. Account: Lisey; Password:123456A; User Type: VIP
 
-![Login](Software/Requirements/Login.png)
+![Login](Requirements/Login.png)
 
 - After Login in, you enter Main Menu
 
-![Login](Software/Requirements/MainMenu.png)
+![Login](Requirements/MainMenu.png)
 
 - **Get `{file}Test.java` from `Test` directory to `Software` directory**, 
 and then enter `java -jar junit-platform-console-standalone-1.7.1.jar -cp . -c {file}Test` 
